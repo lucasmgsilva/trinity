@@ -1,0 +1,124 @@
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\bin\Debug\Trinity.exe.config
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\bin\Debug\Trinity.exe
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\bin\Debug\Trinity.pdb
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\obj\Debug\Trinity.csprojResolveAssemblyReference.cache
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\obj\Debug\Trinity.Form1.resources
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\obj\Debug\Trinity.Properties.Resources.resources
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\obj\Debug\Trinity.csproj.GenerateResource.Cache
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\obj\Debug\Trinity.exe
+c:\users\lucas matheus\documents\visual studio 2017\Projects\Trinity\Trinity\obj\Debug\Trinity.pdb
+D:\trinity\Trinity\Trinity\bin\Debug\Trinity.exe.config
+D:\trinity\Trinity\Trinity\bin\Debug\Trinity.exe
+D:\trinity\Trinity\Trinity\bin\Debug\Trinity.pdb
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.csprojResolveAssemblyReference.cache
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.Properties.Resources.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.csproj.GenerateResource.Cache
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.exe
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.pdb
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmCargo.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaFornecedor.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaProduto.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaUsuario.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmEmpresa.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmFornecedor.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmMarca.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmUnidadeMedida.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmUsuario.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmAcesso.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmApresentacao.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmGrupo.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmPrincipal.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmProduto.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmSobre.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmCliente.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaCliente.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmPagamento.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmVenda.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaVenda.resources
+D:\trinity\Trinity\Trinity\obj\Debug\Trinity.csproj.CoreCompileInputs.cache
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\bin\Debug\Trinity.exe.config
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\bin\Debug\Trinity.exe
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\bin\Debug\Trinity.pdb
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.csprojAssemblyReference.cache
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmCargo.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmAcesso.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmCliente.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaCliente.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaFornecedor.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaProduto.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaUsuario.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmEmpresa.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmFornecedor.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmApresentacao.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmGrupo.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmMarca.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmPagamento.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmPrincipal.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.Properties.Resources.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmProduto.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.FrmSobre.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmUnidadeMedida.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmUsuario.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmVenda.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaVenda.resources
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.csproj.GenerateResource.cache
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.csproj.CoreCompileInputs.cache
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.exe
+C:\Users\HIT\Google Drive\Faculdade\6º Semestre\Sistemas de Informações Gerenciais\Trabalhos\Projeto\trinity\Trinity\Trinity\obj\Debug\Trinity.pdb
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\bin\Debug\Trinity.exe.config
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\bin\Debug\Trinity.exe
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\bin\Debug\Trinity.pdb
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmCargo.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.FrmAcesso.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmCliente.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaCliente.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaFornecedor.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaProduto.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaUsuario.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmEmpresa.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmFornecedor.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.FrmApresentacao.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmGrupo.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmMarca.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmPagamento.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.FrmPrincipal.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.Properties.Resources.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.FrmProduto.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.FrmSobre.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmUnidadeMedida.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmUsuario.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmVenda.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaVenda.resources
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.csproj.GenerateResource.Cache
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.csproj.CoreCompileInputs.cache
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.exe
+C:\Users\Pedro L Ranzani Jr\Desktop\6_SEMESTRE\LAIRCE\Projeto\Trinity\Trinity\obj\Debug\Trinity.pdb
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\bin\Debug\Trinity.exe.config
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\bin\Debug\Trinity.exe
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\bin\Debug\Trinity.pdb
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.csprojResolveAssemblyReference.cache
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmCargo.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.FrmAcesso.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmCliente.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaCliente.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaFornecedor.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaProduto.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaUsuario.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmEmpresa.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmFornecedor.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.FrmApresentacao.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmGrupo.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmMarca.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmPagamento.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.FrmPrincipal.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.Properties.Resources.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.FrmProduto.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.FrmSobre.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmUnidadeMedida.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmUsuario.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmVenda.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.View.FrmConsultaVenda.resources
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.csproj.GenerateResource.cache
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.csproj.CoreCompileInputs.cache
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.exe
+C:\Users\Lucas Matheus\Desktop\Trinity\Trinity\obj\Debug\Trinity.pdb
