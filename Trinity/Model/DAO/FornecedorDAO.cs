@@ -19,7 +19,7 @@ namespace Trinity.Model.DAO
             this.connection = new ConnectionFactory().getConnection();
         }
 
-        public void AdicionaFornecedor(Fornecedor fornecedor)
+        public bool AdicionaFornecedor(Fornecedor fornecedor)
         {
             string query = "EXECUTE SP_INSERE_FORNECEDOR " +
                 "@Logradouro, @Numero, @Complemento, @Bairro, @IdCidade, @Cep, @TelefoneFixo, @TelefoneCelular, @RazaoSocial, @NomeFantasia, @Cnpj, @Ie, @Im, @DataCadastro";
@@ -44,15 +44,23 @@ namespace Trinity.Model.DAO
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("O Fornecedor foi cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.connection.Close();
+                return true;
             } catch (SqlException ex)
             {
                 if (ex.Number == 2627)
-                    MessageBox.Show("Não foi possível realizar a operação.\nJá existe um cadastro com este CNPJ!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    MessageBox.Show("Não foi possível realizar a operação.\nJá existe um cadastro com este CNPJ!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                else
+                {
+                    MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
         }
 
-        public void AlteraFornecedor(Fornecedor fornecedor)
+        public bool AlteraFornecedor(Fornecedor fornecedor)
         {
             string query = "EXECUTE SP_ALTERA_FORNECEDOR " +
                 "@IdFornecedor, @Logradouro, @Numero, @Complemento, @Bairro, @IdCidade, @Cep, @TelefoneFixo, @TelefoneCelular, @RazaoSocial, @NomeFantasia, @Cnpj, @Ie, @Im, @DataCadastro";
@@ -78,12 +86,20 @@ namespace Trinity.Model.DAO
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("O Fornecedor foi alterado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.connection.Close();
+                return true;
             }
             catch (SqlException ex)
             {
                 if (ex.Number == 2627)
-                    MessageBox.Show("Não foi possível realizar a operação.\nJá existe um cadastro com este CNPJ!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    MessageBox.Show("Não foi possível realizar a operação.\nJá existe um cadastro com este CNPJ!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                else
+                {
+                    MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
         }
 

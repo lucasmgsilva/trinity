@@ -43,13 +43,13 @@
             this.fornecedoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosBaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unMedidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -224,40 +224,6 @@
             this.usuariosToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
             // 
-            // cadastrosBaseMenuItem
-            // 
-            this.cadastrosBaseMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.unMedidaToolStripMenuItem,
-            this.marcaToolStripMenuItem,
-            this.grupoToolStripMenuItem});
-            this.cadastrosBaseMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastrosBaseMenuItem.Image")));
-            this.cadastrosBaseMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cadastrosBaseMenuItem.Name = "cadastrosBaseMenuItem";
-            this.cadastrosBaseMenuItem.Size = new System.Drawing.Size(116, 51);
-            this.cadastrosBaseMenuItem.Text = "CADASTROS BASE";
-            this.cadastrosBaseMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // unMedidaToolStripMenuItem
-            // 
-            this.unMedidaToolStripMenuItem.Name = "unMedidaToolStripMenuItem";
-            this.unMedidaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.unMedidaToolStripMenuItem.Text = "UN. MEDIDA";
-            this.unMedidaToolStripMenuItem.Click += new System.EventHandler(this.uNMEDIDAToolStripMenuItem_Click);
-            // 
-            // marcaToolStripMenuItem
-            // 
-            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
-            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.marcaToolStripMenuItem.Text = "MARCA";
-            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.mARCAToolStripMenuItem_Click);
-            // 
-            // grupoToolStripMenuItem
-            // 
-            this.grupoToolStripMenuItem.Name = "grupoToolStripMenuItem";
-            this.grupoToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.grupoToolStripMenuItem.Text = "GRUPO";
-            this.grupoToolStripMenuItem.Click += new System.EventHandler(this.gRUPOToolStripMenuItem_Click);
-            // 
             // trocaUsuarioToolStripMenuItem
             // 
             this.trocaUsuarioToolStripMenuItem.Image = global::Trinity.Properties.Resources.trocarUsuario_32px;
@@ -287,6 +253,40 @@
             this.sAIRToolStripMenuItem.Text = "SAIR DO SISTEMA";
             this.sAIRToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.sAIRToolStripMenuItem.Click += new System.EventHandler(this.sAIRToolStripMenuItem_Click);
+            // 
+            // cadastrosBaseMenuItem
+            // 
+            this.cadastrosBaseMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unMedidaToolStripMenuItem,
+            this.marcaToolStripMenuItem,
+            this.grupoToolStripMenuItem});
+            this.cadastrosBaseMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastrosBaseMenuItem.Image")));
+            this.cadastrosBaseMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cadastrosBaseMenuItem.Name = "cadastrosBaseMenuItem";
+            this.cadastrosBaseMenuItem.Size = new System.Drawing.Size(116, 51);
+            this.cadastrosBaseMenuItem.Text = "CADASTROS BASE";
+            this.cadastrosBaseMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // unMedidaToolStripMenuItem
+            // 
+            this.unMedidaToolStripMenuItem.Name = "unMedidaToolStripMenuItem";
+            this.unMedidaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unMedidaToolStripMenuItem.Text = "UN. MEDIDA";
+            this.unMedidaToolStripMenuItem.Click += new System.EventHandler(this.uNMEDIDAToolStripMenuItem_Click);
+            // 
+            // marcaToolStripMenuItem
+            // 
+            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.marcaToolStripMenuItem.Text = "MARCA";
+            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.mARCAToolStripMenuItem_Click);
+            // 
+            // grupoToolStripMenuItem
+            // 
+            this.grupoToolStripMenuItem.Name = "grupoToolStripMenuItem";
+            this.grupoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.grupoToolStripMenuItem.Text = "GRUPO";
+            this.grupoToolStripMenuItem.Click += new System.EventHandler(this.gRUPOToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 

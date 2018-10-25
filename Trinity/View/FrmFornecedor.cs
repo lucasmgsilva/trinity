@@ -28,7 +28,8 @@ namespace Trinity.View
             {
                 this.editando = true;
                 CarregaFornecedor();
-            } else txtDataCadastro.Text = Convert.ToString(DateTime.Now);
+            }
+            else txtDataCadastro.Text = Convert.ToString(DateTime.Now);
         }
 
         private void CarregaFornecedor()
@@ -87,35 +88,85 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtRazaoSocial.Text.Trim()) && !String.IsNullOrEmpty(txtCnpj.Text.Trim()) && !String.IsNullOrEmpty(txtLogradouro.Text.Trim()) && !String.IsNullOrEmpty(txtNumero.Text.Trim()) && !String.IsNullOrEmpty(txtBairro.Text.Trim()) && !String.IsNullOrEmpty(txtCep.Text.Trim()) && cmbUf.SelectedItem != null && cmbCidade.SelectedItem != null)
+            if (!validaCampos())
             {
-                if (Validacao.ValidaCNPJ(txtCnpj.Text))
-                {
-                    if (this.fornecedorCarregado == null)
-                        this.fornecedorCarregado = new Fornecedor();
-                    this.fornecedorCarregado.RazaoSocial = txtRazaoSocial.Text.Trim();
-                    this.fornecedorCarregado.DataCadastro = Convert.ToDateTime(txtDataCadastro.Text);
-                    this.fornecedorCarregado.NomeFantasia = txtNomeFantasia.Text.Trim();
-                    this.fornecedorCarregado.Cnpj = txtCnpj.Text;
-                    this.fornecedorCarregado.Ie = txtIe.Text.Trim();
-                    this.fornecedorCarregado.Im = txtIm.Text.Trim();
-                    this.fornecedorCarregado.TelefoneFixo = txtTelefoneFixo.Text;
-                    this.fornecedorCarregado.TelefoneCelular = txtTelefoneCelular.Text;
-                    this.fornecedorCarregado.Logradouro = txtLogradouro.Text.Trim();
-                    this.fornecedorCarregado.Numero = txtNumero.Text.Trim();
-                    this.fornecedorCarregado.Complemento = txtComplemento.Text.Trim();
-                    this.fornecedorCarregado.Bairro = txtBairro.Text.Trim();
-                    this.fornecedorCarregado.Cep = txtCep.Text;
-                    this.fornecedorCarregado.Cidade = (Cidade)cmbCidade.SelectedItem;
-                    this.fornecedorCarregado.Cidade.Estado = (Estado)cmbUf.SelectedItem;
+                if (this.fornecedorCarregado == null)
+                    this.fornecedorCarregado = new Fornecedor();
+                this.fornecedorCarregado.RazaoSocial = txtRazaoSocial.Text.Trim();
+                this.fornecedorCarregado.DataCadastro = Convert.ToDateTime(txtDataCadastro.Text);
+                this.fornecedorCarregado.NomeFantasia = txtNomeFantasia.Text.Trim();
+                this.fornecedorCarregado.Cnpj = txtCnpj.Text;
+                this.fornecedorCarregado.Ie = txtIe.Text.Trim();
+                this.fornecedorCarregado.Im = txtIm.Text.Trim();
+                this.fornecedorCarregado.TelefoneFixo = txtTelefoneFixo.Text;
+                this.fornecedorCarregado.TelefoneCelular = txtTelefoneCelular.Text;
+                this.fornecedorCarregado.Logradouro = txtLogradouro.Text.Trim();
+                this.fornecedorCarregado.Numero = txtNumero.Text.Trim();
+                this.fornecedorCarregado.Complemento = txtComplemento.Text.Trim();
+                this.fornecedorCarregado.Bairro = txtBairro.Text.Trim();
+                this.fornecedorCarregado.Cep = txtCep.Text;
+                this.fornecedorCarregado.Cidade = (Cidade)cmbCidade.SelectedItem;
+                this.fornecedorCarregado.Cidade.Estado = (Estado)cmbUf.SelectedItem;
 
-                    FornecedorDAO dao = new FornecedorDAO();
-                    if (!this.editando)
-                        dao.AdicionaFornecedor(this.fornecedorCarregado);
-                    else dao.AlteraFornecedor(this.fornecedorCarregado);
+                FornecedorDAO dao = new FornecedorDAO();
+                bool gravou = false;
+                if (!this.editando)
+                        gravou = dao.AdicionaFornecedor(this.fornecedorCarregado);
+                    else
+                        gravou = dao.AlteraFornecedor(this.fornecedorCarregado);
+                if(gravou)
                     this.Close();
-                } else MessageBox.Show("Não foi possível realizar a operação.\nO CNPJ digitado é INVÁLIDO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private bool validaCampos()
+        {
+            bool hasErrors = false;
+            epFornecedor.Clear();
+
+            if (string.IsNullOrWhiteSpace(txtRazaoSocial.Text))
+            {
+                hasErrors = true;
+                epFornecedor.SetError(lblRazao, "A razão social é obrigatória.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCnpj.Text.Replace("/", "").Replace("-", "").Replace(".", "")))
+            {
+                hasErrors = true;
+                epFornecedor.SetError(lblCnpj, "O cnpj é obrigatório.");
+            }
+            else if (!Validacao.ValidaCNPJ(txtCnpj.Text))
+            {
+                hasErrors = true;
+                epFornecedor.SetError(lblCnpj, "Cnpj inválido!");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtLogradouro.Text))
+            {
+                hasErrors = true;
+                epFornecedor.SetError(lblLogradouro, "O logradouro é obrigatório.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNumero.Text))
+            {
+                hasErrors = true;
+                epFornecedor.SetError(lblNumero, "O número é obrigatório.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtBairro.Text))
+            {
+                hasErrors = true;
+                epFornecedor.SetError(lblBairro, "O bairro é obrigatório.");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCep.Text.Replace("-", "")))
+            {
+                hasErrors = true;
+                epFornecedor.SetError(lblCep, "O cep é obrigatório.");
+            }
+
+            return hasErrors;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -221,11 +272,7 @@ namespace Trinity.View
             if (this.editando)
             {
                 if (MessageBox.Show("Você realmente quer desfazer as alterações deste FORNECEDOR?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    HabilitaBotoes();
-                    this.editando = false;
-                    CarregaFornecedor();
-                }
+                    Close();
             }
             else this.Close();
         }
@@ -235,6 +282,11 @@ namespace Trinity.View
             if (!Validacao.ValidaCNPJ(txtCnpj.Text))
                 txtCnpj.ForeColor = Color.Red;
             else txtCnpj.ForeColor = Color.Green;
+        }
+
+        private void FrmFornecedor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
