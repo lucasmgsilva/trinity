@@ -97,6 +97,7 @@
     <Compile Include="Model\DAO\ProdutoDAO.cs" />
     <Compile Include="Model\DAO\UnidadeMedidaDAO.cs" />
     <Compile Include="Model\DAO\UsuarioDAO.cs" />
+    <Compile Include="Model\DAO\VendaDAO.cs" />
     <Compile Include="Model\Validacao.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -61,10 +61,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.cmbTipoExibicao = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -119,6 +116,7 @@
             this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // groupBox2
             // 
@@ -383,10 +381,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmbCliente);
-            this.groupBox1.Controls.Add(this.cmbTipoExibicao);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.label11);
@@ -405,50 +400,21 @@
             // cmbCliente
             // 
             this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(441, 47);
+            this.cmbCliente.Location = new System.Drawing.Point(261, 47);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(420, 26);
             this.cmbCliente.TabIndex = 3;
-            // 
-            // cmbTipoExibicao
-            // 
-            this.cmbTipoExibicao.FormattingEnabled = true;
-            this.cmbTipoExibicao.Location = new System.Drawing.Point(262, 47);
-            this.cmbTipoExibicao.Name = "cmbTipoExibicao";
-            this.cmbTipoExibicao.Size = new System.Drawing.Size(170, 26);
-            this.cmbTipoExibicao.TabIndex = 2;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(502, 28);
+            this.label9.Location = new System.Drawing.Point(322, 28);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(15, 19);
             this.label9.TabIndex = 54;
             this.label9.Text = "*";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(399, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 19);
-            this.label6.TabIndex = 53;
-            this.label6.Text = "*";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(258, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 19);
-            this.label7.TabIndex = 52;
-            this.label7.Text = "Tipo de Exibição:";
             // 
             // label3
             // 
@@ -465,7 +431,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(436, 28);
+            this.label27.Location = new System.Drawing.Point(256, 28);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(68, 19);
             this.label27.TabIndex = 36;
@@ -604,10 +570,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbTipoExibicao;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label11;
