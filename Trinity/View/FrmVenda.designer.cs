@@ -72,6 +72,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -122,6 +123,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.lblitensVenda);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.lblPrecoTotal);
@@ -266,7 +268,7 @@
             this.cmbProduto.FormattingEnabled = true;
             this.cmbProduto.Location = new System.Drawing.Point(11, 42);
             this.cmbProduto.Name = "cmbProduto";
-            this.cmbProduto.Size = new System.Drawing.Size(420, 26);
+            this.cmbProduto.Size = new System.Drawing.Size(392, 26);
             this.cmbProduto.TabIndex = 0;
             // 
             // label15
@@ -523,6 +525,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "GESTÃO DE VENDA";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Chartreuse;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(409, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(18, 19);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "+";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
             // FrmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,5 +611,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

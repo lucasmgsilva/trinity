@@ -34,6 +34,18 @@ namespace Trinity.View
             }
         }
 
+        public void DefineProduto(int IdProduto)
+        {
+            foreach (Produto item in cmbProduto.Items)
+            {
+                if (item.IdProduto == IdProduto)
+                {
+                    cmbProduto.SelectedItem = item;
+                    break;
+                }
+            }
+        }
+
         public void LimpaCampos()
         {
             txtDataVenda.Text = DateTime.Now.ToString();
@@ -72,7 +84,7 @@ namespace Trinity.View
             cmbCliente.DataSource = listaClientesPreparados;
         }
 
-        private void CarregaListaProdutos()
+        public void CarregaListaProdutos()
         {
             cmbProduto.DisplayMember = "Descricao";
             cmbProduto.DataSource = new ProdutoDAO().GetListaProdutos();
@@ -92,6 +104,12 @@ namespace Trinity.View
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            FrmConsultaProduto telaConsultaProduto = new FrmConsultaProduto(this);
+            telaConsultaProduto.ShowDialog();
         }
     }
 }

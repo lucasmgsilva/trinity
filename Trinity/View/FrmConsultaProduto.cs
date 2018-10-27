@@ -15,10 +15,17 @@ namespace Trinity.View
     public partial class FrmConsultaProduto : Form
     {
         List<Produto> listaProdutos;
+        Form formularioInvocador;
 
         public FrmConsultaProduto()
         {
             InitializeComponent();
+        }
+
+        public FrmConsultaProduto(Form formularioInvocador)
+        {
+            InitializeComponent();
+            this.formularioInvocador = formularioInvocador;
         }
 
         private void TelaConsultaProduto_Load(object sender, EventArgs e)
@@ -93,6 +100,26 @@ namespace Trinity.View
             {
                 CarregaListaProdutosChave();
                 txtPalavraChave.Text = String.Empty;
+            }
+        }
+
+        private void dgvProdutos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (this.formularioInvocador != null)
+            {
+                if (dgvProdutos.RowCount != 0)
+                {
+                    if (dgvProdutos.CurrentRow.Selected)
+                    {
+                        int idProduto = Convert.ToInt32(dgvProdutos.CurrentRow.Cells["Id"].Value);
+                        ((FrmVenda)formularioInvocador).CarregaListaProdutos();
+                        ((FrmVenda)formularioInvocador).DefineProduto(idProduto);
+                        this.Close();
+
+                    }
+                    else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
