@@ -22,12 +22,16 @@ namespace Trinity.View
             LimpaCampos();
         }
 
-        public void DefineCliente(ClientePF_PJ cliente)
+        public void DefineCliente(int IdCliente)
         {
-            cmbCliente.DisplayMember = "NomeRazaoSocial";
-            List<ClientePF_PJ> adapter = new List<ClientePF_PJ>();
-            adapter.Add(cliente);
-            cmbCliente.DataSource = adapter;
+            foreach (ClientePF_PJ item in cmbCliente.Items)
+            {
+                if(item.Id == IdCliente)
+                {
+                    cmbCliente.SelectedItem = item;
+                    break;
+                }
+            }
         }
 
         public void LimpaCampos()

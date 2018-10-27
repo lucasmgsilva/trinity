@@ -162,8 +162,8 @@ namespace Trinity.View
                 if (dgvClientes.CurrentRow.Selected)
                 {
                     int idCliente = Convert.ToInt32(dgvClientes.CurrentRow.Cells["Id"].Value);
-                    ClientePF_PJ cliente = this.listaClientesPreparados.Find(c => c.Id == idCliente);
-                    ((FrmVenda)formularioInvocador).DefineCliente(cliente);
+                    //ClientePF_PJ cliente = this.listaClientesPreparados.Find(c => c.Id == idCliente);
+                    ((FrmVenda)formularioInvocador).DefineCliente(idCliente);
                     this.Close();
 
                 }
