@@ -15,10 +15,18 @@ namespace Trinity.View
     public partial class FrmConsultaCliente : Form
     {
         List<Cliente> listaClientes;
+        List<ClientePF_PJ> listaClientesPreparados;
+        Form formularioInvocador;
 
         public FrmConsultaCliente()
         {
             InitializeComponent();
+        }
+
+        public FrmConsultaCliente(Form formularioInvocador)
+        {
+            InitializeComponent();
+            this.formularioInvocador = formularioInvocador;
         }
 
         private void FrmConsultaCliente_Load(object sender, EventArgs e)
@@ -31,7 +39,7 @@ namespace Trinity.View
             dgvClientes.AutoGenerateColumns = false;
             listaClientes = new ClienteDAO().GetListaClientes();
 
-            List<ClientePF_PJ> listaClientesPreparados = new List<ClientePF_PJ>();
+            listaClientesPreparados = new List<ClientePF_PJ>();
             foreach (var cliente in listaClientes)
             {
                 ClientePF_PJ clientePreparado = new ClientePF_PJ();
@@ -142,6 +150,26 @@ namespace Trinity.View
             } else {
                 CarregaListaClientesChave();
                 txtPalavraChave.Text = String.Empty;
+            }
+        }
+
+        private void dgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(this.formularioInvocador != null)
+            {
+            if (dgvClientes.RowCount != 0)
+            {
+                if (dgvClientes.CurrentRow.Selected)
+                {
+                    int idCliente = Convert.ToInt32(dgvClientes.CurrentRow.Cells["Id"].Value);
+                    ClientePF_PJ cliente = this.listaClientesPreparados.Find(c => c.Id == idCliente);
+                    ((FrmVenda)formularioInvocador).DefineCliente(cliente);
+                    this.Close();
+
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum CLIENTE selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum CLIENTE cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

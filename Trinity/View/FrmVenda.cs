@@ -22,6 +22,14 @@ namespace Trinity.View
             LimpaCampos();
         }
 
+        public void DefineCliente(ClientePF_PJ cliente)
+        {
+            cmbCliente.DisplayMember = "NomeRazaoSocial";
+            List<ClientePF_PJ> adapter = new List<ClientePF_PJ>();
+            adapter.Add(cliente);
+            cmbCliente.DataSource = adapter;
+        }
+
         public void LimpaCampos()
         {
             txtDataVenda.Text = DateTime.Now.ToString();
@@ -67,6 +75,17 @@ namespace Trinity.View
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCliente telaConsultaCliente = new FrmConsultaCliente(this);
+            telaConsultaCliente.ShowDialog();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
 
         }
