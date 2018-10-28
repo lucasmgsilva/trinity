@@ -78,7 +78,7 @@ namespace Trinity.View
             {
                 if (dgvProdutos.CurrentRow.Selected)
                 {
-                    int idProduto = Convert.ToInt32(dgvProdutos.CurrentRow.Cells["idProduto"].Value.ToString());
+                    int idProduto = Convert.ToInt32(dgvProdutos.CurrentRow.Cells["Id"].Value.ToString());
                     FrmProduto telaProduto = new FrmProduto(this.listaProdutos.Find(p => p.IdProduto == idProduto));
                     telaProduto.ShowDialog();
                     CarregaListaProdutos();

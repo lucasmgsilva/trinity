@@ -118,14 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="fornecedor_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fornecedor_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="trocarUsuario_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trocarUsuario_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="usuario_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuario_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="produto_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\produto_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo_matrix" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_matrix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sobre_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sobre_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clientes_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clientes_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,28 +136,28 @@
   <data name="empresa_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\empresa_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="produto_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\produto_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logo_trinity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_trinity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo_ifsp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_ifsp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuario_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sair_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sair_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="venda_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\venda_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fornecedor_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fornecedor_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sobre_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sobre_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo_matrix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_matrix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="compra_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\compra_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sair_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sair_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo_ifsp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_ifsp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buscar_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

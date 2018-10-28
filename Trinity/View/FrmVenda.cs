@@ -51,6 +51,9 @@ namespace Trinity.View
             txtDataVenda.Text = DateTime.Now.ToString();
             cmbCliente.SelectedItem = null;
             cmbProduto.SelectedItem = null;
+            txtQuantidade.Value = 0;
+            txtPrecoVenda.Value = 0;
+            txtPrecoVenda.Value = 0;
         }
 
         public void CarregaListaClientes()
@@ -110,6 +113,34 @@ namespace Trinity.View
         {
             FrmConsultaProduto telaConsultaProduto = new FrmConsultaProduto(this);
             telaConsultaProduto.ShowDialog();
+        }
+
+        private void cmbProduto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Produto produtoSelecionado = (Produto) cmbProduto.SelectedItem;
+            if(produtoSelecionado != null)
+                txtPrecoVenda.Value = decimal.Parse(produtoSelecionado.ValorVenda.ToString());
+        }
+
+        private void txtQuantidade_ValueChanged(object sender, EventArgs e)
+        {
+            txtPrecoTotal.Value = txtQuantidade.Value * txtPrecoVenda.Value;
+        }
+
+        private void txtPrecoVenda_ValueChanged(object sender, EventArgs e)
+        {
+            txtPrecoTotal.Value = txtQuantidade.Value * txtPrecoVenda.Value;
+        }
+
+        private void txtPrecoTotal_ValueChanged(object sender, EventArgs e)
+        {
+            if(txtQuantidade.Value != 0)
+                txtPrecoVenda.Value =  txtPrecoTotal.Value / txtQuantidade.Value;
+        }
+
+        private void btnAdicionarProduto_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

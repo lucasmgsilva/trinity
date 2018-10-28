@@ -311,6 +311,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone.ico" />
+    <None Include="Resources\buscar_16px.png" />
     <Content Include="Resources\cadastroBase_32px.png" />
     <None Include="Resources\sair_32px.png" />
     <None Include="Resources\logo_ifsp.png" />
