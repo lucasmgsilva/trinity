@@ -8,8 +8,9 @@ namespace Trinity.Model.Bean
 {
     public class ItemVendido
     {
-        public int QtdVendida { get; set; }
+        public double QtdVendida { get; set; }
         public double ValorVenda { get; set; }
+        public double ValorTotal { get; set; }
         public Venda Venda { get; set; }
         public Produto Produto { get; set; }
     }
