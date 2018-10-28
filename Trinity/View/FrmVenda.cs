@@ -119,7 +119,11 @@ namespace Trinity.View
         {
             Produto produtoSelecionado = (Produto) cmbProduto.SelectedItem;
             if(produtoSelecionado != null)
+            {
+                txtQuantidade.Value = 0;
                 txtPrecoVenda.Value = decimal.Parse(produtoSelecionado.ValorVenda.ToString());
+            }
+                
         }
 
         private void txtQuantidade_ValueChanged(object sender, EventArgs e)
