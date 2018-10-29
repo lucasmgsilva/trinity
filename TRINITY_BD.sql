@@ -134,16 +134,16 @@ GO
 
 CREATE TABLE VENDA (
 	idVenda INT NOT NULL IDENTITY,
-    dataVenda DATETIME NOT NULL,
-    desconto MONEY,
-    valorTotal MONEY NOT NULL,
     idUsuario INT NOT NULL,
+	idCliente INT NOT NULL,
+    dataVenda DATETIME NOT NULL,
+    desconto MONEY,	
     PRIMARY KEY (idVenda),
-    FOREIGN KEY (idUsuario) REFERENCES USUARIO (idUsuario)
+    FOREIGN KEY (idUsuario) REFERENCES USUARIO (idUsuario),
+	FOREIGN KEY (idCliente) REFERENCES CLIENTE (idCliente)
 )
 GO
-
- CREATE TABLE ITEMVENDIDO (
+CREATE TABLE ITEMVENDIDO (
 	qtdVendida FLOAT NOT NULL,
     valorVenda MONEY NOT NULL,
 	idVenda INT NOT NULL,
@@ -151,8 +151,8 @@ GO
 	PRIMARY KEY (idVenda, idProduto),
     FOREIGN KEY (idVenda) REFERENCES VENDA (idVenda),
     FOREIGN KEY (idProduto) REFERENCES PRODUTO (idProduto)
- )
- GO
+)
+GO
 
 CREATE TABLE COMPRA (
 	idCompra INT NOT NULL IDENTITY,
@@ -665,4 +665,12 @@ AS
 		telefoneCelular = @telefoneCelular, razaoSocial = @razaoSocial, nomeFantasia = @nomeFantasia, cnpj = @cnpj, ie = @ie, im = @im, dataCadastro = @dataCadastro
 	WHERE
 		idFornecedor = @idFornecedor
+GO
+
+CREATE PROCEDURE SP_INSERE_VENDA(@IdUsuario INT, @IdCliente INT, @DataVenda DATETIME, @Desconto MONEY)
+AS
+BEGIN 
+	INSERT INTO VENDA (idUsuario, idCliente, dataVenda, desconto) 
+		VALUES (@IdUsuario, @IdCliente, @DataVenda, @Desconto)
+END
 GO
