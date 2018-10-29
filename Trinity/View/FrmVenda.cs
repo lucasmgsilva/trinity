@@ -159,15 +159,32 @@ namespace Trinity.View
             {
                 Produto = (Produto)cmbProduto.SelectedItem,
                 QtdVendida = Convert.ToDouble(txtQuantidade.Value),
-                ValorVenda = Convert.ToDouble(txtPrecoVenda.Value)
+                ValorVenda = Convert.ToDouble(txtPrecoVenda.Value),
             };
+            itemVendido.IdProduto = itemVendido.Produto.IdProduto;
+            itemVendido.ValorTotal = itemVendido.QtdVendida * itemVendido.ValorVenda;
 
-            this.listaItemVendido.Add(itemVendido);
+            ItemVendido itemVendidoExistente = null; //Novo
 
+            foreach (ItemVendido item in listaItemVendido)
+            {
+                if (item.Produto.IdProduto == itemVendido.Produto.IdProduto)
+                {
+                    itemVendidoExistente = item;
+                    break;
+                }
+            }
+
+            if(itemVendidoExistente == null) //Novo
+            {
+                this.listaItemVendido.Add(itemVendido);
+            } else //Atualiza - Já existe
+            {
+                itemVendidoExistente.QtdVendida += itemVendido.QtdVendida;
+                itemVendidoExistente.ValorVenda = itemVendido.ValorVenda;
+                itemVendidoExistente.ValorTotal = itemVendidoExistente.QtdVendida * itemVendido.ValorVenda;
+            }
             CarregaListaItemVendido();
-
-            MessageBox.Show("Adicionado");
-
         }
 
         private string BindProperty(object property, string propertyName)
@@ -207,6 +224,29 @@ namespace Trinity.View
             {
                 e.Value = BindProperty(dgvItemVendido.Rows[e.RowIndex].DataBoundItem, dgvItemVendido.Columns[e.ColumnIndex].DataPropertyName);
             }
+        }
+
+        private void btnRemoverProduto_Click(object sender, EventArgs e)
+        {
+            if (dgvItemVendido.RowCount != 0)
+            {
+                if (dgvItemVendido.CurrentRow.Selected)
+                {
+                    int idProduto = Convert.ToInt32(dgvItemVendido.CurrentRow.Cells["Id"].Value.ToString());
+
+                    foreach (ItemVendido item in this.listaItemVendido)
+                    {
+                        if(item.Produto.IdProduto == idProduto)
+                        {
+                            this.listaItemVendido.Remove(item);
+                            break;
+                        }
+                    }
+                    CarregaListaItemVendido();
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ITEM VENDIDO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ITEM VENDIDO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

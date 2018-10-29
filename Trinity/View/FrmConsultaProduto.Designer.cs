@@ -41,15 +41,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtdDisponivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -167,42 +167,6 @@
             this.dgvProdutos.TabIndex = 0;
             this.dgvProdutos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProdutos_CellMouseDoubleClick);
             // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnExcluir.Location = new System.Drawing.Point(777, 526);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnEditar.Location = new System.Drawing.Point(113, 526);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 2;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(9, 526);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 1;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "IdProduto";
@@ -261,6 +225,42 @@
             this.idMarca.HeaderText = "Marca";
             this.idMarca.Name = "idMarca";
             this.idMarca.ReadOnly = true;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnExcluir.Location = new System.Drawing.Point(777, 526);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(98, 29);
+            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnEditar.Location = new System.Drawing.Point(113, 526);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(98, 29);
+            this.btnEditar.TabIndex = 2;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.Location = new System.Drawing.Point(9, 526);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(98, 29);
+            this.btnNovo.TabIndex = 1;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // FrmConsultaProduto
             // 
