@@ -13,6 +13,7 @@ namespace Trinity.Model.Bean
         public Cliente Cliente { get; set; }
         public DateTime DataVenda { get; set; }
         public double Desconto { get; set; }
-        public double ValorTotal { get; set; }         
+        public double ValorTotal { get; set; }
+        public List<ItemVendido> ListaItemVendidos { get; set; }
     }
 }

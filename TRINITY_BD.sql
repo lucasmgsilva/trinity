@@ -143,6 +143,7 @@ CREATE TABLE VENDA (
 	FOREIGN KEY (idCliente) REFERENCES CLIENTE (idCliente)
 )
 GO
+
 CREATE TABLE ITEMVENDIDO (
 	qtdVendida FLOAT NOT NULL,
     valorVenda MONEY NOT NULL,
@@ -672,5 +673,15 @@ AS
 BEGIN 
 	INSERT INTO VENDA (idUsuario, idCliente, dataVenda, desconto) 
 		VALUES (@IdUsuario, @IdCliente, @DataVenda, @Desconto)
+
+	SELECT @@IDENTITY AS 'idVenda'
+END
+GO
+
+CREATE PROCEDURE SP_INSERE_ITEMVENDIDO (@IdVenda INT, @IdProduto INT, @QtdVendida FLOAT, @ValorVenda MONEY)
+AS
+BEGIN
+	INSERT INTO ITEMVENDIDO (idVenda, idProduto, qtdVendida, valorVenda)
+	VALUES (@IdVenda, @IdProduto, @QtdVendida, @ValorVenda)
 END
 GO

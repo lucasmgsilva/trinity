@@ -16,6 +16,7 @@ namespace Trinity.View
     public partial class FrmVenda : Form
     {
         List<ItemVendido> listaItemVendido = new List<ItemVendido>();
+        List<Cliente> listaClientes;
 
         public FrmVenda()
         {
@@ -69,7 +70,7 @@ namespace Trinity.View
 
         public void CarregaListaClientes()
         {
-            List<Cliente> listaClientes = new ClienteDAO().GetListaClientes();
+            listaClientes = new ClienteDAO().GetListaClientes();
             List<ClientePF_PJ> listaClientesPreparados = new List<ClientePF_PJ>();
             foreach (var cliente in listaClientes)
             {
@@ -93,7 +94,6 @@ namespace Trinity.View
 
                 listaClientesPreparados.Add(clientePreparado);
             }
-            listaClientes = null;
             cmbCliente.DisplayMember = "NomeRazaoSocial";
             cmbCliente.DataSource = listaClientesPreparados;
         }
@@ -117,7 +117,17 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            int idClienteSelecionado = ((ClientePF_PJ)cmbCliente.SelectedItem).Id;
+            Venda venda = new Venda()
+            {
+                Cliente = listaClientes.Find(c => c.IdCliente == idClienteSelecionado),
+                Usuario = FrmPrincipal.UsuarioSessaoAtual,
+                DataVenda = Convert.ToDateTime(txtDataVenda.Text),
+                Desconto = 0,
+                ListaItemVendidos = this.listaItemVendido
+            };
 
+            new VendaDAO().AdicionaVenda(venda);
         }
 
         private void label7_Click(object sender, EventArgs e)

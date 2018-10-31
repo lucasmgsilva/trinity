@@ -14,7 +14,7 @@ namespace Trinity
 {
     public partial class FrmPrincipal : Form
     {
-        public Usuario UsuarioSessaoAtual { get; set; }
+        public static Usuario UsuarioSessaoAtual { get; set; }
 
         public FrmPrincipal()
         {
@@ -24,9 +24,9 @@ namespace Trinity
         public FrmPrincipal(Usuario usuario)
         {
             InitializeComponent();
-            this.UsuarioSessaoAtual = usuario;
-            lblUsuario.Text = this.UsuarioSessaoAtual.usuario;
-            lblRazaoSocial.Text = this.UsuarioSessaoAtual.Empresa.RazaoSocial;
+            UsuarioSessaoAtual = usuario;
+            lblUsuario.Text = UsuarioSessaoAtual.usuario;
+            lblRazaoSocial.Text = UsuarioSessaoAtual.Empresa.RazaoSocial;
             HabilitaModulos();
         }
 

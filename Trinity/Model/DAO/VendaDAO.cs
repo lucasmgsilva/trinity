@@ -19,7 +19,7 @@ namespace Trinity.Model.DAO
             this.connection = new ConnectionFactory().getConnection();
         }
 
-        public void AdicionaVenda(List<ItemVendido> listaItensVendidos)
+        public void AdicionaVenda(Venda venda)
         {
             string query = "EXECUTE SP_INSERE_VENDA " +
                            "@IdUsuario, @IdCliente, @DataVenda, @Desconto";
@@ -31,9 +31,28 @@ namespace Trinity.Model.DAO
                 cmd.Parameters.AddWithValue("@IdCliente", venda.Cliente.IdCliente);
                 cmd.Parameters.AddWithValue("@DataVenda", venda.DataVenda);
                 cmd.Parameters.AddWithValue("@Desconto", venda.Desconto);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("O cargo foi cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SqlDataReader dtr = cmd.ExecuteReader();
+
+                if (dtr.Read())
+                {
+                    int idVenda = Convert.ToInt32(dtr["idVenda"].ToString());
+
+                    query = "EXECUTE SP_INSERE_ITEMVENDIDO @IdVenda, @IdProduto, @QtdVendida, @ValorVenda";
+                    cmd = new SqlCommand(query, this.connection);
+                    cmd.Parameters.AddWithValue("@IdVenda", idVenda);
+
+                    foreach (var ItemVendido in venda.ListaItemVendidos)
+                    {
+                        cmd.Parameters.AddWithValue("@IdProduto", ItemVendido.Produto.IdProduto);
+                        cmd.Parameters.AddWithValue("@QtdVendida", ItemVendido.QtdVendida);
+                        cmd.Parameters.AddWithValue("@ValorVenda", ItemVendido.ValorVenda);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                dtr.Close();
                 this.connection.Close();
+                MessageBox.Show("A venda foi cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
