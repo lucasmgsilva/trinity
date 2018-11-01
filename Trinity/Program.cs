@@ -19,7 +19,7 @@ namespace Trinity
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAcesso());
+            Application.Run(new FrmApresentacao());
             //Application.Run(new FrmVenda());
             //Application.Run(new FrmApresentacao());
             //Application.Run(new FrmConsultaCliente());
