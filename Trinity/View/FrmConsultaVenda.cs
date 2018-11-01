@@ -33,6 +33,7 @@ namespace Trinity.View
         {
             FrmVenda telaVenda = new FrmVenda();
             telaVenda.ShowDialog();
+            CarregaListaVendas();
         }
 
         private void FrmConsultaVenda_Load(object sender, EventArgs e)
@@ -77,6 +78,16 @@ namespace Trinity.View
             {
                 e.Value = BindProperty(dgvVendas.Rows[e.RowIndex].DataBoundItem, dgvVendas.Columns[e.ColumnIndex].DataPropertyName);
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            CarregaListaVendas();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            CarregaListaVendas();
         }
     }
 }

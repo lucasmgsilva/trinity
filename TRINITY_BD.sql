@@ -313,8 +313,6 @@ SELECT Venda.idVenda, Venda.dataVenda, Venda.desconto, VENDA.idCliente, USUARIO.
 	group by Venda.idVenda, Venda.dataVenda, Venda.desconto, VENDA.idCliente, USUARIO.idUsuario, USUARIO.usuario, CLIENTEPF.nome, CLIENTEPJ.razaoSocial
 GO
 
-
-
 CREATE VIEW VW_SELECIONA_ESTADO 
 AS 
 SELECT * FROM ESTADO

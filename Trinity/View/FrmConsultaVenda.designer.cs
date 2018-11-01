@@ -63,6 +63,7 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnNovo
             // 
@@ -86,6 +87,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // groupBox2
             // 
@@ -198,6 +200,7 @@
             this.DataVenda.HeaderText = "DATA";
             this.DataVenda.Name = "DataVenda";
             this.DataVenda.ReadOnly = true;
+            this.DataVenda.Width = 150;
             // 
             // usuario
             // 
@@ -205,6 +208,7 @@
             this.usuario.HeaderText = "USUÁRIO";
             this.usuario.Name = "usuario";
             this.usuario.ReadOnly = true;
+            this.usuario.Width = 423;
             // 
             // valorTotal
             // 
@@ -214,6 +218,7 @@
             this.valorTotal.HeaderText = "TOTAL";
             this.valorTotal.Name = "valorTotal";
             this.valorTotal.ReadOnly = true;
+            this.valorTotal.Width = 150;
             // 
             // FrmConsultaVenda
             // 
