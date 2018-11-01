@@ -15,22 +15,28 @@ namespace Trinity.View
 {
     public partial class FrmVenda : Form
     {
+        bool editando;
+        Venda vendaCarregada;
         List<ItemVendido> listaItemVendido = new List<ItemVendido>();
         List<Cliente> listaClientes;
 
-        public FrmVenda()
+        public FrmVenda(Venda vendaCarregada)
         {
             InitializeComponent();
-            CarregaListaClientes();
-            CarregaListaProdutos();
-            CarregaListaItemVendido();
-            LimpaCampos();
+            this.vendaCarregada = vendaCarregada;
         }
 
         public void CarregaListaItemVendido()
         {
             dgvItemVendido.AutoGenerateColumns = false;
-            //this.listaProdutos = new ProdutoDAO().GetListaProdutos();
+            dgvItemVendido.DataSource = new BindingList<ItemVendido>(this.listaItemVendido);
+        }
+
+        public void DefineListaItemVendido()
+        {
+            dgvItemVendido.AutoGenerateColumns = false;
+            vendaCarregada.ListaItemVendidos = new VendaDAO().GetListaItensVendidos(vendaCarregada.IdVenda);
+            listaItemVendido = vendaCarregada.ListaItemVendidos;
             dgvItemVendido.DataSource = new BindingList<ItemVendido>(this.listaItemVendido);
         }
 
@@ -106,7 +112,7 @@ namespace Trinity.View
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-
+            LimpaCampos();
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -115,19 +121,51 @@ namespace Trinity.View
             telaConsultaCliente.ShowDialog();
         }
 
+        private bool ValidaCampos()
+        {
+            bool hasErros = false;
+            epVendas.Clear();
+
+            if (cmbCliente.SelectedItem == null)
+            {
+                epVendas.SetError(lblCliente, "O cliente é obrigatório.");
+                hasErros = true;
+            }
+            else
+                epVendas.SetError(lblCliente, string.Empty);
+
+            if (dgvItemVendido.RowCount == 0)
+            {
+                epVendas.SetError(lblItemVendido, "Item vendido é obrigatório.");
+                hasErros = true;
+            }
+            else
+                epVendas.SetError(lblItemVendido, string.Empty);
+
+            return hasErros;
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            int idClienteSelecionado = ((ClientePF_PJ)cmbCliente.SelectedItem).Id;
-            Venda venda = new Venda()
+            if (!ValidaCampos())
             {
-                Cliente = listaClientes.Find(c => c.IdCliente == idClienteSelecionado),
-                Usuario = FrmPrincipal.UsuarioSessaoAtual,
-                DataVenda = Convert.ToDateTime(txtDataVenda.Text),
-                Desconto = 0,
-                ListaItemVendidos = this.listaItemVendido
-            };
+                if (this.vendaCarregada == null)
+                    this.vendaCarregada = new Venda();
+                int idClienteSelecionado = ((ClientePF_PJ)cmbCliente.SelectedItem).Id;
+                this.vendaCarregada.Cliente = listaClientes.Find(c => c.IdCliente == idClienteSelecionado);
+                this.vendaCarregada.Usuario = FrmPrincipal.UsuarioSessaoAtual;
+                this.vendaCarregada.DataVenda = Convert.ToDateTime(txtDataVenda.Text);
+                this.vendaCarregada.Desconto = 0;
+                this.vendaCarregada.ListaItemVendidos = this.listaItemVendido;
 
-            new VendaDAO().AdicionaVenda(venda);
+                if (!this.editando)
+                    new VendaDAO().AdicionaVenda(this.vendaCarregada);
+                else
+                    //new ProdutoDAO().AlteraProduto(this.produtoCarregado);
+                this.Close();
+            }
+            else
+                MessageBox.Show("Possuem algumas pendências de dados, favor verificar.", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -257,6 +295,108 @@ namespace Trinity.View
                 else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ITEM VENDIDO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum ITEM VENDIDO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void DesabilitaCampos()
+        {
+            cmbCliente.Enabled = false;
+            cmbProduto.Enabled = false;
+            txtQuantidade.Enabled = false;
+            txtPrecoVenda.Enabled = false;
+            txtPrecoTotal.Enabled = false;
+            dgvItemVendido.Enabled = false;
+            cmbCliente.Focus();
+        }
+
+        private void HabilitaCampos()
+        {
+            cmbCliente.Enabled = !false;
+            cmbProduto.Enabled = !false;
+            txtQuantidade.Enabled = !false;
+            txtPrecoVenda.Enabled = !false;
+            txtPrecoTotal.Enabled = !false;
+            dgvItemVendido.Enabled = !false;
+            cmbCliente.Focus();
+        }
+
+        private void HabilitaBotoes()
+        {
+            DesabilitaCampos();
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnExcluir.Enabled = true;
+        }
+
+        private void DesabilitaBotoes()
+        {
+            HabilitaCampos();
+            btnNovo.Enabled = !true;
+            btnSalvar.Enabled = !false;
+            btnEditar.Enabled = !true;
+            btnExcluir.Enabled = !true;
+        }
+
+        public void SelecionaCliente()
+        {
+            if (this.vendaCarregada != null)
+            {
+                int idCliente = this.vendaCarregada.Cliente.IdCliente;
+                foreach (ClientePF_PJ item in cmbCliente.Items)
+                    if (item.Id == idCliente)
+                    {
+                        cmbCliente.SelectedItem = item;
+                        break;
+                    }
+            }
+        }
+
+        private void CarregaVenda()
+        {
+            txtDataVenda.Text = this.vendaCarregada.DataVenda.ToString();
+            SelecionaCliente();
+            DefineListaItemVendido();
+        }
+
+        private void FrmVenda_Load(object sender, EventArgs e)
+        {
+            DesabilitaBotoes();
+            CarregaListaClientes();
+            CarregaListaProdutos();
+            if (this.vendaCarregada != null)
+            {
+                this.editando = true;
+                CarregaVenda();
+            } else txtDataVenda.Text = Convert.ToString(DateTime.Now);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            this.editando = true;
+            DesabilitaBotoes();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Você realmente quer excluir esta VENDA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                new VendaDAO().DeletaVenda(this.vendaCarregada.IdVenda);
+                this.Close();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (this.editando)
+            {
+                if (MessageBox.Show("Você realmente quer desfazer as alterações desta VENDA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    HabilitaBotoes();
+                    this.editando = false;
+                    CarregaVenda();
+                }
+            }
+            else this.Close();
         }
     }
 }

@@ -331,11 +331,9 @@ namespace Trinity
             {
                 if (MessageBox.Show("Você realmente quer desfazer as alterações deste PRODUTO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    /*
                     HabilitaBotoes();
                     this.editando = false;
-                    CarregaProduto();
-                    */
+                    CarregaProduto();   
                     this.Close();
                 }
             }

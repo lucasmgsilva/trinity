@@ -72,6 +72,7 @@ namespace Trinity.Model.DAO
 
                 while (dtr.Read())
                 {
+                    //Venda
                     Venda venda = new Venda()
                     {
                         IdVenda = Convert.ToInt32(dtr["idVenda"].ToString()),
@@ -110,6 +111,47 @@ namespace Trinity.Model.DAO
                 this.connection.Close();
 
                 return listaVendas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
+
+        public List<ItemVendido> GetListaItensVendidos(int idVenda)
+        {
+            string query = "EXECUTE SP_OBTEM_ITENSVENDIDOS @IdVenda";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@IdVenda", idVenda);
+                SqlDataReader dtr = cmd.ExecuteReader();
+                List<ItemVendido> listaItensVendidos = new List<ItemVendido>();
+
+                while (dtr.Read())
+                {
+                    ItemVendido itemVendido = new ItemVendido()
+                    {
+                        QtdVendida = float.Parse(dtr["qtdVendida"].ToString()),
+                        ValorVenda = Convert.ToDouble(dtr["valorVenda"].ToString()),
+                        IdProduto = Convert.ToInt32(dtr["idProduto"].ToString()),
+                        Produto = new Produto()
+                        {
+                            IdProduto = Convert.ToInt32(dtr["idProduto"].ToString()),
+                            Descricao = dtr["descricao"].ToString()
+                        }
+                    };
+                    itemVendido.ValorTotal = itemVendido.QtdVendida * itemVendido.ValorVenda;
+
+                    listaItensVendidos.Add(itemVendido);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaItensVendidos;
             }
             catch (Exception ex)
             {

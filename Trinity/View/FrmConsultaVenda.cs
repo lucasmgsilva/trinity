@@ -31,7 +31,7 @@ namespace Trinity.View
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FrmVenda telaVenda = new FrmVenda();
+            FrmVenda telaVenda = new FrmVenda(null);
             telaVenda.ShowDialog();
             CarregaListaVendas();
         }
@@ -82,7 +82,18 @@ namespace Trinity.View
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            CarregaListaVendas();
+            if (dgvVendas.RowCount != 0)
+            {
+                if (dgvVendas.CurrentRow.Selected)
+                {
+                    int idVenda = Convert.ToInt32(dgvVendas.CurrentRow.Cells["Id"].Value.ToString());
+                    FrmVenda telaVenda = new FrmVenda(this.listaVendas.Find(p => p.IdVenda == idVenda));
+                    telaVenda.ShowDialog();
+                    CarregaListaVendas();
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma VENDA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma VENDA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
