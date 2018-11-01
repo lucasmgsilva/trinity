@@ -37,9 +37,7 @@ namespace Trinity.View
                 soma += item.QtdVendida * item.ValorVenda;
                 qtd += item.QtdVendida;
             }
-            MessageBox.Show(soma.ToString());
-            lblTotal.Text = soma.ToString();
-
+            lblTotal.Text = soma.ToString("C");
         }
 
         public void CarregaListaItemVendido()

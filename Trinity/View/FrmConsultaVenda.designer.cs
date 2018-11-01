@@ -37,16 +37,16 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvVendas = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -123,6 +123,41 @@
             this.dgvVendas.TabIndex = 0;
             this.dgvVendas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "IdVenda";
+            dataGridViewCellStyle2.Format = "000000";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // DataVenda
+            // 
+            this.DataVenda.DataPropertyName = "DataVenda";
+            this.DataVenda.HeaderText = "DATA";
+            this.DataVenda.Name = "DataVenda";
+            this.DataVenda.ReadOnly = true;
+            this.DataVenda.Width = 150;
+            // 
+            // usuario
+            // 
+            this.usuario.DataPropertyName = "Usuario.usuario";
+            this.usuario.HeaderText = "USUÁRIO";
+            this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
+            this.usuario.Width = 423;
+            // 
+            // valorTotal
+            // 
+            this.valorTotal.DataPropertyName = "valorTotal";
+            dataGridViewCellStyle3.Format = "C2";
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.valorTotal.HeaderText = "TOTAL";
+            this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
+            this.valorTotal.Width = 150;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label11);
@@ -185,46 +220,11 @@
             this.panel1.Size = new System.Drawing.Size(884, 47);
             this.panel1.TabIndex = 57;
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "IdVenda";
-            dataGridViewCellStyle2.Format = "000000";
-            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // DataVenda
-            // 
-            this.DataVenda.DataPropertyName = "DataVenda";
-            this.DataVenda.HeaderText = "DATA";
-            this.DataVenda.Name = "DataVenda";
-            this.DataVenda.ReadOnly = true;
-            this.DataVenda.Width = 150;
-            // 
-            // usuario
-            // 
-            this.usuario.DataPropertyName = "Usuario.usuario";
-            this.usuario.HeaderText = "USUÁRIO";
-            this.usuario.Name = "usuario";
-            this.usuario.ReadOnly = true;
-            this.usuario.Width = 423;
-            // 
-            // valorTotal
-            // 
-            this.valorTotal.DataPropertyName = "valorTotal";
-            dataGridViewCellStyle3.Format = "C2";
-            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valorTotal.HeaderText = "TOTAL";
-            this.valorTotal.Name = "valorTotal";
-            this.valorTotal.ReadOnly = true;
-            this.valorTotal.Width = 150;
-            // 
             // FrmConsultaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(884, 569);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnEditar);
