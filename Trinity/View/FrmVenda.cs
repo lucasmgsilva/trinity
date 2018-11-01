@@ -161,7 +161,7 @@ namespace Trinity.View
                 if (!this.editando)
                     new VendaDAO().AdicionaVenda(this.vendaCarregada);
                 else
-                    //new ProdutoDAO().AlteraProduto(this.produtoCarregado);
+                    new VendaDAO().AdicionaVenda(this.vendaCarregada);
                 this.Close();
             }
             else
