@@ -36,13 +36,12 @@ namespace Trinity.Model.DAO
                 if (dtr.Read())
                 {
                     int idVenda = Convert.ToInt32(dtr["idVenda"].ToString());
-
+                    dtr.Close();
                     query = "EXECUTE SP_INSERE_ITEMVENDIDO @IdVenda, @IdProduto, @QtdVendida, @ValorVenda";
-                    cmd = new SqlCommand(query, this.connection);
-                    cmd.Parameters.AddWithValue("@IdVenda", idVenda);
-
                     foreach (var ItemVendido in venda.ListaItemVendidos)
                     {
+                        cmd = new SqlCommand(query, this.connection);
+                        cmd.Parameters.AddWithValue("@IdVenda", idVenda);
                         cmd.Parameters.AddWithValue("@IdProduto", ItemVendido.Produto.IdProduto);
                         cmd.Parameters.AddWithValue("@QtdVendida", ItemVendido.QtdVendida);
                         cmd.Parameters.AddWithValue("@ValorVenda", ItemVendido.ValorVenda);
@@ -50,7 +49,6 @@ namespace Trinity.Model.DAO
                     }
                 }
 
-                dtr.Close();
                 this.connection.Close();
                 MessageBox.Show("A venda foi cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
