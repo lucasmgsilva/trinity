@@ -31,12 +31,12 @@ namespace Trinity.View
 
         private void CalculaTotalEQtd()
         {
-            Double soma = 0, qtd = 0;
+            Double soma = 0;
             foreach (var item in listaItemVendido)
             {
                 soma += item.QtdVendida * item.ValorVenda;
-                qtd += item.QtdVendida;
             }
+            soma -= Convert.ToDouble(txtDesconto.Value);
             lblTotal.Text = soma.ToString("C");
         }
 
@@ -194,9 +194,7 @@ namespace Trinity.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
             //ExibeListas();
-
             if (!ValidaCampos())
             {
                 if (this.vendaCarregada == null)
@@ -205,7 +203,7 @@ namespace Trinity.View
                 this.vendaCarregada.Cliente = listaClientes.Find(c => c.IdCliente == idClienteSelecionado);
                 this.vendaCarregada.Usuario = FrmPrincipal.UsuarioSessaoAtual;
                 this.vendaCarregada.DataVenda = Convert.ToDateTime(txtDataVenda.Text);
-                this.vendaCarregada.Desconto = 0;
+                this.vendaCarregada.Desconto = Convert.ToDouble(txtDesconto.Value);
                 this.vendaCarregada.ListaItemVendidos = this.listaItemVendido;
 
                 if (!this.editando)
@@ -238,6 +236,15 @@ namespace Trinity.View
         private void txtQuantidade_ValueChanged(object sender, EventArgs e)
         {
             txtPrecoTotal.Value = txtQuantidade.Value * txtPrecoVenda.Value;
+
+            /*if(dgvItemVendido.RowCount != 0 && dgvItemVendido.CurrentRow.Selected)
+            {
+                int idProduto = Convert.ToInt32(dgvItemVendido.CurrentRow.Cells["Id"].Value);
+                ItemVendido itemVendido = listaItemVendido.Find(iv => iv.Produto.IdProduto == idProduto);
+                itemVendido.QtdVendida = float.Parse(txtQuantidade.Value.ToString());
+                itemVendido.ValorVenda = Convert.ToDouble(txtPrecoVenda.Value);
+                itemVendido.ValorTotal = Convert.ToDouble(txtPrecoTotal.Value);
+            }*/
         }
 
         private void txtPrecoVenda_ValueChanged(object sender, EventArgs e)
@@ -253,53 +260,64 @@ namespace Trinity.View
 
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
-            ItemVendido itemVendido = new ItemVendido()
+            if(cmbProduto.SelectedItem != null)
             {
-                Produto = (Produto)cmbProduto.SelectedItem,
-                QtdVendida = Convert.ToDouble(txtQuantidade.Value),
-                ValorVenda = Convert.ToDouble(txtPrecoVenda.Value),
-            };
-            itemVendido.IdProduto = itemVendido.Produto.IdProduto;
-            itemVendido.ValorTotal = itemVendido.QtdVendida * itemVendido.ValorVenda;
-
-            ItemVendido itemVendidoExistente = null; //Novo
-
-            foreach (ItemVendido item in listaItemVendido)
-            {
-                if (item.Produto.IdProduto == itemVendido.Produto.IdProduto)
+                if(txtQuantidade.Value > 0)
                 {
-                    itemVendidoExistente = item;
-                    break;
-                }
-            }
+                    ItemVendido itemVendido = new ItemVendido()
+                    {
+                        Produto = (Produto)cmbProduto.SelectedItem,
+                        QtdVendida = Convert.ToDouble(txtQuantidade.Value),
+                        ValorVenda = Convert.ToDouble(txtPrecoVenda.Value),
+                    };
+                    itemVendido.IdProduto = itemVendido.Produto.IdProduto;
+                    itemVendido.ValorTotal = itemVendido.QtdVendida * itemVendido.ValorVenda;
 
-            if(itemVendidoExistente == null) //Novo
-            {
-                itemVendidoExistente = itemVendido;
-                this.listaItemVendido.Add(itemVendido);
-                this.listaItemVendidoNovo.Add(itemVendido);
-            } else //Atualiza - Já existe
-            {
-                itemVendidoExistente.QtdVendida += itemVendido.QtdVendida;
-                itemVendidoExistente.ValorVenda = itemVendido.ValorVenda;
-                itemVendidoExistente.ValorTotal = itemVendidoExistente.QtdVendida * itemVendido.ValorVenda;
-                listaItemVendidoAlterado.Add(itemVendidoExistente);
-                //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
-            }
+                    ItemVendido itemVendidoExistente = null; //Novo
 
-            //Verifica se item vendido adicionado havia sido removido
-            foreach (var item in listaItemVendidoDeletado)
-            {
-                if(item.Produto.IdProduto == itemVendido.IdProduto)
-                {
-                    listaItemVendidoDeletado.Remove(item);
-                    //MessageBox.Show("Removido da ListaItemVendidoDeletado");
-                    listaItemVendidoAlterado.Add(itemVendidoExistente);
-                    //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
-                    break;
-                }
+                    foreach (ItemVendido item in listaItemVendido)
+                    {
+                        if (item.Produto.IdProduto == itemVendido.Produto.IdProduto)
+                        {
+                            itemVendidoExistente = item;
+                            break;
+                        }
+                    }
+
+                    if (itemVendidoExistente == null) //Novo
+                    {
+                        itemVendidoExistente = itemVendido;
+                        this.listaItemVendido.Add(itemVendido);
+                        this.listaItemVendidoNovo.Add(itemVendido);
+                        //MessageBox.Show("Adicionado na ListaItemVendidoNovo");
+                    }
+                    else //Atualiza - Já existe
+                    {
+                        itemVendidoExistente.QtdVendida += itemVendido.QtdVendida;
+                        itemVendidoExistente.ValorVenda = itemVendido.ValorVenda;
+                        itemVendidoExistente.ValorTotal = itemVendidoExistente.QtdVendida * itemVendido.ValorVenda;
+                        listaItemVendidoAlterado.Add(itemVendidoExistente);
+                        //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+                    }
+
+                    //Verifica se item vendido adicionado havia sido removido
+                    foreach (var item in listaItemVendidoDeletado)
+                    {
+                        if (item.Produto.IdProduto == itemVendido.IdProduto)
+                        {
+                            listaItemVendidoDeletado.Remove(item);
+                            //MessageBox.Show("Removido da ListaItemVendidoDeletado");
+                            listaItemVendidoAlterado.Add(itemVendidoExistente);
+                            //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+                            listaItemVendidoNovo.Remove(itemVendidoExistente);
+                            //MessageBox.Show("Removido da ListaItemVendidoNovo");
+                            break;
+                        }
+                    }
+                    CarregaListaItemVendido();
+                } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE deve ser maior que 0 (zero)!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            CarregaListaItemVendido();
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error); 
         }
 
         private string BindProperty(object property, string propertyName)
@@ -376,7 +394,12 @@ namespace Trinity.View
             txtQuantidade.Enabled = false;
             txtPrecoVenda.Enabled = false;
             txtPrecoTotal.Enabled = false;
+            txtDesconto.Enabled = false;
             dgvItemVendido.Enabled = false;
+
+            lblBuscaCliente.Enabled = false;
+            lblBuscaProduto.Enabled = false;
+
             cmbCliente.Focus();
         }
 
@@ -387,7 +410,12 @@ namespace Trinity.View
             txtQuantidade.Enabled = !false;
             txtPrecoVenda.Enabled = !false;
             txtPrecoTotal.Enabled = !false;
+            txtDesconto.Enabled = !false;
             dgvItemVendido.Enabled = !false;
+
+            lblBuscaCliente.Enabled = !false;
+            lblBuscaProduto.Enabled = !false;
+
             cmbCliente.Focus();
         }
 
@@ -398,6 +426,10 @@ namespace Trinity.View
             btnSalvar.Enabled = false;
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
+
+            btnAdicionarProduto.Enabled = false;
+            btnRemoverProduto.Enabled = false;
+            btnLimparSeleção.Enabled = false;
         }
 
         private void DesabilitaBotoes()
@@ -407,6 +439,10 @@ namespace Trinity.View
             btnSalvar.Enabled = !false;
             btnEditar.Enabled = !true;
             btnExcluir.Enabled = !true;
+
+            btnAdicionarProduto.Enabled = !false;
+            btnRemoverProduto.Enabled = !false;
+            btnLimparSeleção.Enabled = !false;
         }
 
         public void SelecionaCliente()
@@ -428,6 +464,7 @@ namespace Trinity.View
             txtDataVenda.Text = this.vendaCarregada.DataVenda.ToString();
             SelecionaCliente();
             DefineListaItemVendido();
+            txtDesconto.Value = decimal.Parse(this.vendaCarregada.Desconto.ToString());
         }
 
         private void FrmVenda_Load(object sender, EventArgs e)
@@ -469,6 +506,43 @@ namespace Trinity.View
                 }
             }
             else this.Close();
+        }
+
+        private void dgvItemVendido_SelectionChanged(object sender, EventArgs e)
+        {
+            /*if(dgvItemVendido.RowCount != 0 && dgvItemVendido.CurrentRow.Selected)
+            {
+                int idProduto = Convert.ToInt32(dgvItemVendido.CurrentRow.Cells["Id"].Value);
+
+                foreach (Produto produto in cmbProduto.Items)
+                {
+                    if (produto.IdProduto == idProduto)
+                    {
+                        cmbProduto.SelectedItem = produto;
+
+                            foreach (var itemVendido in listaItemVendido)
+                            {
+                                if (itemVendido.Produto.IdProduto == idProduto)
+                                {
+                                    txtQuantidade.Value = decimal.Parse(itemVendido.QtdVendida.ToString());
+                                    txtPrecoVenda.Value = decimal.Parse(itemVendido.ValorVenda.ToString());
+                                    break;
+                                }
+                            }
+                        break;
+                    }
+                }
+            }*/
+        }
+
+        private void btnLimparSeleção_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDesconto_ValueChanged(object sender, EventArgs e)
+        {
+            CalculaTotalEQtd();
         }
     }
 }

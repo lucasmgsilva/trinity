@@ -76,7 +76,7 @@ namespace Trinity.Model.DAO
 
                 foreach (ItemVendido item in listaItemVendidoNovo)
                 {
-                    MessageBox.Show("Item Vendido NOVO");
+                    //MessageBox.Show("Item Vendido NOVO");
                     query = "EXECUTE SP_INSERE_ITEMVENDIDO @IdVenda, @IdProduto, @QtdVendida, @ValorVenda";
                         cmd = new SqlCommand(query, this.connection);
                         cmd.Parameters.AddWithValue("@IdVenda", venda.IdVenda);
@@ -88,7 +88,7 @@ namespace Trinity.Model.DAO
 
                 foreach (ItemVendido item in listaItemVendidoAlterado)
                 {
-                    MessageBox.Show("Item Vendido ALTERADO");
+                    //MessageBox.Show("Item Vendido ALTERADO");
                     query = "EXECUTE SP_ALTERA_ITEMVENDIDO @IdVenda, @IdProduto, @QtdVendida, @ValorVenda";
                         cmd = new SqlCommand(query, this.connection);
                         cmd.Parameters.AddWithValue("@IdVenda", venda.IdVenda);
@@ -100,7 +100,7 @@ namespace Trinity.Model.DAO
 
                 foreach (ItemVendido item in listaItemVendidoDeletado)
                 {
-                    MessageBox.Show("Item Vendido DELETADO");
+                    //MessageBox.Show("Item Vendido DELETADO");
                     query = "EXECUTE SP_DELETA_ITEMVENDIDO @IdVenda, @IdProduto";
                         cmd = new SqlCommand(query, this.connection);
                         cmd.Parameters.AddWithValue("@IdVenda", venda.IdVenda);
