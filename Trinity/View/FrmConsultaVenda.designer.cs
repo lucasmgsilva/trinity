@@ -30,24 +30,25 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaVenda));
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeRazaoSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApelidoNomeFantasia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvVendas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +89,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgvClientes);
+            this.groupBox2.Controls.Add(this.dgvVendas);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 139);
             this.groupBox2.Name = "groupBox2";
@@ -97,55 +98,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de Vendas";
             // 
-            // dgvClientes
+            // dgvVendas
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToResizeRows = false;
+            this.dgvVendas.AllowUserToAddRows = false;
+            this.dgvVendas.AllowUserToDeleteRows = false;
+            this.dgvVendas.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.dgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdCliente,
-            this.NomeRazaoSocial,
-            this.ApelidoNomeFantasia,
-            this.CpfCnpj});
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 22);
-            this.dgvClientes.MultiSelect = false;
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(866, 361);
-            this.dgvClientes.TabIndex = 0;
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.DataPropertyName = "IdCliente";
-            dataGridViewCellStyle2.Format = "000000";
-            this.IdCliente.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IdCliente.HeaderText = "ID";
-            this.IdCliente.Name = "IdCliente";
-            this.IdCliente.ReadOnly = true;
-            // 
-            // NomeRazaoSocial
-            // 
-            this.NomeRazaoSocial.DataPropertyName = "(ClientePF) Nome";
-            this.NomeRazaoSocial.HeaderText = "NOME/RAZÃO SOCIAL";
-            this.NomeRazaoSocial.Name = "NomeRazaoSocial";
-            this.NomeRazaoSocial.ReadOnly = true;
-            // 
-            // ApelidoNomeFantasia
-            // 
-            this.ApelidoNomeFantasia.HeaderText = "APELIDO/NOME FANTASIA";
-            this.ApelidoNomeFantasia.Name = "ApelidoNomeFantasia";
-            this.ApelidoNomeFantasia.ReadOnly = true;
-            // 
-            // CpfCnpj
-            // 
-            this.CpfCnpj.HeaderText = "CPF/CNPJ";
-            this.CpfCnpj.Name = "CpfCnpj";
-            this.CpfCnpj.ReadOnly = true;
+            this.dgvVendas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.DataVenda,
+            this.usuario,
+            this.valorTotal});
+            this.dgvVendas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVendas.Location = new System.Drawing.Point(3, 22);
+            this.dgvVendas.MultiSelect = false;
+            this.dgvVendas.Name = "dgvVendas";
+            this.dgvVendas.ReadOnly = true;
+            this.dgvVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVendas.Size = new System.Drawing.Size(866, 361);
+            this.dgvVendas.TabIndex = 0;
+            this.dgvVendas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
             // groupBox1
             // 
@@ -209,6 +183,38 @@
             this.panel1.Size = new System.Drawing.Size(884, 47);
             this.panel1.TabIndex = 57;
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "IdVenda";
+            dataGridViewCellStyle2.Format = "000000";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // DataVenda
+            // 
+            this.DataVenda.DataPropertyName = "DataVenda";
+            this.DataVenda.HeaderText = "DATA";
+            this.DataVenda.Name = "DataVenda";
+            this.DataVenda.ReadOnly = true;
+            // 
+            // usuario
+            // 
+            this.usuario.DataPropertyName = "Usuario.usuario";
+            this.usuario.HeaderText = "USUÁRIO";
+            this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
+            // 
+            // valorTotal
+            // 
+            this.valorTotal.DataPropertyName = "valorTotal";
+            dataGridViewCellStyle3.Format = "C2";
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.valorTotal.HeaderText = "TOTAL";
+            this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
+            // 
             // FrmConsultaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,8 +232,9 @@
             this.Name = "FrmConsultaVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Trinity: Consulta de Vendas";
+            this.Load += new System.EventHandler(this.FrmConsultaVenda_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -242,16 +249,16 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeRazaoSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApelidoNomeFantasia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CpfCnpj;
+        private System.Windows.Forms.DataGridView dgvVendas;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorTotal;
     }
 }

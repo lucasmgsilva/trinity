@@ -303,6 +303,18 @@ INNER JOIN CIDADE ON FORNECEDOR.idCidade = CIDADE.idCidade
 INNER JOIN ESTADO ON CIDADE.idEstado = ESTADO.idEstado
 GO
 
+CREATE VIEW VW_SELECIONA_VENDAS 
+AS 
+SELECT Venda.idVenda, Venda.dataVenda, Venda.desconto, VENDA.idCliente, USUARIO.idUsuario, USUARIO.usuario, CLIENTEPF.nome, CLIENTEPJ.razaoSocial, (SUM(qtdVendida * valorVenda)-venda.desconto) as 'valorTotal' FROM VENDA
+	INNER JOIN USUARIO ON USUARIO.idUsuario = Venda.idUsuario
+	inner join ITEMVENDIDO on venda.idVenda = ITEMVENDIDO.idVenda
+	LEFT JOIN CLIENTEPF ON CLIENTEPF.idCliente = VENDA.idCliente
+	LEFT JOIN CLIENTEPJ ON CLIENTEPJ.idCliente = VENDA.idCliente
+	group by Venda.idVenda, Venda.dataVenda, Venda.desconto, VENDA.idCliente, USUARIO.idUsuario, USUARIO.usuario, CLIENTEPF.nome, CLIENTEPJ.razaoSocial
+GO
+
+
+
 CREATE VIEW VW_SELECIONA_ESTADO 
 AS 
 SELECT * FROM ESTADO
