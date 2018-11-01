@@ -87,7 +87,21 @@ namespace Trinity.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            CarregaListaVendas();
+            if (dgvVendas.RowCount != 0)
+            {
+                if (dgvVendas.CurrentRow.Selected)
+                {
+                    if (MessageBox.Show("Você realmente quer excluir esta VENDA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        int idVenda = Convert.ToInt32(dgvVendas.CurrentRow.Cells["Id"].Value.ToString());
+                        VendaDAO dao = new VendaDAO();
+                        dao.DeletaVenda(idVenda);
+                        CarregaListaVendas();
+                    }
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma VENDA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma VENDA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

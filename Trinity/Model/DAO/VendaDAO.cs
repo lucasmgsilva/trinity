@@ -117,5 +117,25 @@ namespace Trinity.Model.DAO
                 throw ex;
             }
         }
+
+        public void DeletaVenda(int idVenda)
+        {
+            string query = "EXECUTE SP_DELETA_VENDA @IdVenda";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@IdVenda", idVenda);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("A Venda foi excluída com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.connection.Close();
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                    MessageBox.Show("Não foi possível realizar a operação.\nEsta VENDA está sendo referenciada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
