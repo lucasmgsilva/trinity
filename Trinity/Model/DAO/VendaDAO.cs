@@ -52,11 +52,68 @@ namespace Trinity.Model.DAO
                 this.connection.Close();
                 MessageBox.Show("A venda foi cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                if (ex.Number == 2627)
-                    MessageBox.Show("Não foi possível realizar a operação.\nJá existe um cadastro com este CARGO!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("Um erro inesperado ocorreu: \n" + ex.Message, "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
+
+        public void AlteraVenda(Venda venda, List<ItemVendido> listaItemVendidoNovo, List<ItemVendido> listaItemVendidoAlterado, List<ItemVendido> listaItemVendidoDeletado)
+        {
+            string query = "EXECUTE SP_ALTERA_VENDA " +
+                           "@IdVenda, @IdUsuario, @IdCliente, @DataVenda, @Desconto";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@IdVenda", venda.IdVenda);
+                cmd.Parameters.AddWithValue("@IdUsuario", venda.Usuario.IdUsuario);
+                cmd.Parameters.AddWithValue("@IdCliente", venda.Cliente.IdCliente);
+                cmd.Parameters.AddWithValue("@DataVenda", venda.DataVenda);
+                cmd.Parameters.AddWithValue("@Desconto", venda.Desconto);
+                cmd.ExecuteNonQuery();
+
+                foreach (ItemVendido item in listaItemVendidoNovo)
+                {
+                    MessageBox.Show("Item Vendido NOVO");
+                    query = "EXECUTE SP_INSERE_ITEMVENDIDO @IdVenda, @IdProduto, @QtdVendida, @ValorVenda";
+                        cmd = new SqlCommand(query, this.connection);
+                        cmd.Parameters.AddWithValue("@IdVenda", venda.IdVenda);
+                        cmd.Parameters.AddWithValue("@IdProduto", item.Produto.IdProduto);
+                        cmd.Parameters.AddWithValue("@QtdVendida", item.QtdVendida);
+                        cmd.Parameters.AddWithValue("@ValorVenda", item.ValorVenda);
+                        cmd.ExecuteNonQuery();
+                }
+
+                foreach (ItemVendido item in listaItemVendidoAlterado)
+                {
+                    MessageBox.Show("Item Vendido ALTERADO");
+                    query = "EXECUTE SP_ALTERA_ITEMVENDIDO @IdVenda, @IdProduto, @QtdVendida, @ValorVenda";
+                        cmd = new SqlCommand(query, this.connection);
+                        cmd.Parameters.AddWithValue("@IdVenda", venda.IdVenda);
+                        cmd.Parameters.AddWithValue("@IdProduto", item.Produto.IdProduto);
+                        cmd.Parameters.AddWithValue("@QtdVendida", item.QtdVendida);
+                        cmd.Parameters.AddWithValue("@ValorVenda", item.ValorVenda);
+                        cmd.ExecuteNonQuery();
+                }
+
+                foreach (ItemVendido item in listaItemVendidoDeletado)
+                {
+                    MessageBox.Show("Item Vendido DELETADO");
+                    query = "EXECUTE SP_DELETA_ITEMVENDIDO @IdVenda, @IdProduto";
+                        cmd = new SqlCommand(query, this.connection);
+                        cmd.Parameters.AddWithValue("@IdVenda", venda.IdVenda);
+                        cmd.Parameters.AddWithValue("@IdProduto", item.Produto.IdProduto);
+                        cmd.ExecuteNonQuery();
+                }
+
+                this.connection.Close();
+                MessageBox.Show("A VENDA foi alterada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
             }
         }
 

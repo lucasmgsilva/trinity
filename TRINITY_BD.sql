@@ -722,10 +722,43 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_ALTERA_VENDA(@IdVenda INT, @IdUsuario INT, @IdCliente INT, @DataVenda DATETIME, @Desconto MONEY)
+AS
+BEGIN 
+	UPDATE 
+		VENDA
+	SET 
+		idUsuario = @IdUsuario, idCliente = @IdCliente, dataVenda = @DataVenda, desconto = @Desconto
+	WHERE idVenda = @IdVenda
+END
+GO
+
 CREATE PROCEDURE SP_INSERE_ITEMVENDIDO (@IdVenda INT, @IdProduto INT, @QtdVendida FLOAT, @ValorVenda MONEY)
 AS
 BEGIN
 	INSERT INTO ITEMVENDIDO (idVenda, idProduto, qtdVendida, valorVenda)
 	VALUES (@IdVenda, @IdProduto, @QtdVendida, @ValorVenda)
+END
+GO
+
+CREATE PROCEDURE SP_ALTERA_ITEMVENDIDO (@IdVenda INT, @IdProduto INT, @QtdVendida FLOAT, @ValorVenda MONEY)
+AS
+BEGIN
+	UPDATE
+		ITEMVENDIDO
+	SET 
+		qtdVendida = @QtdVendida, valorVenda = @ValorVenda
+	WHERE
+		idVenda = @IdVenda AND idProduto = @IdProduto
+END
+GO
+
+CREATE PROCEDURE SP_DELETA_ITEMVENDIDO (@IdVenda INT, @IdProduto INT)
+AS
+BEGIN
+	DELETE FROM 
+		ITEMVENDIDO
+	WHERE
+		idVenda = @IdVenda AND idProduto = @IdProduto
 END
 GO

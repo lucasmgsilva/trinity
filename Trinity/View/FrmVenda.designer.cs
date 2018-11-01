@@ -76,6 +76,7 @@
             this.epVendas = new System.Windows.Forms.ErrorProvider(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.lblItemVendido = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemVendido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecoTotal)).BeginInit();
@@ -132,6 +133,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblItemVendido);
             this.groupBox2.Controls.Add(this.dgvItemVendido);
@@ -261,9 +263,9 @@
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(7, 331);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 19);
+            this.label5.Size = new System.Drawing.Size(154, 19);
             this.label5.TabIndex = 69;
-            this.label5.Text = "PREÇO TOTAL:";
+            this.label5.Text = "PREÇO TOTAL: R$";
             // 
             // btnLimparSeleção
             // 
@@ -469,7 +471,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(669, 331);
+            this.label18.Location = new System.Drawing.Point(617, 331);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(151, 19);
             this.label18.TabIndex = 71;
@@ -539,7 +541,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(134, 112);
+            this.label2.Location = new System.Drawing.Point(135, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 19);
             this.label2.TabIndex = 78;
@@ -549,11 +551,21 @@
             // 
             this.lblItemVendido.AutoSize = true;
             this.lblItemVendido.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemVendido.Location = new System.Drawing.Point(6, 112);
+            this.lblItemVendido.Location = new System.Drawing.Point(7, 112);
             this.lblItemVendido.Name = "lblItemVendido";
             this.lblItemVendido.Size = new System.Drawing.Size(128, 19);
             this.lblItemVendido.TabIndex = 77;
             this.lblItemVendido.Text = "Itens Vendidos:";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(161, 331);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(40, 19);
+            this.lblTotal.TabIndex = 79;
+            this.lblTotal.Text = "0,00";
             // 
             // FrmVenda
             // 
@@ -633,5 +645,6 @@
         private System.Windows.Forms.ErrorProvider epVendas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblItemVendido;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

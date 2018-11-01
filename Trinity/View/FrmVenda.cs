@@ -18,6 +18,9 @@ namespace Trinity.View
         bool editando;
         Venda vendaCarregada;
         List<ItemVendido> listaItemVendido = new List<ItemVendido>();
+        List<ItemVendido> listaItemVendidoNovo = new List<ItemVendido>();
+        List<ItemVendido> listaItemVendidoAlterado = new List<ItemVendido>();
+        List<ItemVendido> listaItemVendidoDeletado = new List<ItemVendido>();
         List<Cliente> listaClientes;
 
         public FrmVenda(Venda vendaCarregada)
@@ -26,10 +29,24 @@ namespace Trinity.View
             this.vendaCarregada = vendaCarregada;
         }
 
+        private void CalculaTotalEQtd()
+        {
+            Double soma = 0, qtd = 0;
+            foreach (var item in listaItemVendido)
+            {
+                soma += item.QtdVendida * item.ValorVenda;
+                qtd += item.QtdVendida;
+            }
+            MessageBox.Show(soma.ToString());
+            lblTotal.Text = soma.ToString();
+
+        }
+
         public void CarregaListaItemVendido()
         {
             dgvItemVendido.AutoGenerateColumns = false;
             dgvItemVendido.DataSource = new BindingList<ItemVendido>(this.listaItemVendido);
+            CalculaTotalEQtd();
         }
 
         public void DefineListaItemVendido()
@@ -38,6 +55,7 @@ namespace Trinity.View
             vendaCarregada.ListaItemVendidos = new VendaDAO().GetListaItensVendidos(vendaCarregada.IdVenda);
             listaItemVendido = vendaCarregada.ListaItemVendidos;
             dgvItemVendido.DataSource = new BindingList<ItemVendido>(this.listaItemVendido);
+            CalculaTotalEQtd();
         }
 
         public void DefineCliente(int IdCliente)
@@ -145,8 +163,42 @@ namespace Trinity.View
             return hasErros;
         }
 
+        private void ExibeListas()
+        {
+            string produtosNovos = "";
+            string produtosAlterados = "";
+            string produtosDeletados = "";
+
+            foreach (var item in listaItemVendidoNovo)
+            {
+                produtosNovos += item.Produto.IdProduto + " - " + item.Produto.Descricao + "\n";
+            }
+
+            foreach (var item in listaItemVendidoAlterado)
+            {
+                produtosAlterados += item.Produto.IdProduto + " - " + item.Produto.Descricao + "\n";
+            }
+
+            foreach (var item in listaItemVendidoDeletado)
+            {
+                produtosDeletados += item.Produto.IdProduto + " - " + item.Produto.Descricao + "\n";
+            }
+
+            MessageBox.Show("Produtos Novos: \n" + 
+                produtosNovos + 
+                "\n------\n" + 
+                "Produtos Alterados: \n" + 
+                produtosAlterados + 
+                "\n------\n" + 
+                "Produtos Deletados: \n" + 
+                produtosDeletados);
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+
+            //ExibeListas();
+
             if (!ValidaCampos())
             {
                 if (this.vendaCarregada == null)
@@ -161,7 +213,7 @@ namespace Trinity.View
                 if (!this.editando)
                     new VendaDAO().AdicionaVenda(this.vendaCarregada);
                 else
-                    new VendaDAO().AdicionaVenda(this.vendaCarregada);
+                    new VendaDAO().AlteraVenda(this.vendaCarregada, listaItemVendidoNovo, listaItemVendidoAlterado, listaItemVendidoDeletado);
                 this.Close();
             }
             else
@@ -225,12 +277,29 @@ namespace Trinity.View
 
             if(itemVendidoExistente == null) //Novo
             {
+                itemVendidoExistente = itemVendido;
                 this.listaItemVendido.Add(itemVendido);
+                this.listaItemVendidoNovo.Add(itemVendido);
             } else //Atualiza - Já existe
             {
                 itemVendidoExistente.QtdVendida += itemVendido.QtdVendida;
                 itemVendidoExistente.ValorVenda = itemVendido.ValorVenda;
                 itemVendidoExistente.ValorTotal = itemVendidoExistente.QtdVendida * itemVendido.ValorVenda;
+                listaItemVendidoAlterado.Add(itemVendidoExistente);
+                //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+            }
+
+            //Verifica se item vendido adicionado havia sido removido
+            foreach (var item in listaItemVendidoDeletado)
+            {
+                if(item.Produto.IdProduto == itemVendido.IdProduto)
+                {
+                    listaItemVendidoDeletado.Remove(item);
+                    //MessageBox.Show("Removido da ListaItemVendidoDeletado");
+                    listaItemVendidoAlterado.Add(itemVendidoExistente);
+                    //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
+                    break;
+                }
             }
             CarregaListaItemVendido();
         }
@@ -286,6 +355,11 @@ namespace Trinity.View
                     {
                         if(item.Produto.IdProduto == idProduto)
                         {
+                            if (this.editando)
+                            {
+                                this.listaItemVendidoDeletado.Add(item);
+                                //MessageBox.Show("Adicionado na ListaItemVendidoDeletado");
+                            }
                             this.listaItemVendido.Remove(item);
                             break;
                         }
