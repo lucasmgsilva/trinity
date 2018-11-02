@@ -117,6 +117,8 @@ namespace Trinity.Model.DAO
             }
         }
 
+
+
         public List<Venda> GetListaVendas()
         {
             string query = "SELECT * FROM VW_SELECIONA_VENDAS";
@@ -152,6 +154,67 @@ namespace Trinity.Model.DAO
                         };
                         venda.Cliente = clientepf;
                     } else
+                    { //É cliente PJ
+                        ClientePJ clientepj = new ClientePJ()
+                        {
+                            IdCliente = Convert.ToInt32(dtr["idCliente"].ToString()),
+                            RazaoSocial = dtr["razaoSocial"].ToString()
+                        };
+                        venda.Cliente = clientepj;
+                    }
+
+                    listaVendas.Add(venda);
+                }
+
+                dtr.Close();
+                this.connection.Close();
+
+                return listaVendas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+                throw ex;
+            }
+        }
+
+        public List<Venda> GetListaVendasChave(String palavraChave)
+        {
+            string query = "EXECUTE SP_BUSCA_VENDA_CHAVE @palavraChave";
+            try
+            {
+                this.connection.Open();
+                SqlCommand cmd = new SqlCommand(query, this.connection);
+                cmd.Parameters.AddWithValue("@palavraChave", palavraChave);
+                SqlDataReader dtr = cmd.ExecuteReader();
+                List<Venda> listaVendas = new List<Venda>();
+
+                while (dtr.Read())
+                {
+                    //Venda
+                    Venda venda = new Venda()
+                    {
+                        IdVenda = Convert.ToInt32(dtr["idVenda"].ToString()),
+                        DataVenda = Convert.ToDateTime(dtr["dataVenda"].ToString()),
+                        Desconto = Convert.ToDouble(dtr["desconto"].ToString()),
+                        Usuario = new Usuario()
+                        {
+                            IdUsuario = Convert.ToInt32(dtr["idUsuario"].ToString()),
+                            usuario = dtr["usuario"].ToString()
+                        },
+                        ValorTotal = Convert.ToDouble(dtr["valorTotal"].ToString())
+                    };
+
+                    if (!String.IsNullOrWhiteSpace(dtr["nome"].ToString()))
+                    { //É cliente PF
+                        ClientePF clientepf = new ClientePF()
+                        {
+                            IdCliente = Convert.ToInt32(dtr["idCliente"].ToString()),
+                            Nome = dtr["nome"].ToString()
+                        };
+                        venda.Cliente = clientepf;
+                    }
+                    else
                     { //É cliente PJ
                         ClientePJ clientepj = new ClientePJ()
                         {

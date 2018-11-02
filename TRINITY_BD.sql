@@ -132,6 +132,24 @@ CREATE TABLE PRODUTO (
 )
 GO
 
+
+CREATE TABLE CLIENTE (
+	idCliente INT NOT NULL IDENTITY,
+    logradouro VARCHAR(70) NOT NULL,
+    numero VARCHAR(8) NOT NULL,
+    complemento VARCHAR(30),
+	bairro VARCHAR(30) NOT NULL,
+    idCidade INT NOT NULL,
+    cep CHAR(9) NOT NULL,
+	telefoneFixo CHAR(14),
+	telefoneCelular CHAR(15),
+    observacoes TEXT,
+    dataCadastro DATETIME NOT NULL,
+    PRIMARY KEY (idCliente),
+    FOREIGN KEY (idCidade) REFERENCES CIDADE (idCidade)
+)
+GO
+
 CREATE TABLE VENDA (
 	idVenda INT NOT NULL IDENTITY,
     idUsuario INT NOT NULL,
@@ -177,23 +195,6 @@ CREATE TABLE ITEMCOMPRADO (
 	PRIMARY KEY (idCompra, idProduto),
     FOREIGN KEY (idCompra) REFERENCES COMPRA (idCompra),
     FOREIGN KEY (idProduto) REFERENCES PRODUTO (idProduto)
-)
-GO
-
-CREATE TABLE CLIENTE (
-	idCliente INT NOT NULL IDENTITY,
-    logradouro VARCHAR(70) NOT NULL,
-    numero VARCHAR(8) NOT NULL,
-    complemento VARCHAR(30),
-	bairro VARCHAR(30) NOT NULL,
-    idCidade INT NOT NULL,
-    cep CHAR(9) NOT NULL,
-	telefoneFixo CHAR(14),
-	telefoneCelular CHAR(15),
-    observacoes TEXT,
-    dataCadastro DATETIME NOT NULL,
-    PRIMARY KEY (idCliente),
-    FOREIGN KEY (idCidade) REFERENCES CIDADE (idCidade)
 )
 GO
 
@@ -776,4 +777,24 @@ BEGIN
 	WHERE
 		idVenda = @IdVenda AND idProduto = @IdProduto
 END
+GO
+
+CREATE PROCEDURE SP_BUSCA_VENDA_CHAVE @palavraChave VARCHAR(100)
+AS 
+SELECT 
+	VENDA.idVenda, VENDA.dataVenda, VENDA.desconto, VENDA.idCliente, 
+	USUARIO.idUsuario, USUARIO.usuario, 
+	CLIENTEPF.nome, 
+	CLIENTEPJ.razaoSocial, 
+	(SUM(qtdVendida * valorVenda)-venda.desconto) AS 'valorTotal' 
+FROM VENDA
+	INNER JOIN USUARIO ON USUARIO.idUsuario = VENDA.idUsuario
+	INNER JOIN ITEMVENDIDO ON VENDA.idVenda = ITEMVENDIDO.idVenda
+	LEFT JOIN CLIENTEPF ON CLIENTEPF.idCliente = VENDA.idCliente
+	LEFT JOIN CLIENTEPJ ON CLIENTEPJ.idCliente = VENDA.idCliente
+WHERE 
+	USUARIO.usuario LIKE '%' + @palavraChave + '%' OR
+	VENDA.dataVenda LIKE '%' + @palavraChave + '%'
+GROUP BY 
+	Venda.idVenda, Venda.dataVenda, Venda.desconto, VENDA.idCliente, USUARIO.idUsuario, USUARIO.usuario, CLIENTEPF.nome, CLIENTEPJ.razaoSocial
 GO

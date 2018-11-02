@@ -17,6 +17,7 @@ namespace Trinity.Factory
                 //return new SqlConnection(ConfigurationManager.ConnectionStrings["Data Source=DESKTOP-TVLFH4O\\SQLEXPRESS;Catalog=TRINITY;Integrated Security=True;"].ToString());
                 //return new SqlConnection("Data Source=HIT\\DADOS;Initial Catalog=TRINITY;User ID=sa;Password=root");
                 return new SqlConnection("Data Source=Lucas-PC\\SQLExpress;Initial Catalog=TRINITY;User ID=sa;Password=root");
+                //return new SqlConnection("Data Source=DESKTOP-TVLFH4O\\SQLEXPRESS;Initial Catalog=TRINITY;User ID=sa;Password=root");
             } catch (SqlException e)
             {
                 throw e;

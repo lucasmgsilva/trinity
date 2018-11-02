@@ -29,6 +29,14 @@ namespace Trinity.View
             dgvVendas.DataSource = new BindingList<Venda>(listaVendas);
         }
 
+        public void CarregaListaVendasChave()
+        {
+            dgvVendas.AutoGenerateColumns = false;
+            String palavraChave = txtPalavraChave.Text.Replace(" ", "%");
+            listaVendas = new VendaDAO().GetListaVendasChave(palavraChave);
+            dgvVendas.DataSource = new BindingList<Venda>(listaVendas);
+        }
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             FrmVenda telaVenda = new FrmVenda(null);
@@ -113,6 +121,21 @@ namespace Trinity.View
                 else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma VENDA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma VENDA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtPalavraChave.Text == "")
+            {
+                CarregaListaVendas();
+                //MessageBox.Show("Insira PALAVRAS-CHAVE!", "Atenção",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //txtPalavraChave.Focus();
+            }
+            else
+            {
+                CarregaListaVendasChave();
+                txtPalavraChave.Text = String.Empty;
+            }
         }
     }
 }
