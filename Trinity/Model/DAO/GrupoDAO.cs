@@ -51,7 +51,7 @@ namespace Trinity.Model.DAO
             }
         }
 
-        public bool Alterar(Grupo grupo)
+        public bool AlteraGrupo (Grupo grupo)
         {
             try
             {
@@ -153,7 +153,7 @@ namespace Trinity.Model.DAO
             }
         }
 
-        public bool Excluir(int id)
+        public bool DeletaGrupo(int id)
         {
             try
             {

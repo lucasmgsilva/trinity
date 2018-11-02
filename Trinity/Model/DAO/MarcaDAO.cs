@@ -94,7 +94,7 @@ namespace Trinity.Model.DAO
             }
         }
 
-        public bool Alterar(Marca marca)
+        public bool AlteraMarca(Marca marca)
         {
             string query = "EXECUTE SP_ALTERA_MARCA @Id, @Marca";
             try
@@ -159,7 +159,7 @@ namespace Trinity.Model.DAO
             }
         }
 
-        public bool Excluir(int id)
+        public bool DeletaMarca(int id)
         {
             try
             {

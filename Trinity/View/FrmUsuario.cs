@@ -43,7 +43,7 @@ namespace Trinity.View
         public void CarregaCargo()
         {
             cmbCargo.DisplayMember = "cargo";
-            cmbCargo.DataSource = new CargoDAO().GetListaCargo();
+            cmbCargo.DataSource = new CargoDAO().GetListaCargos();
         }
 
         public void SelecionaCargo()
@@ -165,7 +165,7 @@ namespace Trinity.View
 
         private void label7_Click(object sender, EventArgs e)
         {
-            new FrmCargo(1).ShowDialog();
+            new FrmCargo().ShowDialog();
             CarregaCargo();
             SelecionaCargo();
         }

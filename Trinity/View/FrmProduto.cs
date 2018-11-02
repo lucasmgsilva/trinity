@@ -210,7 +210,7 @@ namespace Trinity
 
         private void label6_Click(object sender, EventArgs e)
         {
-            new FrmUnidadeMedida(1).ShowDialog();
+            new FrmUnidadeMedida().ShowDialog();
             CarregaUnidadeMedida();
             SelecionaUnidadeMedida();
         }
@@ -227,14 +227,14 @@ namespace Trinity
 
         private void label5_Click(object sender, EventArgs e)
         {
-            new FrmMarca(1).ShowDialog();
+            new FrmMarca().ShowDialog();
             CarregaMarca();
             SelecionaMarca();
         }
 
         private void label22_Click(object sender, EventArgs e)
         {
-            new FrmGrupo(1).ShowDialog();
+            new FrmGrupo().ShowDialog();
             CarregaGrupo();
             SelecionaGrupo();
         }

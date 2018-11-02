@@ -14,185 +14,157 @@ namespace Trinity.View
 {
     public partial class FrmUnidadeMedida : Form
     {
+        List<UnidadeMedida> listaUnidadesMedida;
+        bool editando;
+        UnidadeMedida unidadeMedidaCarregada;
 
-        private bool boolEditando;
-        private bool boolEquals = false;
-        
-        public FrmUnidadeMedida(byte type = 0)
+        public FrmUnidadeMedida()
         {
             InitializeComponent();
-            if (type == 1)
-                HabilitaBotoesInclusao();
-            else
-            {
-                Pesquisa();
-                HabilitaBotoes(true);
-            }
+            this.editando = false;
+            LimpaCampos();
         }
 
-        private void Pesquisa()
+        private void DesabilitaCampos()
         {
-            try
-            {
-                UnidadeMedida unidade = new UnidadeMedidaDAO().Pesquisar();
-                if (unidade != null)
-                    PreenchaCampos(unidade);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao pesquisar a unidade de medida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            txtSigla.Enabled = false;
+            txtUnidadeMedida.Enabled = false;
         }
 
-        private void PreenchaCampos(UnidadeMedida unidade)
+        private void HabilitaCampos()
         {
-            txtId.Text = unidade.IdUnidadeMedida.ToString("D3");
-            txtSigla.Text = unidade.Sigla;
-            txtUnidadeMedida.Text = unidade.unidadeMedida;
+            txtSigla.Enabled = !false;
+            txtUnidadeMedida.Enabled = !false;
         }
 
-        private void HabilitaBotoes(bool state)
+        private void HabilitaBotoes()
         {
-            HabilitaCampo(state);
-            btnNovo.Enabled = state;
-            btnSalvar.Enabled = !state && boolEditando;
-            btnExcluir.Enabled = state && !string.IsNullOrWhiteSpace(txtSigla.Text);
-            btnEditar.Enabled = state && !string.IsNullOrWhiteSpace(txtSigla.Text);
+            DesabilitaCampos();
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnExcluir.Enabled = true;
         }
 
-        private void HabilitaCampo(bool state)
+        private void DesabilitaBotoes()
         {
-            txtSigla.Enabled = !state;
-            txtUnidadeMedida.Enabled = !state;
+            HabilitaCampos();
+            btnNovo.Enabled = !true;
+            btnSalvar.Enabled = !false;
+            btnEditar.Enabled = !true;
+            btnExcluir.Enabled = !true;
         }
 
-        private void HabilitaBotoesInclusao()
+        private void LimpaCampos()
         {
-            btnNovo.Enabled = false;
-            btnExcluir.Enabled = false;
-            btnEditar.Enabled = false;
-            btnCancelar.Enabled = false;
+            HabilitaBotoes();
+            txtSigla.Text = String.Empty;
+            txtUnidadeMedida.Text = String.Empty;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(!validaCampos())
+            if (!String.IsNullOrEmpty(txtUnidadeMedida.Text))
             {
-                if (txtSigla.Text.Trim().Length == 2)
-                {
-                    if (!boolEquals)
-                    {
-                        UnidadeMedida unidadeMedida = new UnidadeMedida();
-                        unidadeMedida.Sigla = txtSigla.Text.Trim();
-                        unidadeMedida.unidadeMedida = txtUnidadeMedida.Text.Trim();
+                if (this.unidadeMedidaCarregada == null)
+                    this.unidadeMedidaCarregada = new UnidadeMedida();
 
-                        bool gravou = false;
-                        if (txtId.Text.Equals(string.Empty))
-                            gravou = new UnidadeMedidaDAO().AdicionaUnidadeMedida(unidadeMedida);
-                        else
-                        {
-                            unidadeMedida.IdUnidadeMedida = Convert.ToInt32(txtId.Text);
-                            gravou = new UnidadeMedidaDAO().AlterarUnidadeMedida(unidadeMedida);
-                        }
+                this.unidadeMedidaCarregada.Sigla = txtSigla.Text;
+                this.unidadeMedidaCarregada.unidadeMedida = txtUnidadeMedida.Text;
 
-                        if(gravou)
-                            this.Close();
-                    }
-                    else
-                        MessageBox.Show("Já existe uma unidade de medida com esta sigla.\n Não sendo possível inserir esta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                } else
-                    MessageBox.Show("Não foi possível realizar a operação.\nO campo SIGLA deve obrigatoriamente ter 2 (dois) caracteres!!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            } else
-                MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
-        }
-
-        private bool validaCampos()
-        {
-            bool hasErrors = false;
-            epUn.Clear();
-
-            if (string.IsNullOrWhiteSpace(txtSigla.Text.Trim()))
-            {
-                hasErrors = true;
-                epUn.SetError(lblSigla, "A sigla é obrigatória.");
-            }
-
-            if (string.IsNullOrWhiteSpace(txtUnidadeMedida.Text.Trim()))
-            {
-                hasErrors = true;
-                epUn.SetError(lblUnidade, "A descrição é obrigatória.");
-            }
-
-            return hasErrors;
+                UnidadeMedidaDAO dao = new UnidadeMedidaDAO();
+                if (!this.editando)
+                    dao.AdicionaUnidadeMedida(this.unidadeMedidaCarregada);
+                else dao.AlterarUnidadeMedida(this.unidadeMedidaCarregada);
+                CarregaListaUnidadesMedida();
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (boolEditando  && MessageBox.Show("Deseja desfazer as alterações?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (this.editando)
             {
-                boolEditando = false;
-                Pesquisa();
-                HabilitaBotoes(true);
+                if (MessageBox.Show("Você realmente quer desfazer as alterações desta UNIDADE DE MEDIDA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    HabilitaBotoes();
+                    this.editando = false;
+                    CarregaUnidadesMedida();
+                }
             }
-            else
-                this.Close();
-                
+            else this.Close();
         }
 
         private void FrmUnidadeMedida_Load(object sender, EventArgs e)
         {
-
+            CarregaListaUnidadesMedida();
         }
 
-        private void btnNovo_Click(object sender, EventArgs e)
+        public void CarregaListaUnidadesMedida()
         {
-            boolEditando = true;
-            HabilitaBotoes(false);
-            txtId.Text = string.Empty;
-            txtSigla.Text = string.Empty;
-            txtUnidadeMedida.Text = string.Empty;
-            txtSigla.Focus();
+            dgvUnidadesMedida.AutoGenerateColumns = false;
+            listaUnidadesMedida = new UnidadeMedidaDAO().GetListaUnidadesMedida();
+            dgvUnidadesMedida.DataSource = new BindingList<UnidadeMedida>(listaUnidadesMedida);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            boolEditando = true;
-            HabilitaBotoes(false);
-            txtSigla.Focus();
+            if (dgvUnidadesMedida.RowCount != 0)
+            {
+                if (dgvUnidadesMedida.CurrentRow.Selected)
+                {
+                    this.editando = true;
+                    DesabilitaBotoes();
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma UNIDADE DE MEDIDA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma UNIDADE DE MEDIDA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dgvMarcas_SelectionChanged(object sender, EventArgs e)
+        {
+            LimpaCampos();
+            if (dgvUnidadesMedida.RowCount != 0)
+            {
+                if (dgvUnidadesMedida.CurrentRow.Selected)
+                {
+                    this.editando = false;
+                    int idUnidadeMedida = Convert.ToInt32(dgvUnidadesMedida.CurrentRow.Cells["idUnidadeMedida"].Value.ToString());
+                    this.unidadeMedidaCarregada = this.listaUnidadesMedida.Find(u => u.IdUnidadeMedida == idUnidadeMedida);
+                    CarregaUnidadesMedida();
+                }
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma UNIDADE DE MEDIDA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void CarregaUnidadesMedida()
+        {
+            txtSigla.Text = unidadeMedidaCarregada.Sigla;
+            txtUnidadeMedida.Text = unidadeMedidaCarregada.unidadeMedida;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            this.editando = false;
+            LimpaCampos();
+            DesabilitaBotoes();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Tem certeza que deseja excluir esta unidade de medida?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (dgvUnidadesMedida.RowCount != 0)
             {
-                try
+                if (dgvUnidadesMedida.CurrentRow.Selected)
                 {
-                    if (new UnidadeMedidaDAO().Excluir(Convert.ToInt32(txtId.Text)))
+                    if (MessageBox.Show("Você realmente quer excluir esta UNIDADE DE MEDIDA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Unidade de Medida excluída com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Pesquisa();
-                        HabilitaBotoes(true);
+                        UnidadeMedidaDAO dao = new UnidadeMedidaDAO();
+                        dao.DeletaUnidadeMedida(this.unidadeMedidaCarregada.IdUnidadeMedida);
+                        CarregaListaUnidadesMedida();
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ocorreu um erro.\nErro: " + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma UNIDADE DE MEDIDA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void txtSigla_Leave(object sender, EventArgs e)
-        {
-            if(txtId.Text == string.Empty && txtSigla.Text.Trim().Length == 2)
-            {
-                if (new UnidadeMedidaDAO().verificaSigla(txtSigla.Text.Trim()))
-                {
-                    MessageBox.Show("Já existe uma unidade de medida com esta sigla.\n Não sendo possível inserir esta.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    boolEquals = true;
-                }
-                else
-                    boolEquals = false;
-            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma UNIDADE DE MEDIDA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

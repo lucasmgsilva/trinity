@@ -124,7 +124,7 @@ namespace Trinity.Model.DAO
             return un;
         }
 
-        public bool Excluir(int Id)
+        public bool DeletaUnidadeMedida(int Id)
         {
             try
             {

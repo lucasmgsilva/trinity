@@ -38,18 +38,18 @@
             this.mnPrincipal = new System.Windows.Forms.MenuStrip();
             this.minhaEmpresaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosBaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unMedidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -169,17 +169,6 @@
             this.vendasToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
-            // comprasToolStripMenuItem
-            // 
-            this.comprasToolStripMenuItem.Enabled = false;
-            this.comprasToolStripMenuItem.Image = global::Trinity.Properties.Resources.compra_32px;
-            this.comprasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(75, 51);
-            this.comprasToolStripMenuItem.Text = "COMPRAS";
-            this.comprasToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.comprasToolStripMenuItem.Visible = false;
-            // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Enabled = false;
@@ -224,6 +213,40 @@
             this.usuariosToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
             // 
+            // cadastrosBaseMenuItem
+            // 
+            this.cadastrosBaseMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unMedidaToolStripMenuItem,
+            this.marcaToolStripMenuItem,
+            this.grupoToolStripMenuItem});
+            this.cadastrosBaseMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastrosBaseMenuItem.Image")));
+            this.cadastrosBaseMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cadastrosBaseMenuItem.Name = "cadastrosBaseMenuItem";
+            this.cadastrosBaseMenuItem.Size = new System.Drawing.Size(116, 51);
+            this.cadastrosBaseMenuItem.Text = "CADASTROS BASE";
+            this.cadastrosBaseMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // unMedidaToolStripMenuItem
+            // 
+            this.unMedidaToolStripMenuItem.Name = "unMedidaToolStripMenuItem";
+            this.unMedidaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unMedidaToolStripMenuItem.Text = "UN. MEDIDA";
+            this.unMedidaToolStripMenuItem.Click += new System.EventHandler(this.uNMEDIDAToolStripMenuItem_Click);
+            // 
+            // marcaToolStripMenuItem
+            // 
+            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcaToolStripMenuItem.Text = "MARCA";
+            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.mARCAToolStripMenuItem_Click);
+            // 
+            // grupoToolStripMenuItem
+            // 
+            this.grupoToolStripMenuItem.Name = "grupoToolStripMenuItem";
+            this.grupoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grupoToolStripMenuItem.Text = "GRUPO";
+            this.grupoToolStripMenuItem.Click += new System.EventHandler(this.gRUPOToolStripMenuItem_Click);
+            // 
             // trocaUsuarioToolStripMenuItem
             // 
             this.trocaUsuarioToolStripMenuItem.Image = global::Trinity.Properties.Resources.trocarUsuario_32px;
@@ -254,39 +277,16 @@
             this.sAIRToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.sAIRToolStripMenuItem.Click += new System.EventHandler(this.sAIRToolStripMenuItem_Click);
             // 
-            // cadastrosBaseMenuItem
+            // comprasToolStripMenuItem
             // 
-            this.cadastrosBaseMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.unMedidaToolStripMenuItem,
-            this.marcaToolStripMenuItem,
-            this.grupoToolStripMenuItem});
-            this.cadastrosBaseMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastrosBaseMenuItem.Image")));
-            this.cadastrosBaseMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cadastrosBaseMenuItem.Name = "cadastrosBaseMenuItem";
-            this.cadastrosBaseMenuItem.Size = new System.Drawing.Size(116, 51);
-            this.cadastrosBaseMenuItem.Text = "CADASTROS BASE";
-            this.cadastrosBaseMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // unMedidaToolStripMenuItem
-            // 
-            this.unMedidaToolStripMenuItem.Name = "unMedidaToolStripMenuItem";
-            this.unMedidaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.unMedidaToolStripMenuItem.Text = "UN. MEDIDA";
-            this.unMedidaToolStripMenuItem.Click += new System.EventHandler(this.uNMEDIDAToolStripMenuItem_Click);
-            // 
-            // marcaToolStripMenuItem
-            // 
-            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
-            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.marcaToolStripMenuItem.Text = "MARCA";
-            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.mARCAToolStripMenuItem_Click);
-            // 
-            // grupoToolStripMenuItem
-            // 
-            this.grupoToolStripMenuItem.Name = "grupoToolStripMenuItem";
-            this.grupoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.grupoToolStripMenuItem.Text = "GRUPO";
-            this.grupoToolStripMenuItem.Click += new System.EventHandler(this.gRUPOToolStripMenuItem_Click);
+            this.comprasToolStripMenuItem.Enabled = false;
+            this.comprasToolStripMenuItem.Image = global::Trinity.Properties.Resources.compra_32px;
+            this.comprasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(75, 51);
+            this.comprasToolStripMenuItem.Text = "COMPRAS";
+            this.comprasToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.comprasToolStripMenuItem.Visible = false;
             // 
             // FrmPrincipal
             // 
@@ -323,7 +323,6 @@
         private System.Windows.Forms.MenuStrip mnPrincipal;
         private System.Windows.Forms.ToolStripMenuItem minhaEmpresaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem1;
@@ -335,5 +334,6 @@
         private System.Windows.Forms.ToolStripMenuItem unMedidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem grupoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
     }
 }

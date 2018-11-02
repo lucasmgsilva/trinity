@@ -568,6 +568,21 @@ AS
 		(@Cargo, @Permissoes)
 GO
 
+CREATE PROCEDURE SP_ALTERA_CARGO (@IdCargo INT, @Cargo VARCHAR(40), @Permissoes VARCHAR(50))
+AS
+	UPDATE
+		CARGO
+	SET cargo = @Cargo, permissoes = @Permissoes
+	WHERE idCargo = @IdCargo
+GO
+
+CREATE PROCEDURE SP_DELETA_CARGO (@IdCargo INT)
+AS
+	DELETE FROM
+		CARGO
+	WHERE idCargo = @IdCargo
+GO
+
 CREATE PROCEDURE SP_INSERE_EMPRESA (@Logradouro VARCHAR(70), @Numero VARCHAR(8), @Complemento VARCHAR(30), 
 							 @Bairro VARCHAR(30), @IdCidade INT, @Cep CHAR(9), @TelefoneFixo CHAR(14), 
 							 @TelefoneCelular CHAR(15), @RazaoSocial VARCHAR(80), @NomeFantasia VARCHAR(80), 

@@ -14,142 +14,152 @@ namespace Trinity.View
 {
     public partial class FrmMarca : Form
     {
+        List<Marca> listaMarcas;
+        bool editando;
+        Marca marcaCarregada;
 
-        private bool boolEditando;
-
-        public FrmMarca(byte type = 0)
+        public FrmMarca()
         {
             InitializeComponent();
-            if (type == 1)
-                HabilitaBotoesInclusao();
-            else
-            {
-                Pesquisa();
-                HabilitaBotoes(true);
-            }
+            this.editando = false;
+            LimpaCampos();
         }
 
-        private void Pesquisa()
+        private void DesabilitaCampos()
         {
-            try
-            {
-                Marca marca = new MarcaDAO().Pesquisar();
-                if(marca != null)
-                {
-                    txtId.Text = marca.IdMarca.ToString("D3");
-                    txtMarca.Text = marca.marca;
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Não foi possível pesquisar a marca.\nErro: " + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            txtMarca.Enabled = false;
         }
 
-        private void HabilitaBotoes(bool state)
+        private void HabilitaCampos()
         {
-            txtMarca.Enabled = !state;
-            btnNovo.Enabled = state;
-            btnSalvar.Enabled = !state && boolEditando;
-            btnExcluir.Enabled = state && !string.IsNullOrWhiteSpace(txtId.Text);
-            btnEditar.Enabled = state && !string.IsNullOrWhiteSpace(txtId.Text);
-
+            txtMarca.Enabled = !false;
         }
 
-        private void HabilitaBotoesInclusao()
+        private void HabilitaBotoes()
         {
-            btnNovo.Enabled = false;
-            btnEditar.Enabled = false;
-            btnExcluir.Enabled = false;
-            btnCancelar.Enabled = false;
+            DesabilitaCampos();
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnExcluir.Enabled = true;
+        }
+
+        private void DesabilitaBotoes()
+        {
+            HabilitaCampos();
+            btnNovo.Enabled = !true;
+            btnSalvar.Enabled = !false;
+            btnEditar.Enabled = !true;
+            btnExcluir.Enabled = !true;
+        }
+
+        private void LimpaCampos()
+        {
+            HabilitaBotoes();
+            txtMarca.Text = String.Empty;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(!validaCampo())
+            if (!String.IsNullOrEmpty(txtMarca.Text))
             {
-                Marca marca = new Marca();
-                marca.marca = txtMarca.Text.Trim();
+                if (this.marcaCarregada == null)
+                    this.marcaCarregada = new Marca();
 
-                bool gravou = false;
-                if (string.IsNullOrWhiteSpace(txtId.Text))
-                    gravou = new MarcaDAO().AdicionaMarca(marca);
-                else
-                {
-                    marca.IdMarca = Convert.ToInt32(txtId.Text);
-                    gravou = new MarcaDAO().Alterar(marca);
-                }
-                if(gravou)
-                    this.Close();
-            } else
-                MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
+                this.marcaCarregada.marca = txtMarca.Text;
 
-        private bool validaCampo()
-        {
-            bool hasErrors = false;
-            epMarca.Clear();
-
-            if (string.IsNullOrWhiteSpace(txtMarca.Text))
-            {
-                epMarca.SetError(lblMarca, "A marca é obrigatória.");
-                hasErrors = true;
-            }
-
-            return hasErrors;
+                MarcaDAO dao = new MarcaDAO();
+                if (!this.editando)
+                    dao.AdicionaMarca(this.marcaCarregada);
+                else dao.AlteraMarca(this.marcaCarregada);
+                CarregaListaMarcas();
+            } else MessageBox.Show("Não foi possível realizar a operação.\nHá CAMPOS OBRIGATÓRIOS que não foram preenchidos!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (boolEditando && MessageBox.Show("Deseja desfazer as alterações?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (this.editando)
             {
-                boolEditando = false;
-                Pesquisa();
-                HabilitaBotoes(true);
+                if (MessageBox.Show("Você realmente quer desfazer as alterações desta MARCA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    HabilitaBotoes();
+                    this.editando = false;
+                    CarregaMarca();
+                }
             }
-            else
-                this.Close();
+            else this.Close();
         }
 
         private void FrmMarca_Load(object sender, EventArgs e)
         {
-
+            CarregaListaMarcas();
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        public void CarregaListaMarcas()
         {
-            if(MessageBox.Show("Tem certeza que deseja excluir esta marca?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
-                {
-                    if(new MarcaDAO().Excluir(Convert.ToInt32(txtId.Text)))
-                    {
-                        MessageBox.Show("Marca deletada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Pesquisa();
-                        HabilitaBotoes(true);
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Ocorreu um erro: " + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            dgvMarcas.AutoGenerateColumns = false;
+            listaMarcas = new MarcaDAO().GetListaMarcas();
+            dgvMarcas.DataSource = new BindingList<Marca>(listaMarcas);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            boolEditando = true;
-            HabilitaBotoes(false);
-            txtMarca.Focus();
+            if (dgvMarcas.RowCount != 0)
+            {
+                if (dgvMarcas.CurrentRow.Selected)
+                {
+                    this.editando = true;
+                    DesabilitaBotoes();
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MARCA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MARCA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dgvMarcas_SelectionChanged(object sender, EventArgs e)
+        {
+            LimpaCampos();
+            if (dgvMarcas.RowCount != 0)
+            {
+                if (dgvMarcas.CurrentRow.Selected)
+                {
+                    this.editando = false;
+                    int idMarca = Convert.ToInt32(dgvMarcas.CurrentRow.Cells["idMarca"].Value.ToString());
+                    this.marcaCarregada = this.listaMarcas.Find(u => u.IdMarca == idMarca);
+                    CarregaMarca();
+                }
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MARCA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void CarregaMarca()
+        {
+            txtMarca.Text = marcaCarregada.marca;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            boolEditando = true;
-            HabilitaBotoes(false);
-            txtId.Text = string.Empty;
-            txtMarca.Text = string.Empty;
-            txtMarca.Focus();
+            this.editando = false;
+            LimpaCampos();
+            DesabilitaBotoes();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (dgvMarcas.RowCount != 0)
+            {
+                if (dgvMarcas.CurrentRow.Selected)
+                {
+                    if (MessageBox.Show("Você realmente quer excluir esta MARCA?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        MarcaDAO dao = new MarcaDAO();
+                        dao.DeletaMarca(this.marcaCarregada.IdMarca);
+                        CarregaListaMarcas();
+                    }
+                }
+                else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MARCA selecionada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhuma MARCA cadastrada!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
