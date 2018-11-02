@@ -213,7 +213,7 @@ namespace Trinity.View
             txtSenha.Enabled = false;
             txtConfirmacaoSenha.Enabled = false;
             cmbCargo.Enabled = false;
-            cmbRazaoSocial.Enabled = false;
+            //cmbRazaoSocial.Enabled = false;
         }
 
         private void HabilitaCampos()
@@ -222,7 +222,7 @@ namespace Trinity.View
             txtSenha.Enabled = !false;
             txtConfirmacaoSenha.Enabled = !false;
             cmbCargo.Enabled = !false;
-            cmbRazaoSocial.Enabled = !false;
+            //cmbRazaoSocial.Enabled = !false;
             txtUsuario.Focus();
         }
 
@@ -251,7 +251,7 @@ namespace Trinity.View
             txtSenha.Text = String.Empty;
             txtConfirmacaoSenha.Text = String.Empty;
             cmbCargo.SelectedItem = null;
-            cmbRazaoSocial.SelectedItem = null;
+            //cmbRazaoSocial.SelectedItem = null;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

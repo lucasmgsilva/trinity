@@ -37,27 +37,27 @@
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.chkUsuarios = new System.Windows.Forms.CheckBox();
+            this.chkProdutos = new System.Windows.Forms.CheckBox();
+            this.chkFornecedores = new System.Windows.Forms.CheckBox();
+            this.chkEmpresas = new System.Windows.Forms.CheckBox();
+            this.chkClientes = new System.Windows.Forms.CheckBox();
+            this.chkCompras = new System.Windows.Forms.CheckBox();
+            this.chkVendas = new System.Windows.Forms.CheckBox();
             this.dgvCargos = new System.Windows.Forms.DataGridView();
+            this.idCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.chkVendas = new System.Windows.Forms.CheckBox();
-            this.chkCompras = new System.Windows.Forms.CheckBox();
-            this.chkClientes = new System.Windows.Forms.CheckBox();
-            this.chkEmpresas = new System.Windows.Forms.CheckBox();
-            this.chkFornecedores = new System.Windows.Forms.CheckBox();
-            this.chkProdutos = new System.Windows.Forms.CheckBox();
-            this.chkUsuarios = new System.Windows.Forms.CheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.idCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -127,6 +127,93 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Cargo";
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.chkUsuarios);
+            this.panel2.Controls.Add(this.chkProdutos);
+            this.panel2.Controls.Add(this.chkFornecedores);
+            this.panel2.Controls.Add(this.chkEmpresas);
+            this.panel2.Controls.Add(this.chkClientes);
+            this.panel2.Controls.Add(this.chkCompras);
+            this.panel2.Controls.Add(this.chkVendas);
+            this.panel2.Location = new System.Drawing.Point(11, 111);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(765, 121);
+            this.panel2.TabIndex = 24;
+            // 
+            // chkUsuarios
+            // 
+            this.chkUsuarios.AutoSize = true;
+            this.chkUsuarios.Location = new System.Drawing.Point(351, 38);
+            this.chkUsuarios.Name = "chkUsuarios";
+            this.chkUsuarios.Size = new System.Drawing.Size(245, 22);
+            this.chkUsuarios.TabIndex = 5;
+            this.chkUsuarios.Text = "Acesso ao módulo de Usuários";
+            this.chkUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // chkProdutos
+            // 
+            this.chkProdutos.AutoSize = true;
+            this.chkProdutos.Location = new System.Drawing.Point(351, 10);
+            this.chkProdutos.Name = "chkProdutos";
+            this.chkProdutos.Size = new System.Drawing.Size(246, 22);
+            this.chkProdutos.TabIndex = 4;
+            this.chkProdutos.Text = "Acesso ao módulo de Produtos";
+            this.chkProdutos.UseVisualStyleBackColor = true;
+            // 
+            // chkFornecedores
+            // 
+            this.chkFornecedores.AutoSize = true;
+            this.chkFornecedores.Location = new System.Drawing.Point(9, 94);
+            this.chkFornecedores.Name = "chkFornecedores";
+            this.chkFornecedores.Size = new System.Drawing.Size(281, 22);
+            this.chkFornecedores.TabIndex = 3;
+            this.chkFornecedores.Text = "Acesso ao módulo de Fornecedores";
+            this.chkFornecedores.UseVisualStyleBackColor = true;
+            this.chkFornecedores.Visible = false;
+            // 
+            // chkEmpresas
+            // 
+            this.chkEmpresas.AutoSize = true;
+            this.chkEmpresas.Location = new System.Drawing.Point(9, 10);
+            this.chkEmpresas.Name = "chkEmpresas";
+            this.chkEmpresas.Size = new System.Drawing.Size(293, 22);
+            this.chkEmpresas.TabIndex = 0;
+            this.chkEmpresas.Text = "Acesso ao módulo de Minha Empresa";
+            this.chkEmpresas.UseVisualStyleBackColor = true;
+            // 
+            // chkClientes
+            // 
+            this.chkClientes.AutoSize = true;
+            this.chkClientes.Location = new System.Drawing.Point(9, 66);
+            this.chkClientes.Name = "chkClientes";
+            this.chkClientes.Size = new System.Drawing.Size(240, 22);
+            this.chkClientes.TabIndex = 2;
+            this.chkClientes.Text = "Acesso ao módulo de Clientes";
+            this.chkClientes.UseVisualStyleBackColor = true;
+            // 
+            // chkCompras
+            // 
+            this.chkCompras.AutoSize = true;
+            this.chkCompras.Location = new System.Drawing.Point(351, 66);
+            this.chkCompras.Name = "chkCompras";
+            this.chkCompras.Size = new System.Drawing.Size(248, 22);
+            this.chkCompras.TabIndex = 6;
+            this.chkCompras.Text = "Acesso ao módulo de Compras";
+            this.chkCompras.UseVisualStyleBackColor = true;
+            this.chkCompras.Visible = false;
+            // 
+            // chkVendas
+            // 
+            this.chkVendas.AutoSize = true;
+            this.chkVendas.Location = new System.Drawing.Point(9, 38);
+            this.chkVendas.Name = "chkVendas";
+            this.chkVendas.Size = new System.Drawing.Size(236, 22);
+            this.chkVendas.TabIndex = 1;
+            this.chkVendas.Text = "Acesso ao módulo de Vendas";
+            this.chkVendas.UseVisualStyleBackColor = true;
+            // 
             // dgvCargos
             // 
             this.dgvCargos.AllowUserToAddRows = false;
@@ -146,6 +233,24 @@
             this.dgvCargos.Size = new System.Drawing.Size(765, 154);
             this.dgvCargos.TabIndex = 18;
             this.dgvCargos.SelectionChanged += new System.EventHandler(this.dgvcargos_SelectionChanged);
+            // 
+            // idCargo
+            // 
+            this.idCargo.DataPropertyName = "IdCargo";
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = null;
+            this.idCargo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idCargo.HeaderText = "ID";
+            this.idCargo.Name = "idCargo";
+            this.idCargo.ReadOnly = true;
+            // 
+            // cargo
+            // 
+            this.cargo.DataPropertyName = "Cargo";
+            this.cargo.HeaderText = "CARGO";
+            this.cargo.Name = "cargo";
+            this.cargo.ReadOnly = true;
+            this.cargo.Width = 615;
             // 
             // label4
             // 
@@ -217,110 +322,6 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // chkVendas
-            // 
-            this.chkVendas.AutoSize = true;
-            this.chkVendas.Location = new System.Drawing.Point(9, 38);
-            this.chkVendas.Name = "chkVendas";
-            this.chkVendas.Size = new System.Drawing.Size(236, 22);
-            this.chkVendas.TabIndex = 1;
-            this.chkVendas.Text = "Acesso ao módulo de Vendas";
-            this.chkVendas.UseVisualStyleBackColor = true;
-            // 
-            // chkCompras
-            // 
-            this.chkCompras.AutoSize = true;
-            this.chkCompras.Location = new System.Drawing.Point(351, 66);
-            this.chkCompras.Name = "chkCompras";
-            this.chkCompras.Size = new System.Drawing.Size(248, 22);
-            this.chkCompras.TabIndex = 6;
-            this.chkCompras.Text = "Acesso ao módulo de Compras";
-            this.chkCompras.UseVisualStyleBackColor = true;
-            this.chkCompras.Visible = false;
-            // 
-            // chkClientes
-            // 
-            this.chkClientes.AutoSize = true;
-            this.chkClientes.Location = new System.Drawing.Point(9, 66);
-            this.chkClientes.Name = "chkClientes";
-            this.chkClientes.Size = new System.Drawing.Size(240, 22);
-            this.chkClientes.TabIndex = 2;
-            this.chkClientes.Text = "Acesso ao módulo de Clientes";
-            this.chkClientes.UseVisualStyleBackColor = true;
-            // 
-            // chkEmpresas
-            // 
-            this.chkEmpresas.AutoSize = true;
-            this.chkEmpresas.Location = new System.Drawing.Point(9, 10);
-            this.chkEmpresas.Name = "chkEmpresas";
-            this.chkEmpresas.Size = new System.Drawing.Size(293, 22);
-            this.chkEmpresas.TabIndex = 0;
-            this.chkEmpresas.Text = "Acesso ao módulo de Minha Empresa";
-            this.chkEmpresas.UseVisualStyleBackColor = true;
-            // 
-            // chkFornecedores
-            // 
-            this.chkFornecedores.AutoSize = true;
-            this.chkFornecedores.Location = new System.Drawing.Point(9, 94);
-            this.chkFornecedores.Name = "chkFornecedores";
-            this.chkFornecedores.Size = new System.Drawing.Size(281, 22);
-            this.chkFornecedores.TabIndex = 3;
-            this.chkFornecedores.Text = "Acesso ao módulo de Fornecedores";
-            this.chkFornecedores.UseVisualStyleBackColor = true;
-            // 
-            // chkProdutos
-            // 
-            this.chkProdutos.AutoSize = true;
-            this.chkProdutos.Location = new System.Drawing.Point(351, 10);
-            this.chkProdutos.Name = "chkProdutos";
-            this.chkProdutos.Size = new System.Drawing.Size(246, 22);
-            this.chkProdutos.TabIndex = 4;
-            this.chkProdutos.Text = "Acesso ao módulo de Produtos";
-            this.chkProdutos.UseVisualStyleBackColor = true;
-            // 
-            // chkUsuarios
-            // 
-            this.chkUsuarios.AutoSize = true;
-            this.chkUsuarios.Location = new System.Drawing.Point(351, 38);
-            this.chkUsuarios.Name = "chkUsuarios";
-            this.chkUsuarios.Size = new System.Drawing.Size(245, 22);
-            this.chkUsuarios.TabIndex = 5;
-            this.chkUsuarios.Text = "Acesso ao módulo de Usuários";
-            this.chkUsuarios.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.chkUsuarios);
-            this.panel2.Controls.Add(this.chkProdutos);
-            this.panel2.Controls.Add(this.chkFornecedores);
-            this.panel2.Controls.Add(this.chkEmpresas);
-            this.panel2.Controls.Add(this.chkClientes);
-            this.panel2.Controls.Add(this.chkCompras);
-            this.panel2.Controls.Add(this.chkVendas);
-            this.panel2.Location = new System.Drawing.Point(11, 111);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(765, 121);
-            this.panel2.TabIndex = 24;
-            // 
-            // idCargo
-            // 
-            this.idCargo.DataPropertyName = "IdCargo";
-            dataGridViewCellStyle2.Format = "00000";
-            dataGridViewCellStyle2.NullValue = null;
-            this.idCargo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idCargo.HeaderText = "ID";
-            this.idCargo.Name = "idCargo";
-            this.idCargo.ReadOnly = true;
-            // 
-            // cargo
-            // 
-            this.cargo.DataPropertyName = "Cargo";
-            this.cargo.HeaderText = "CARGO";
-            this.cargo.Name = "cargo";
-            this.cargo.ReadOnly = true;
-            this.cargo.Width = 615;
-            // 
             // FrmCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,9 +345,9 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).EndInit();
             this.ResumeLayout(false);
 
         }

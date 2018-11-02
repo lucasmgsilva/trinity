@@ -132,7 +132,6 @@ CREATE TABLE PRODUTO (
 )
 GO
 
-
 CREATE TABLE CLIENTE (
 	idCliente INT NOT NULL IDENTITY,
     logradouro VARCHAR(70) NOT NULL,
@@ -147,6 +146,35 @@ CREATE TABLE CLIENTE (
     dataCadastro DATETIME NOT NULL,
     PRIMARY KEY (idCliente),
     FOREIGN KEY (idCidade) REFERENCES CIDADE (idCidade)
+)
+GO
+
+CREATE TABLE CLIENTEPF (
+	idClientePF INT NOT NULL IDENTITY,
+    nome VARCHAR(50) NOT NULL,
+	apelido VARCHAR(50),
+    sexo CHAR(1) NOT NULL,
+    cpf CHAR(14) NOT NULL UNIQUE,
+    rg VARCHAR(20),
+    dataNascimento DATE,
+    idCliente INT NOT NULL,
+	CHECK (sexo = 'M' OR sexo = 'F'),
+    PRIMARY KEY (idClientePF),
+    FOREIGN KEY (idCliente) REFERENCES CLIENTE (idCliente)
+)
+GO
+
+CREATE TABLE CLIENTEPJ (
+	idClientePJ INT NOT NULL IDENTITY,
+    razaoSocial VARCHAR(80) NOT NULL,
+    nomeFantasia VARCHAR(80),
+    cnpj CHAR(18) NOT NULL UNIQUE,
+    ie VARCHAR(25),
+    im VARCHAR(25),
+    dataAbertura DATE,
+    idCliente INT NOT NULL,
+    PRIMARY KEY (idClientePJ),
+    FOREIGN KEY (idCliente) REFERENCES CLIENTE (idCliente)
 )
 GO
 
@@ -198,35 +226,6 @@ CREATE TABLE ITEMCOMPRADO (
 )
 GO
 
-CREATE TABLE CLIENTEPF (
-	idClientePF INT NOT NULL IDENTITY,
-    nome VARCHAR(50) NOT NULL,
-	apelido VARCHAR(50),
-    sexo CHAR(1) NOT NULL,
-    cpf CHAR(14) NOT NULL UNIQUE,
-    rg VARCHAR(20),
-    dataNascimento DATE,
-    idCliente INT NOT NULL,
-	CHECK (sexo = 'M' OR sexo = 'F'),
-    PRIMARY KEY (idClientePF),
-    FOREIGN KEY (idCliente) REFERENCES CLIENTE (idCliente)
-)
-GO
-
-CREATE TABLE CLIENTEPJ (
-	idClientePJ INT NOT NULL IDENTITY,
-    razaoSocial VARCHAR(80) NOT NULL,
-    nomeFantasia VARCHAR(80),
-    cnpj CHAR(18) NOT NULL UNIQUE,
-    ie VARCHAR(25),
-    im VARCHAR(25),
-    dataAbertura DATE,
-    idCliente INT NOT NULL,
-    PRIMARY KEY (idClientePJ),
-    FOREIGN KEY (idCliente) REFERENCES CLIENTE (idCliente)
-)
-GO
-
 SET IDENTITY_INSERT ESTADO ON
 GO
 
@@ -257,19 +256,111 @@ GO
 INSERT INTO CIDADE (idCidade, cidade, idEstado) VALUES (5001,'Jundiaí',26),(5002,'Junqueirópolis',26),(5003,'Juquiá',26),(5004,'Juquitiba',26),(5005,'Lagoinha',26),(5006,'Laranjal Paulista',26),(5007,'Lavínia',26),(5008,'Lavrinhas',26),(5009,'Leme',26),(5010,'Lençóis Paulista',26),(5011,'Limeira',26),(5012,'Lindóia',26),(5013,'Lins',26),(5014,'Lorena',26),(5015,'Lourdes',26),(5016,'Louveira',26),(5017,'Lucélia',26),(5018,'Lucianópolis',26),(5019,'Luís Antônio',26),(5020,'Luiziânia',26),(5021,'Lupércio',26),(5022,'Lutécia',26),(5023,'Macatuba',26),(5024,'Macaubal',26),(5025,'Macedônia',26),(5026,'Magda',26),(5027,'Mairinque',26),(5028,'Mairiporã',26),(5029,'Manduri',26),(5030,'Marabá Paulista',26),(5031,'Maracaí',26),(5032,'Marapoama',26),(5033,'Mariápolis',26),(5034,'Marília',26),(5035,'Marinópolis',26),(5036,'Martinópolis',26),(5037,'Matão',26),(5038,'Mauá',26),(5039,'Mendonça',26),(5040,'Meridiano',26),(5041,'Mesópolis',26),(5042,'Miguelópolis',26),(5043,'Mineiros do Tietê',26),(5044,'Mira Estrela',26),(5045,'Miracatu',26),(5046,'Mirandópolis',26),(5047,'Mirante do Paranapanema',26),(5048,'Mirassol',26),(5049,'Mirassolândia',26),(5050,'Mococa',26),(5051,'Mogi das Cruzes',26),(5052,'Mogi Guaçu',26),(5053,'Moji Mirim',26),(5054,'Mombuca',26),(5055,'Monções',26),(5056,'Mongaguá',26),(5057,'Monte Alegre do Sul',26),(5058,'Monte Alto',26),(5059,'Monte Aprazível',26),(5060,'Monte Azul Paulista',26),(5061,'Monte Castelo',26),(5062,'Monte Mor',26),(5063,'Monteiro Lobato',26),(5064,'Morro Agudo',26),(5065,'Morungaba',26),(5066,'Motuca',26),(5067,'Murutinga do Sul',26),(5068,'Nantes',26),(5069,'Narandiba',26),(5070,'Natividade da Serra',26),(5071,'Nazaré Paulista',26),(5072,'Neves Paulista',26),(5073,'Nhandeara',26),(5074,'Nipoã',26),(5075,'Nova Aliança',26),(5076,'Nova Campina',26),(5077,'Nova Canaã Paulista',26),(5078,'Nova Castilho',26),(5079,'Nova Europa',26),(5080,'Nova Granada',26),(5081,'Nova Guataporanga',26),(5082,'Nova Independência',26),(5083,'Nova Luzitânia',26),(5084,'Nova Odessa',26),(5085,'Novais',26),(5086,'Novo Horizonte',26),(5087,'Nuporanga',26),(5088,'Ocauçu',26),(5089,'Óleo',26),(5090,'Olímpia',26),(5091,'Onda Verde',26),(5092,'Oriente',26),(5093,'Orindiúva',26),(5094,'Orlândia',26),(5095,'Osasco',26),(5096,'Oscar Bressane',26),(5097,'Osvaldo Cruz',26),(5098,'Ourinhos',26),(5099,'Ouro Verde',26),(5100,'Ouroeste',26),(5101,'Pacaembu',26),(5102,'Palestina',26),(5103,'Palmares Paulista',26),(5104,'Palmeira d`Oeste',26),(5105,'Palmital',26),(5106,'Panorama',26),(5107,'Paraguaçu Paulista',26),(5108,'Paraibuna',26),(5109,'Paraíso',26),(5110,'Paranapanema',26),(5111,'Paranapuã',26),(5112,'Parapuã',26),(5113,'Pardinho',26),(5114,'Pariquera-Açu',26),(5115,'Parisi',26),(5116,'Patrocínio Paulista',26),(5117,'Paulicéia',26),(5118,'Paulínia',26),(5119,'Paulistânia',26),(5120,'Paulo de Faria',26),(5121,'Pederneiras',26),(5122,'Pedra Bela',26),(5123,'Pedranópolis',26),(5124,'Pedregulho',26),(5125,'Pedreira',26),(5126,'Pedrinhas Paulista',26),(5127,'Pedro de Toledo',26),(5128,'Penápolis',26),(5129,'Pereira Barreto',26),(5130,'Pereiras',26),(5131,'Peruíbe',26),(5132,'Piacatu',26),(5133,'Piedade',26),(5134,'Pilar do Sul',26),(5135,'Pindamonhangaba',26),(5136,'Pindorama',26),(5137,'Pinhalzinho',26),(5138,'Piquerobi',26),(5139,'Piquete',26),(5140,'Piracaia',26),(5141,'Piracicaba',26),(5142,'Piraju',26),(5143,'Pirajuí',26),(5144,'Pirangi',26),(5145,'Pirapora do Bom Jesus',26),(5146,'Pirapozinho',26),(5147,'Pirassununga',26),(5148,'Piratininga',26),(5149,'Pitangueiras',26),(5150,'Planalto',26),(5151,'Platina',26),(5152,'Poá',26),(5153,'Poloni',26),(5154,'Pompéia',26),(5155,'Pongaí',26),(5156,'Pontal',26),(5157,'Pontalinda',26),(5158,'Pontes Gestal',26),(5159,'Populina',26),(5160,'Porangaba',26),(5161,'Porto Feliz',26),(5162,'Porto Ferreira',26),(5163,'Potim',26),(5164,'Potirendaba',26),(5165,'Pracinha',26),(5166,'Pradópolis',26),(5167,'Praia Grande',26),(5168,'Pratânia',26),(5169,'Presidente Alves',26),(5170,'Presidente Bernardes',26),(5171,'Presidente Epitácio',26),(5172,'Presidente Prudente',26),(5173,'Presidente Venceslau',26),(5174,'Promissão',26),(5175,'Quadra',26),(5176,'Quatá',26),(5177,'Queiroz',26),(5178,'Queluz',26),(5179,'Quintana',26),(5180,'Rafard',26),(5181,'Rancharia',26),(5182,'Redenção da Serra',26),(5183,'Regente Feijó',26),(5184,'Reginópolis',26),(5185,'Registro',26),(5186,'Restinga',26),(5187,'Ribeira',26),(5188,'Ribeirão Bonito',26),(5189,'Ribeirão Branco',26),(5190,'Ribeirão Corrente',26),(5191,'Ribeirão do Sul',26),(5192,'Ribeirão dos Índios',26),(5193,'Ribeirão Grande',26),(5194,'Ribeirão Pires',26),(5195,'Ribeirão Preto',26),(5196,'Rifaina',26),(5197,'Rincão',26),(5198,'Rinópolis',26),(5199,'Rio Claro',26),(5200,'Rio das Pedras',26),(5201,'Rio Grande da Serra',26),(5202,'Riolândia',26),(5203,'Riversul',26),(5204,'Rosana',26),(5205,'Roseira',26),(5206,'Rubiácea',26),(5207,'Rubinéia',26),(5208,'Sabino',26),(5209,'Sagres',26),(5210,'Sales',26),(5211,'Sales Oliveira',26),(5212,'Salesópolis',26),(5213,'Salmourão',26),(5214,'Saltinho',26),(5215,'Salto',26),(5216,'Salto de Pirapora',26),(5217,'Salto Grande',26),(5218,'Sandovalina',26),(5219,'Santa Adélia',26),(5220,'Santa Albertina',26),(5221,'Santa Bárbara d`Oeste',26),(5222,'Santa Branca',26),(5223,'Santa Clara d`Oeste',26),(5224,'Santa Cruz da Conceição',26),(5225,'Santa Cruz da Esperança',26),(5226,'Santa Cruz das Palmeiras',26),(5227,'Santa Cruz do Rio Pardo',26),(5228,'Santa Ernestina',26),(5229,'Santa Fé do Sul',26),(5230,'Santa Gertrudes',26),(5231,'Santa Isabel',26),(5232,'Santa Lúcia',26),(5233,'Santa Maria da Serra',26),(5234,'Santa Mercedes',26),(5235,'Santa Rita d`Oeste',26),(5236,'Santa Rita do Passa Quatro',26),(5237,'Santa Rosa de Viterbo',26),(5238,'Santa Salete',26),(5239,'Santana da Ponte Pensa',26),(5240,'Santana de Parnaíba',26),(5241,'Santo Anastácio',26),(5242,'Santo André',26),(5243,'Santo Antônio da Alegria',26),(5244,'Santo Antônio de Posse',26),(5245,'Santo Antônio do Aracanguá',26),(5246,'Santo Antônio do Jardim',26),(5247,'Santo Antônio do Pinhal',26),(5248,'Santo Expedito',26),(5249,'Santópolis do Aguapeí',26),(5250,'Santos',26),(5251,'São Bento do Sapucaí',26),(5252,'São Bernardo do Campo',26),(5253,'São Caetano do Sul',26),(5254,'São Carlos',26),(5255,'São Francisco',26),(5256,'São João da Boa Vista',26),(5257,'São João das Duas Pontes',26),(5258,'São João de Iracema',26),(5259,'São João do Pau d`Alho',26),(5260,'São Joaquim da Barra',26),(5261,'São José da Bela Vista',26),(5262,'São José do Barreiro',26),(5263,'São José do Rio Pardo',26),(5264,'São José do Rio Preto',26),(5265,'São José dos Campos',26),(5266,'São Lourenço da Serra',26),(5267,'São Luís do Paraitinga',26),(5268,'São Manuel',26),(5269,'São Miguel Arcanjo',26),(5270,'São Paulo',26),(5271,'São Pedro',26),(5272,'São Pedro do Turvo',26),(5273,'São Roque',26),(5274,'São Sebastião',26),(5275,'São Sebastião da Grama',26),(5276,'São Simão',26),(5277,'São Vicente',26),(5278,'Sarapuí',26),(5279,'Sarutaiá',26),(5280,'Sebastianópolis do Sul',26),(5281,'Serra Azul',26),(5282,'Serra Negra',26),(5283,'Serrana',26),(5284,'Sertãozinho',26),(5285,'Sete Barras',26),(5286,'Severínia',26),(5287,'Silveiras',26),(5288,'Socorro',26),(5289,'Sorocaba',26),(5290,'Sud Mennucci',26),(5291,'Sumaré',26),(5292,'Suzanápolis',26),(5293,'Suzano',26),(5294,'Tabapuã',26),(5295,'Tabatinga',26),(5296,'Taboão da Serra',26),(5297,'Taciba',26),(5298,'Taguaí',26),(5299,'Taiaçu',26),(5300,'Taiúva',26),(5301,'Tambaú',26),(5302,'Tanabi',26),(5303,'Tapiraí',26),(5304,'Tapiratiba',26),(5305,'Taquaral',26),(5306,'Taquaritinga',26),(5307,'Taquarituba',26),(5308,'Taquarivaí',26),(5309,'Tarabai',26),(5310,'Tarumã',26),(5311,'Tatuí',26),(5312,'Taubaté',26),(5313,'Tejupá',26),(5314,'Teodoro Sampaio',26),(5315,'Terra Roxa',26),(5316,'Tietê',26),(5317,'Timburi',26),(5318,'Torre de Pedra',26),(5319,'Torrinha',26),(5320,'Trabiju',26),(5321,'Tremembé',26),(5322,'Três Fronteiras',26),(5323,'Tuiuti',26),(5324,'Tupã',26),(5325,'Tupi Paulista',26),(5326,'Turiúba',26),(5327,'Turmalina',26),(5328,'Ubarana',26),(5329,'Ubatuba',26),(5330,'Ubirajara',26),(5331,'Uchoa',26),(5332,'União Paulista',26),(5333,'Urânia',26),(5334,'Uru',26),(5335,'Urupês',26),(5336,'Valentim Gentil',26),(5337,'Valinhos',26),(5338,'Valparaíso',26),(5339,'Vargem',26),(5340,'Vargem Grande do Sul',26),(5341,'Vargem Grande Paulista',26),(5342,'Várzea Paulista',26),(5343,'Vera Cruz',26),(5344,'Vinhedo',26),(5345,'Viradouro',26),(5346,'Vista Alegre do Alto',26),(5347,'Vitória Brasil',26),(5348,'Votorantim',26),(5349,'Votuporanga',26),(5350,'Zacarias',26),(5351,'Amparo de São Francisco',25),(5352,'Aquidabã',25),(5353,'Aracaju',25),(5354,'Arauá',25),(5355,'Areia Branca',25),(5356,'Barra dos Coqueiros',25),(5357,'Boquim',25),(5358,'Brejo Grande',25),(5359,'Campo do Brito',25),(5360,'Canhoba',25),(5361,'Canindé de São Francisco',25),(5362,'Capela',25),(5363,'Carira',25),(5364,'Carmópolis',25),(5365,'Cedro de São João',25),(5366,'Cristinápolis',25),(5367,'Cumbe',25),(5368,'Divina Pastora',25),(5369,'Estância',25),(5370,'Feira Nova',25),(5371,'Frei Paulo',25),(5372,'Gararu',25),(5373,'General Maynard',25),(5374,'Gracho Cardoso',25),(5375,'Ilha das Flores',25),(5376,'Indiaroba',25),(5377,'Itabaiana',25),(5378,'Itabaianinha',25),(5379,'Itabi',25),(5380,'Itaporanga d`Ajuda',25),(5381,'Japaratuba',25),(5382,'Japoatã',25),(5383,'Lagarto',25),(5384,'Laranjeiras',25),(5385,'Macambira',25),(5386,'Malhada dos Bois',25),(5387,'Malhador',25),(5388,'Maruim',25),(5389,'Moita Bonita',25),(5390,'Monte Alegre de Sergipe',25),(5391,'Muribeca',25),(5392,'Neópolis',25),(5393,'Nossa Senhora Aparecida',25),(5394,'Nossa Senhora da Glória',25),(5395,'Nossa Senhora das Dores',25),(5396,'Nossa Senhora de Lourdes',25),(5397,'Nossa Senhora do Socorro',25),(5398,'Pacatuba',25),(5399,'Pedra Mole',25),(5400,'Pedrinhas',25),(5401,'Pinhão',25),(5402,'Pirambu',25),(5403,'Poço Redondo',25),(5404,'Poço Verde',25),(5405,'Porto da Folha',25),(5406,'Propriá',25),(5407,'Riachão do Dantas',25),(5408,'Riachuelo',25),(5409,'Ribeirópolis',25),(5410,'Rosário do Catete',25),(5411,'Salgado',25),(5412,'Santa Luzia do Itanhy',25),(5413,'Santa Rosa de Lima',25),(5414,'Santana do São Francisco',25),(5415,'Santo Amaro das Brotas',25),(5416,'São Cristóvão',25),(5417,'São Domingos',25),(5418,'São Francisco',25),(5419,'São Miguel do Aleixo',25),(5420,'Simão Dias',25),(5421,'Siriri',25),(5422,'Telha',25),(5423,'Tobias Barreto',25),(5424,'Tomar do Geru',25),(5425,'Umbaúba',25),(5426,'Abreulândia',27),(5427,'Aguiarnópolis',27),(5428,'Aliança do Tocantins',27),(5429,'Almas',27),(5430,'Alvorada',27),(5431,'Ananás',27),(5432,'Angico',27),(5433,'Aparecida do Rio Negro',27),(5434,'Aragominas',27),(5435,'Araguacema',27),(5436,'Araguaçu',27),(5437,'Araguaína',27),(5438,'Araguanã',27),(5439,'Araguatins',27),(5440,'Arapoema',27),(5441,'Arraias',27),(5442,'Augustinópolis',27),(5443,'Aurora do Tocantins',27),(5444,'Axixá do Tocantins',27),(5445,'Babaçulândia',27),(5446,'Bandeirantes do Tocantins',27),(5447,'Barra do Ouro',27),(5448,'Barrolândia',27),(5449,'Bernardo Sayão',27),(5450,'Bom Jesus do Tocantins',27),(5451,'Brasilândia do Tocantins',27),(5452,'Brejinho de Nazaré',27),(5453,'Buriti do Tocantins',27),(5454,'Cachoeirinha',27),(5455,'Campos Lindos',27),(5456,'Cariri do Tocantins',27),(5457,'Carmolândia',27),(5458,'Carrasco Bonito',27),(5459,'Caseara',27),(5460,'Centenário',27),(5461,'Chapada da Natividade',27),(5462,'Chapada de Areia',27),(5463,'Colinas do Tocantins',27),(5464,'Colméia',27),(5465,'Combinado',27),(5466,'Conceição do Tocantins',27),(5467,'Couto de Magalhães',27),(5468,'Cristalândia',27),(5469,'Crixás do Tocantins',27),(5470,'Darcinópolis',27),(5471,'Dianópolis',27),(5472,'Divinópolis do Tocantins',27),(5473,'Dois Irmãos do Tocantins',27),(5474,'Dueré',27),(5475,'Esperantina',27),(5476,'Fátima',27),(5477,'Figueirópolis',27),(5478,'Filadélfia',27),(5479,'Formoso do Araguaia',27),(5480,'Fortaleza do Tabocão',27),(5481,'Goianorte',27),(5482,'Goiatins',27),(5483,'Guaraí',27),(5484,'Gurupi',27),(5485,'Ipueiras',27),(5486,'Itacajá',27),(5487,'Itaguatins',27),(5488,'Itapiratins',27),(5489,'Itaporã do Tocantins',27),(5490,'Jaú do Tocantins',27),(5491,'Juarina',27),(5492,'Lagoa da Confusão',27),(5493,'Lagoa do Tocantins',27),(5494,'Lajeado',27),(5495,'Lavandeira',27),(5496,'Lizarda',27),(5497,'Luzinópolis',27),(5498,'Marianópolis do Tocantins',27),(5499,'Mateiros',27),(5500,'Maurilândia do Tocantins',27),(5501,'Miracema do Tocantins',27),(5502,'Miranorte',27),(5503,'Monte do Carmo',27),(5504,'Monte Santo do Tocantins',27),(5505,'Muricilândia',27),(5506,'Natividade',27),(5507,'Nazaré',27),(5508,'Nova Olinda',27),(5509,'Nova Rosalândia',27),(5510,'Novo Acordo',27),(5511,'Novo Alegre',27),(5512,'Novo Jardim',27),(5513,'Oliveira de Fátima',27),(5514,'Palmas',27),(5515,'Palmeirante',27),(5516,'Palmeiras do Tocantins',27),(5517,'Palmeirópolis',27),(5518,'Paraíso do Tocantins',27),(5519,'Paranã',27),(5520,'Pau d`Arco',27),(5521,'Pedro Afonso',27),(5522,'Peixe',27),(5523,'Pequizeiro',27),(5524,'Pindorama do Tocantins',27),(5525,'Piraquê',27),(5526,'Pium',27),(5527,'Ponte Alta do Bom Jesus',27),(5528,'Ponte Alta do Tocantins',27),(5529,'Porto Alegre do Tocantins',27),(5530,'Porto Nacional',27),(5531,'Praia Norte',27),(5532,'Presidente Kennedy',27),(5533,'Pugmil',27),(5534,'Recursolândia',27),(5535,'Riachinho',27),(5536,'Rio da Conceição',27),(5537,'Rio dos Bois',27),(5538,'Rio Sono',27),(5539,'Sampaio',27),(5540,'Sandolândia',27),(5541,'Santa Fé do Araguaia',27),(5542,'Santa Maria do Tocantins',27),(5543,'Santa Rita do Tocantins',27),(5544,'Santa Rosa do Tocantins',27),(5545,'Santa Tereza do Tocantins',27),(5546,'Santa Terezinha do Tocantins',27),(5547,'São Bento do Tocantins',27),(5548,'São Félix do Tocantins',27),(5549,'São Miguel do Tocantins',27),(5550,'São Salvador do Tocantins',27),(5551,'São Sebastião do Tocantins',27),(5552,'São Valério da Natividade',27),(5553,'Silvanópolis',27),(5554,'Sítio Novo do Tocantins',27),(5555,'Sucupira',27),(5556,'Taguatinga',27),(5557,'Taipas do Tocantins',27),(5558,'Talismã',27),(5559,'Tocantínia',27),(5560,'Tocantinópolis',27),(5561,'Tupirama',27),(5562,'Tupiratins',27),(5563,'Wanderlândia',27),(5564,'Xambioá',27)
 GO
 
+INSERT INTO 
+	EMPRESA (logradouro, numero, bairro, idCidade, cep, razaoSocial, cnpj, dataAbertura)
+VALUES ('LOGRADOURO DA EMPRESA', 'S/N', 'BAIRRO DA EMPRESA', '4789', '14955-000', 'SISTEMAS MATRIX - ME', '99.999.999/0001-99', '02/11/2018')
+GO
+
 SET IDENTITY_INSERT CIDADE OFF
 GO
 
 INSERT INTO CARGO (cargo, permissoes) VALUES ('PADRÃO', '')
 GO
 
-INSERT INTO UNIDADEMEDIDA (sigla, unidadeMedida) VALUES ('UN', 'Unidade')
+INSERT INTO CARGO (cargo, permissoes) VALUES ('ADMINISTRADOR GERAL', 'EMVECOCLFOPRUS')
+GO
+
+INSERT INTO USUARIO (usuario, senha, idCargo, idEmpresa) VALUES ('PADRÃO', '123', 1, 1)
+GO
+
+INSERT INTO USUARIO (usuario, senha, idCargo, idEmpresa) VALUES ('ADMINISTRADOR', '123', 2, 1)
+GO
+
+INSERT INTO UNIDADEMEDIDA (sigla, unidadeMedida) VALUES ('UN', 'UNIDADE')
 GO
 
 INSERT INTO MARCA (marca) VALUES ('PADRÃO')
 GO
 
 INSERT INTO GRUPO (grupo) VALUES ('PADRÃO')
+GO
+
+INSERT INTO 
+	PRODUTO (descricao, idUnidadeMedida, idGrupo, qtdMinima, qtdDisponivel, valorCompra, valorVenda, idMarca, dataCadastro)
+VALUES
+	('MOUSE WIRELESS', 1, 1, 5, 50, '40', '70', 1, '02/11/2018 09:43')
+GO
+
+INSERT INTO 
+	PRODUTO (descricao, idUnidadeMedida, idGrupo, qtdMinima, qtdDisponivel, valorCompra, valorVenda, idMarca, dataCadastro)
+VALUES
+	('TECLADO WIRELESS', 1, 1, 5, 50, '60', '90', 1, '02/11/2018 09:45')
+GO
+
+INSERT INTO 
+	PRODUTO (descricao, idUnidadeMedida, idGrupo, qtdMinima, qtdDisponivel, valorCompra, valorVenda, idMarca, dataCadastro)
+VALUES
+	('CAPA NOTEBOOK 14"', 1, 1, 5, 50, '13', '20', 1, '02/11/2018 09:46')
+GO
+
+INSERT INTO 
+	PRODUTO (descricao, idUnidadeMedida, idGrupo, qtdMinima, qtdDisponivel, valorCompra, valorVenda, idMarca, dataCadastro)
+VALUES
+	('CAIXA DE SOM BLUETOOTH', 1, 1, 5, 50, '60', '99.5', 1, '02/11/2018 09:46')
+GO
+
+INSERT INTO 
+	PRODUTO (descricao, idUnidadeMedida, idGrupo, qtdMinima, qtdDisponivel, valorCompra, valorVenda, idMarca, dataCadastro)
+VALUES
+	('MONITOR 21.5"', 1, 1, 5, 50, '400', '555.55', 1, '02/11/2018 09:46')
+GO
+
+INSERT INTO 
+	CLIENTE (logradouro, numero, bairro, idCidade, cep, dataCadastro)
+VALUES
+	('Travessa Santa Branca', '832', 'Lagoa Redonda', '4789', '14955-000', '02/11/2018 09:22')
+GO
+
+INSERT INTO
+	CLIENTEPF (nome, sexo, cpf, dataNascimento, idCliente)
+VALUES
+	('SAMUEL OSVALDO ASSIS', 'M', '922.395.505-03', '12/08/1996', 1)
+GO
+
+INSERT INTO 
+	CLIENTE (logradouro, numero, bairro, idCidade, cep, dataCadastro)
+VALUES
+	('Rua Vaticano', '103', 'Cristo Rei', '4789', '14955-000', '02/11/2018 09:24')
+GO
+
+INSERT INTO
+	CLIENTEPF (nome, sexo, cpf, dataNascimento, idCliente)
+VALUES
+	('OTÁVIO PEDRO HENRIQUE MATHEUS VIANA', 'M', '429.861.998-28', '21/08/1996', 2)
+GO
+
+INSERT INTO 
+	CLIENTE (logradouro, numero, bairro, idCidade, cep, dataCadastro)
+VALUES
+	('Avenida Governador Jânio Quadros', '422', 'Parque São Francisco', '4789', '14955-000', '02/11/2018 09:34')
+GO
+
+INSERT INTO
+	CLIENTEPJ (razaoSocial, cnpj, dataAbertura, idCliente)
+VALUES
+	('BRENO E JENNIFER ASSESSORIA JURÍDICA LTDA', '55.722.743/0001-67', '21/03/2013', 3)
+GO
+
+INSERT INTO 
+	CLIENTE (logradouro, numero, bairro, idCidade, cep, dataCadastro)
+VALUES
+	('Rua Conde de Irajá 184', '636', 'Vila Mariana', '4789', '14955-000', '02/11/2018 09:37')
+GO
+
+INSERT INTO
+	CLIENTEPJ (razaoSocial, cnpj, dataAbertura, idCliente)
+VALUES
+	('CALEBE E BIANCA VIDROS LTDA', '84.452.750/0001-94', '04/02/2013', 4)
 GO
 
 -- VIEW'S

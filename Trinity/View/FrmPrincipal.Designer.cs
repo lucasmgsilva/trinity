@@ -38,6 +38,7 @@
             this.mnPrincipal = new System.Windows.Forms.MenuStrip();
             this.minhaEmpresaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,6 @@
             this.trocaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sAIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -169,6 +169,17 @@
             this.vendasToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
+            // comprasToolStripMenuItem
+            // 
+            this.comprasToolStripMenuItem.Enabled = false;
+            this.comprasToolStripMenuItem.Image = global::Trinity.Properties.Resources.compra_32px;
+            this.comprasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(75, 51);
+            this.comprasToolStripMenuItem.Text = "COMPRAS";
+            this.comprasToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.comprasToolStripMenuItem.Visible = false;
+            // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Enabled = false;
@@ -189,6 +200,7 @@
             this.fornecedoresToolStripMenuItem1.Size = new System.Drawing.Size(106, 51);
             this.fornecedoresToolStripMenuItem1.Text = "FORNECEDORES";
             this.fornecedoresToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.fornecedoresToolStripMenuItem1.Visible = false;
             this.fornecedoresToolStripMenuItem1.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem1_Click);
             // 
             // produtosToolStripMenuItem1
@@ -225,6 +237,7 @@
             this.cadastrosBaseMenuItem.Size = new System.Drawing.Size(116, 51);
             this.cadastrosBaseMenuItem.Text = "CADASTROS BASE";
             this.cadastrosBaseMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.cadastrosBaseMenuItem.Visible = false;
             // 
             // unMedidaToolStripMenuItem
             // 
@@ -276,17 +289,6 @@
             this.sAIRToolStripMenuItem.Text = "SAIR DO SISTEMA";
             this.sAIRToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.sAIRToolStripMenuItem.Click += new System.EventHandler(this.sAIRToolStripMenuItem_Click);
-            // 
-            // comprasToolStripMenuItem
-            // 
-            this.comprasToolStripMenuItem.Enabled = false;
-            this.comprasToolStripMenuItem.Image = global::Trinity.Properties.Resources.compra_32px;
-            this.comprasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(75, 51);
-            this.comprasToolStripMenuItem.Text = "COMPRAS";
-            this.comprasToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.comprasToolStripMenuItem.Visible = false;
             // 
             // FrmPrincipal
             // 

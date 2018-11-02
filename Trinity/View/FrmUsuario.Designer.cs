@@ -135,6 +135,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Chartreuse;
+            this.label8.Enabled = false;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(605, 157);
             this.label8.Name = "label8";
@@ -162,6 +163,7 @@
             // cmbRazaoSocial
             // 
             this.cmbRazaoSocial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRazaoSocial.Enabled = false;
             this.cmbRazaoSocial.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbRazaoSocial.FormattingEnabled = true;
             this.cmbRazaoSocial.Location = new System.Drawing.Point(11, 153);
