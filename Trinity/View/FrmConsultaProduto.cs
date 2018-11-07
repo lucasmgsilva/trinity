@@ -63,7 +63,7 @@ namespace Trinity.View
                 {
                     if (MessageBox.Show("Você realmente quer excluir este PRODUTO?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        int idProduto = Convert.ToInt32(dgvProdutos.CurrentRow.Cells["idProduto"].Value.ToString());
+                        int idProduto = Convert.ToInt32(dgvProdutos.CurrentRow.Cells["Id"].Value.ToString());
                         ProdutoDAO dao = new ProdutoDAO();
                         dao.DeletaProduto(idProduto);
                         CarregaListaProdutos();
@@ -93,13 +93,10 @@ namespace Trinity.View
             if (txtPalavraChave.Text == "")
             {
                 CarregaListaProdutos();
-                //MessageBox.Show("Insira PALAVRAS-CHAVE!", "Atenção",  MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //txtPalavraChave.Focus();
             }
             else
             {
                 CarregaListaProdutosChave();
-                txtPalavraChave.Text = String.Empty;
             }
         }
 
@@ -121,6 +118,12 @@ namespace Trinity.View
                 }
                 else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtPalavraChave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+                btnBuscar.PerformClick();
         }
     }
 }

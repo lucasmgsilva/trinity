@@ -176,12 +176,6 @@
     <Compile Include="View\FrmMarca.Designer.cs">
       <DependentUpon>FrmMarca.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FrmPagamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FrmPagamento.designer.cs">
-      <DependentUpon>FrmPagamento.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,9 +255,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmMarca.resx">
       <DependentUpon>FrmMarca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FrmPagamento.resx">
-      <DependentUpon>FrmPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

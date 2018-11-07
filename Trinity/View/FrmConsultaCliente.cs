@@ -145,11 +145,8 @@ namespace Trinity.View
             if (txtPalavraChave.Text == "")
             {
                 CarregaListaClientes();
-                //MessageBox.Show("Insira PALAVRAS-CHAVE!", "Atenção",  MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //txtPalavraChave.Focus();
             } else {
                 CarregaListaClientesChave();
-                txtPalavraChave.Text = String.Empty;
             }
         }
 
@@ -171,6 +168,12 @@ namespace Trinity.View
             }
             else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum CLIENTE cadastrado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtPalavraChave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+                btnBuscar.PerformClick();
         }
     }
 }

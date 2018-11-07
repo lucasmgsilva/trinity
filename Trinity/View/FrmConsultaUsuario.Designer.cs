@@ -126,6 +126,7 @@
             this.txtPalavraChave.Name = "txtPalavraChave";
             this.txtPalavraChave.Size = new System.Drawing.Size(702, 26);
             this.txtPalavraChave.TabIndex = 1;
+            this.txtPalavraChave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPalavraChave_KeyPress);
             // 
             // btnExcluir
             // 

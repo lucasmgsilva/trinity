@@ -201,7 +201,8 @@
             // 
             // cmbGrupo
             // 
-            this.cmbGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGrupo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbGrupo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbGrupo.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbGrupo.FormattingEnabled = true;
             this.cmbGrupo.Location = new System.Drawing.Point(324, 100);
@@ -346,7 +347,8 @@
             // 
             // cmbMarca
             // 
-            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbMarca.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(89, 100);
@@ -460,7 +462,8 @@
             // 
             // cmbUnidadeMedida
             // 
-            this.cmbUnidadeMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUnidadeMedida.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUnidadeMedida.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbUnidadeMedida.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbUnidadeMedida.FormattingEnabled = true;
             this.cmbUnidadeMedida.Location = new System.Drawing.Point(11, 100);

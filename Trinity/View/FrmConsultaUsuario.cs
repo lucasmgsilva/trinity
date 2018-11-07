@@ -89,14 +89,17 @@ namespace Trinity.View
             if (txtPalavraChave.Text == "")
             {
                 CarregaListaUsuarios();
-                //MessageBox.Show("Insira PALAVRAS-CHAVE!", "Atenção",  MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //txtPalavraChave.Focus();
             }
             else
             {
                 CarregaListaUsuariosChave();
-                txtPalavraChave.Text = String.Empty;
             }
+        }
+
+        private void txtPalavraChave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+                btnBuscar.PerformClick();
         }
     }
 }

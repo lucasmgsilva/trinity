@@ -40,6 +40,8 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDesconto = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblItemVendido = new System.Windows.Forms.Label();
@@ -76,9 +78,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.epVendas = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDesconto = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemVendido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecoTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecoVenda)).BeginInit();
@@ -86,7 +87,6 @@
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epVendas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDesconto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExcluir
@@ -163,6 +163,30 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Itens da Venda";
+            // 
+            // txtDesconto
+            // 
+            this.txtDesconto.DecimalPlaces = 2;
+            this.txtDesconto.Location = new System.Drawing.Point(716, 329);
+            this.txtDesconto.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.txtDesconto.Name = "txtDesconto";
+            this.txtDesconto.Size = new System.Drawing.Size(144, 26);
+            this.txtDesconto.TabIndex = 81;
+            this.txtDesconto.ValueChanged += new System.EventHandler(this.txtDesconto_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(584, 333);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 19);
+            this.label6.TabIndex = 80;
+            this.label6.Text = "DESCONTO: R$";
             // 
             // lblTotal
             // 
@@ -390,6 +414,8 @@
             // 
             // cmbProduto
             // 
+            this.cmbProduto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbProduto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbProduto.FormattingEnabled = true;
             this.cmbProduto.Location = new System.Drawing.Point(11, 42);
             this.cmbProduto.Name = "cmbProduto";
@@ -467,6 +493,8 @@
             // 
             // cmbCliente
             // 
+            this.cmbCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(171, 47);
             this.cmbCliente.Name = "cmbCliente";
@@ -563,30 +591,6 @@
             // 
             this.epVendas.ContainerControl = this;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(584, 333);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(132, 19);
-            this.label6.TabIndex = 80;
-            this.label6.Text = "DESCONTO: R$";
-            // 
-            // txtDesconto
-            // 
-            this.txtDesconto.DecimalPlaces = 2;
-            this.txtDesconto.Location = new System.Drawing.Point(716, 329);
-            this.txtDesconto.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.txtDesconto.Name = "txtDesconto";
-            this.txtDesconto.Size = new System.Drawing.Size(144, 26);
-            this.txtDesconto.TabIndex = 81;
-            this.txtDesconto.ValueChanged += new System.EventHandler(this.txtDesconto_ValueChanged);
-            // 
             // FrmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,6 +613,7 @@
             this.Load += new System.EventHandler(this.FrmVenda_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesconto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemVendido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecoTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecoVenda)).EndInit();
@@ -618,7 +623,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epVendas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDesconto)).EndInit();
             this.ResumeLayout(false);
 
         }

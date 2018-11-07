@@ -162,7 +162,8 @@
             // 
             // cmbRazaoSocial
             // 
-            this.cmbRazaoSocial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRazaoSocial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbRazaoSocial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbRazaoSocial.Enabled = false;
             this.cmbRazaoSocial.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbRazaoSocial.FormattingEnabled = true;
@@ -216,7 +217,8 @@
             // 
             // cmbCargo
             // 
-            this.cmbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCargo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCargo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCargo.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbCargo.FormattingEnabled = true;
             this.cmbCargo.Location = new System.Drawing.Point(11, 100);

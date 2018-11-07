@@ -298,7 +298,8 @@
             // 
             // cmbCidade
             // 
-            this.cmbCidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCidade.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbCidade.FormattingEnabled = true;
             this.cmbCidade.Location = new System.Drawing.Point(554, 95);
@@ -351,7 +352,8 @@
             // 
             // cmbUf
             // 
-            this.cmbUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUf.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbUf.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbUf.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbUf.FormattingEnabled = true;
             this.cmbUf.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -660,7 +662,8 @@
             // 
             // cmbSexo
             // 
-            this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSexo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSexo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSexo.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbSexo.FormattingEnabled = true;
             this.cmbSexo.Items.AddRange(new object[] {
