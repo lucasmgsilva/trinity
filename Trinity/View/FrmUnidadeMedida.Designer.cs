@@ -37,18 +37,18 @@
             this.txtUnidadeMedida = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSigla = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.dgvUnidadesMedida = new System.Windows.Forms.DataGridView();
+            this.idUnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtSigla = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.idUnidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadeMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnidadesMedida)).BeginInit();
@@ -69,7 +69,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(144, 9);
+            this.label1.Location = new System.Drawing.Point(98, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 23);
             this.label1.TabIndex = 0;
@@ -92,7 +92,7 @@
             this.txtUnidadeMedida.MaxLength = 40;
             this.txtUnidadeMedida.Name = "txtUnidadeMedida";
             this.txtUnidadeMedida.Size = new System.Drawing.Size(336, 26);
-            this.txtUnidadeMedida.TabIndex = 0;
+            this.txtUnidadeMedida.TabIndex = 1;
             // 
             // label11
             // 
@@ -122,6 +122,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Unidade de Medida";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(60, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 19);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "*";
+            // 
+            // txtSigla
+            // 
+            this.txtSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSigla.Location = new System.Drawing.Point(11, 47);
+            this.txtSigla.MaxLength = 40;
+            this.txtSigla.Name = "txtSigla";
+            this.txtSigla.Size = new System.Drawing.Size(83, 26);
+            this.txtSigla.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 19);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Sigla:";
+            // 
             // dgvUnidadesMedida
             // 
             this.dgvUnidadesMedida.AllowUserToAddRows = false;
@@ -140,8 +170,34 @@
             this.dgvUnidadesMedida.ReadOnly = true;
             this.dgvUnidadesMedida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUnidadesMedida.Size = new System.Drawing.Size(425, 154);
-            this.dgvUnidadesMedida.TabIndex = 18;
+            this.dgvUnidadesMedida.TabIndex = 2;
             this.dgvUnidadesMedida.SelectionChanged += new System.EventHandler(this.dgvMarcas_SelectionChanged);
+            // 
+            // idUnidadeMedida
+            // 
+            this.idUnidadeMedida.DataPropertyName = "IdUnidadeMedida";
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = null;
+            this.idUnidadeMedida.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idUnidadeMedida.HeaderText = "ID";
+            this.idUnidadeMedida.Name = "idUnidadeMedida";
+            this.idUnidadeMedida.ReadOnly = true;
+            // 
+            // sigla
+            // 
+            this.sigla.DataPropertyName = "Sigla";
+            this.sigla.HeaderText = "SIGLA";
+            this.sigla.Name = "sigla";
+            this.sigla.ReadOnly = true;
+            this.sigla.Width = 60;
+            // 
+            // unidadeMedida
+            // 
+            this.unidadeMedida.DataPropertyName = "unidadeMedida";
+            this.unidadeMedida.HeaderText = "UNIDADE MEDIDA";
+            this.unidadeMedida.Name = "unidadeMedida";
+            this.unidadeMedida.ReadOnly = true;
+            this.unidadeMedida.Width = 220;
             // 
             // btnCancelar
             // 
@@ -161,7 +217,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(125, 347);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -173,7 +229,7 @@
             this.btnEditar.Location = new System.Drawing.Point(282, 310);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -202,62 +258,6 @@
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(60, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 19);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "*";
-            // 
-            // txtSigla
-            // 
-            this.txtSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSigla.Location = new System.Drawing.Point(11, 47);
-            this.txtSigla.MaxLength = 40;
-            this.txtSigla.Name = "txtSigla";
-            this.txtSigla.Size = new System.Drawing.Size(83, 26);
-            this.txtSigla.TabIndex = 19;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 19);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Sigla:";
-            // 
-            // idUnidadeMedida
-            // 
-            this.idUnidadeMedida.DataPropertyName = "IdUnidadeMedida";
-            dataGridViewCellStyle2.Format = "00000";
-            dataGridViewCellStyle2.NullValue = null;
-            this.idUnidadeMedida.DefaultCellStyle = dataGridViewCellStyle2;
-            this.idUnidadeMedida.HeaderText = "ID";
-            this.idUnidadeMedida.Name = "idUnidadeMedida";
-            this.idUnidadeMedida.ReadOnly = true;
-            // 
-            // sigla
-            // 
-            this.sigla.DataPropertyName = "Sigla";
-            this.sigla.HeaderText = "SIGLA";
-            this.sigla.Name = "sigla";
-            this.sigla.ReadOnly = true;
-            this.sigla.Width = 60;
-            // 
-            // unidadeMedida
-            // 
-            this.unidadeMedida.DataPropertyName = "unidadeMedida";
-            this.unidadeMedida.HeaderText = "UNIDADE MEDIDA";
-            this.unidadeMedida.Name = "unidadeMedida";
-            this.unidadeMedida.ReadOnly = true;
-            this.unidadeMedida.Width = 220;
             // 
             // FrmUnidadeMedida
             // 

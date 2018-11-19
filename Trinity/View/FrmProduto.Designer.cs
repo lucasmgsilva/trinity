@@ -48,7 +48,6 @@
             this.txtValorVenda = new System.Windows.Forms.TextBox();
             this.lblVrVenda = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
@@ -58,8 +57,6 @@
             this.lblVrCompra = new System.Windows.Forms.Label();
             this.txtQtdDisponivel = new System.Windows.Forms.TextBox();
             this.lblQtdDisp = new System.Windows.Forms.Label();
-            this.txtQtdMinima = new System.Windows.Forms.TextBox();
-            this.lblQtdMinima = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbUnidadeMedida = new System.Windows.Forms.ComboBox();
             this.lblUn = new System.Windows.Forms.Label();
@@ -118,7 +115,6 @@
             this.groupBox1.Controls.Add(this.txtValorVenda);
             this.groupBox1.Controls.Add(this.lblVrVenda);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.cmbMarca);
@@ -128,8 +124,6 @@
             this.groupBox1.Controls.Add(this.lblVrCompra);
             this.groupBox1.Controls.Add(this.txtQtdDisponivel);
             this.groupBox1.Controls.Add(this.lblQtdDisp);
-            this.groupBox1.Controls.Add(this.txtQtdMinima);
-            this.groupBox1.Controls.Add(this.lblQtdMinima);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmbUnidadeMedida);
             this.groupBox1.Controls.Add(this.lblUn);
@@ -150,10 +144,10 @@
             // txtLucro
             // 
             this.txtLucro.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtLucro.Location = new System.Drawing.Point(466, 152);
+            this.txtLucro.Location = new System.Drawing.Point(320, 152);
             this.txtLucro.Name = "txtLucro";
             this.txtLucro.Size = new System.Drawing.Size(139, 26);
-            this.txtLucro.TabIndex = 23;
+            this.txtLucro.TabIndex = 9;
             this.txtLucro.Text = "0";
             this.txtLucro.TextChanged += new System.EventHandler(this.txtLucro_TextChanged);
             this.txtLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLucro_KeyPress);
@@ -187,7 +181,7 @@
             this.txtCodigoFabricante.MaxLength = 25;
             this.txtCodigoFabricante.Name = "txtCodigoFabricante";
             this.txtCodigoFabricante.Size = new System.Drawing.Size(204, 26);
-            this.txtCodigoFabricante.TabIndex = 15;
+            this.txtCodigoFabricante.TabIndex = 5;
             // 
             // label25
             // 
@@ -209,7 +203,7 @@
             this.cmbGrupo.MaxLength = 15;
             this.cmbGrupo.Name = "cmbGrupo";
             this.cmbGrupo.Size = new System.Drawing.Size(211, 26);
-            this.cmbGrupo.TabIndex = 5;
+            this.cmbGrupo.TabIndex = 4;
             // 
             // label21
             // 
@@ -250,7 +244,7 @@
             // 
             this.lblLucro.AutoSize = true;
             this.lblLucro.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblLucro.Location = new System.Drawing.Point(463, 133);
+            this.lblLucro.Location = new System.Drawing.Point(317, 133);
             this.lblLucro.Name = "lblLucro";
             this.lblLucro.Size = new System.Drawing.Size(79, 18);
             this.lblLucro.TabIndex = 22;
@@ -265,14 +259,14 @@
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtObservacoes.Size = new System.Drawing.Size(751, 151);
-            this.txtObservacoes.TabIndex = 27;
+            this.txtObservacoes.TabIndex = 11;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(721, 133);
+            this.label18.Location = new System.Drawing.Point(575, 133);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(15, 19);
             this.label18.TabIndex = 24;
@@ -282,10 +276,10 @@
             // 
             this.txtValorVenda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValorVenda.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtValorVenda.Location = new System.Drawing.Point(611, 152);
+            this.txtValorVenda.Location = new System.Drawing.Point(465, 152);
             this.txtValorVenda.Name = "txtValorVenda";
             this.txtValorVenda.Size = new System.Drawing.Size(154, 26);
-            this.txtValorVenda.TabIndex = 25;
+            this.txtValorVenda.TabIndex = 10;
             this.txtValorVenda.Text = "0,00";
             this.txtValorVenda.TextChanged += new System.EventHandler(this.txtValorVenda_TextChanged);
             this.txtValorVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorVenda_KeyPress);
@@ -295,7 +289,7 @@
             // 
             this.lblVrVenda.AutoSize = true;
             this.lblVrVenda.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblVrVenda.Location = new System.Drawing.Point(607, 133);
+            this.lblVrVenda.Location = new System.Drawing.Point(461, 133);
             this.lblVrVenda.Name = "lblVrVenda";
             this.lblVrVenda.Size = new System.Drawing.Size(119, 18);
             this.lblVrVenda.TabIndex = 24;
@@ -306,29 +300,18 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(427, 133);
+            this.label16.Location = new System.Drawing.Point(281, 133);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(15, 19);
             this.label16.TabIndex = 21;
             this.label16.Text = "*";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(96, 133);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 19);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "*";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(266, 133);
+            this.label14.Location = new System.Drawing.Point(120, 133);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(15, 19);
             this.label14.TabIndex = 19;
@@ -355,7 +338,7 @@
             this.cmbMarca.MaxLength = 15;
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(211, 26);
-            this.cmbMarca.TabIndex = 4;
+            this.cmbMarca.TabIndex = 3;
             // 
             // label12
             // 
@@ -383,10 +366,10 @@
             // 
             this.txtValorCompra.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValorCompra.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtValorCompra.Location = new System.Drawing.Point(306, 152);
+            this.txtValorCompra.Location = new System.Drawing.Point(160, 152);
             this.txtValorCompra.Name = "txtValorCompra";
             this.txtValorCompra.Size = new System.Drawing.Size(155, 26);
-            this.txtValorCompra.TabIndex = 21;
+            this.txtValorCompra.TabIndex = 8;
             this.txtValorCompra.Text = "0,00";
             this.txtValorCompra.TextChanged += new System.EventHandler(this.txtValorCompra_TextChanged);
             this.txtValorCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorCompra_KeyPress);
@@ -396,7 +379,7 @@
             // 
             this.lblVrCompra.AutoSize = true;
             this.lblVrCompra.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblVrCompra.Location = new System.Drawing.Point(302, 133);
+            this.lblVrCompra.Location = new System.Drawing.Point(156, 133);
             this.lblVrCompra.Name = "lblVrCompra";
             this.lblVrCompra.Size = new System.Drawing.Size(131, 18);
             this.lblVrCompra.TabIndex = 20;
@@ -406,10 +389,10 @@
             // 
             this.txtQtdDisponivel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQtdDisponivel.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtQtdDisponivel.Location = new System.Drawing.Point(159, 152);
+            this.txtQtdDisponivel.Location = new System.Drawing.Point(13, 152);
             this.txtQtdDisponivel.Name = "txtQtdDisponivel";
             this.txtQtdDisponivel.Size = new System.Drawing.Size(141, 26);
-            this.txtQtdDisponivel.TabIndex = 19;
+            this.txtQtdDisponivel.TabIndex = 7;
             this.txtQtdDisponivel.Text = "0,00";
             this.txtQtdDisponivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdDisponivel_KeyPress);
             this.txtQtdDisponivel.Leave += new System.EventHandler(this.txtQtdDisponivel_Leave);
@@ -418,33 +401,11 @@
             // 
             this.lblQtdDisp.AutoSize = true;
             this.lblQtdDisp.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblQtdDisp.Location = new System.Drawing.Point(155, 133);
+            this.lblQtdDisp.Location = new System.Drawing.Point(9, 133);
             this.lblQtdDisp.Name = "lblQtdDisp";
             this.lblQtdDisp.Size = new System.Drawing.Size(117, 18);
             this.lblQtdDisp.TabIndex = 18;
             this.lblQtdDisp.Text = "Qtd. Disponível:";
-            // 
-            // txtQtdMinima
-            // 
-            this.txtQtdMinima.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtQtdMinima.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtQtdMinima.Location = new System.Drawing.Point(11, 152);
-            this.txtQtdMinima.Name = "txtQtdMinima";
-            this.txtQtdMinima.Size = new System.Drawing.Size(142, 26);
-            this.txtQtdMinima.TabIndex = 17;
-            this.txtQtdMinima.Text = "0,00";
-            this.txtQtdMinima.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdMinima_KeyPress);
-            this.txtQtdMinima.Leave += new System.EventHandler(this.txtQtdMinima_Leave);
-            // 
-            // lblQtdMinima
-            // 
-            this.lblQtdMinima.AutoSize = true;
-            this.lblQtdMinima.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblQtdMinima.Location = new System.Drawing.Point(7, 133);
-            this.lblQtdMinima.Name = "lblQtdMinima";
-            this.lblQtdMinima.Size = new System.Drawing.Size(95, 18);
-            this.lblQtdMinima.TabIndex = 16;
-            this.lblQtdMinima.Text = "Qtd. Mínima:";
             // 
             // label6
             // 
@@ -470,7 +431,7 @@
             this.cmbUnidadeMedida.MaxLength = 2;
             this.cmbUnidadeMedida.Name = "cmbUnidadeMedida";
             this.cmbUnidadeMedida.Size = new System.Drawing.Size(54, 26);
-            this.cmbUnidadeMedida.TabIndex = 3;
+            this.cmbUnidadeMedida.TabIndex = 2;
             // 
             // lblUn
             // 
@@ -515,7 +476,7 @@
             this.txtDataCadastro.Name = "txtDataCadastro";
             this.txtDataCadastro.ReadOnly = true;
             this.txtDataCadastro.Size = new System.Drawing.Size(154, 26);
-            this.txtDataCadastro.TabIndex = 2;
+            this.txtDataCadastro.TabIndex = 1;
             this.txtDataCadastro.ValidatingType = typeof(System.DateTime);
             // 
             // lblMarca
@@ -536,7 +497,7 @@
             this.txtDescricao.MaxLength = 50;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(594, 26);
-            this.txtDescricao.TabIndex = 1;
+            this.txtDescricao.TabIndex = 0;
             // 
             // lblDescricao
             // 
@@ -657,10 +618,7 @@
         private System.Windows.Forms.Label lblUn;
         private System.Windows.Forms.TextBox txtQtdDisponivel;
         private System.Windows.Forms.Label lblQtdDisp;
-        private System.Windows.Forms.TextBox txtQtdMinima;
-        private System.Windows.Forms.Label lblQtdMinima;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;

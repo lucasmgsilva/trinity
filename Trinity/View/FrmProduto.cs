@@ -33,7 +33,6 @@ namespace Trinity
             SelecionaMarca();
             SelecionaGrupo();
             txtCodigoFabricante.Text = this.produtoCarregado.CodigoFabricante;
-            txtQtdMinima.Text = this.produtoCarregado.QtdMinima.ToString();
             txtQtdDisponivel.Text = this.produtoCarregado.QtdDisponivel.ToString();
             txtValorCompra.Text = this.produtoCarregado.ValorCompra.ToString();
             txtValorVenda.Text = this.produtoCarregado.ValorVenda.ToString();
@@ -112,7 +111,6 @@ namespace Trinity
                 this.produtoCarregado.Marca = (Marca)cmbMarca.SelectedItem;
                 this.produtoCarregado.Grupo = (Grupo)cmbGrupo.SelectedItem;
                 this.produtoCarregado.CodigoFabricante = txtCodigoFabricante.Text.Trim();
-                this.produtoCarregado.QtdMinima = float.Parse(txtQtdMinima.Text.Trim());
                 this.produtoCarregado.QtdDisponivel = float.Parse(txtQtdDisponivel.Text.Trim());
                 this.produtoCarregado.ValorCompra = Convert.ToDouble(txtValorCompra.Text.Trim());
                 this.produtoCarregado.ValorVenda = Convert.ToDouble(txtValorVenda.Text.Trim());
@@ -172,14 +170,6 @@ namespace Trinity
             }
             else
                 epProdutos.SetError(lblGrupo, string.Empty);
-
-            if (string.IsNullOrWhiteSpace(txtQtdMinima.Text) || Convert.ToDouble(txtQtdMinima.Text) == 0)
-            {
-                epProdutos.SetError(lblQtdMinima, "A quantidade mínima deve ser maior que 0.");
-                hasErros = true;
-            }
-            else
-                epProdutos.SetError(lblQtdMinima, string.Empty);
 
             if (string.IsNullOrWhiteSpace(txtQtdDisponivel.Text) || Convert.ToDouble(txtQtdDisponivel.Text) == 0)
             {
@@ -246,7 +236,6 @@ namespace Trinity
             cmbMarca.Enabled = false;
             cmbGrupo.Enabled = false;
             txtCodigoFabricante.Enabled = false;
-            txtQtdMinima.Enabled = false;
             txtQtdDisponivel.Enabled = false;
             txtValorCompra.Enabled = false;
             txtLucro.Enabled = false;
@@ -261,7 +250,6 @@ namespace Trinity
             cmbMarca.Enabled = !false;
             cmbGrupo.Enabled = !false;
             txtCodigoFabricante.Enabled = !false;
-            txtQtdMinima.Enabled = !false;
             txtQtdDisponivel.Enabled = !false;
             txtValorCompra.Enabled = !false;
             txtLucro.Enabled = !false;
@@ -296,7 +284,6 @@ namespace Trinity
             cmbMarca.SelectedItem = null;
             cmbGrupo.SelectedItem = null;
             txtCodigoFabricante.Text = String.Empty;
-            txtQtdMinima.Text = String.Empty;
             txtQtdDisponivel.Text = String.Empty;
             txtValorCompra.Text = String.Empty;
             txtLucro.Text = String.Empty;
@@ -423,19 +410,7 @@ namespace Trinity
             if (txtQtdDisponivel.Text.Equals(string.Empty))
                 ZeraValores(ref txtQtdDisponivel);
         }
-
-        private void txtQtdMinima_Leave(object sender, EventArgs e)
-        {
-            if (txtQtdMinima.Text.Equals(string.Empty))
-                ZeraValores(ref txtQtdMinima);
-        }
-
-        private void txtQtdMinima_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)
-                e.Handled = true;
-        }
-
+        
         private void txtQtdDisponivel_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)

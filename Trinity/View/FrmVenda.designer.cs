@@ -95,7 +95,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(658, 523);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(104, 27);
-            this.btnExcluir.TabIndex = 4;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -106,7 +106,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(768, 523);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 27);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -175,7 +175,7 @@
             0});
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(144, 26);
-            this.txtDesconto.TabIndex = 81;
+            this.txtDesconto.TabIndex = 8;
             this.txtDesconto.ValueChanged += new System.EventHandler(this.txtDesconto_ValueChanged);
             // 
             // label6
@@ -239,7 +239,7 @@
             this.dgvItemVendido.ReadOnly = true;
             this.dgvItemVendido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItemVendido.Size = new System.Drawing.Size(849, 194);
-            this.dgvItemVendido.TabIndex = 76;
+            this.dgvItemVendido.TabIndex = 7;
             this.dgvItemVendido.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             this.dgvItemVendido.SelectionChanged += new System.EventHandler(this.dgvItemVendido_SelectionChanged);
             // 
@@ -309,7 +309,7 @@
             0});
             this.txtPrecoTotal.Name = "txtPrecoTotal";
             this.txtPrecoTotal.Size = new System.Drawing.Size(170, 26);
-            this.txtPrecoTotal.TabIndex = 75;
+            this.txtPrecoTotal.TabIndex = 3;
             this.txtPrecoTotal.ValueChanged += new System.EventHandler(this.txtPrecoTotal_ValueChanged);
             // 
             // txtPrecoVenda
@@ -323,7 +323,7 @@
             0});
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.Size = new System.Drawing.Size(144, 26);
-            this.txtPrecoVenda.TabIndex = 74;
+            this.txtPrecoVenda.TabIndex = 2;
             this.txtPrecoVenda.ValueChanged += new System.EventHandler(this.txtPrecoVenda_ValueChanged);
             // 
             // txtQuantidade
@@ -337,7 +337,7 @@
             0});
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(93, 26);
-            this.txtQuantidade.TabIndex = 73;
+            this.txtQuantidade.TabIndex = 1;
             this.txtQuantidade.ValueChanged += new System.EventHandler(this.txtQuantidade_ValueChanged);
             // 
             // lblBuscaProduto
@@ -499,7 +499,7 @@
             this.cmbCliente.Location = new System.Drawing.Point(171, 47);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(671, 26);
-            this.cmbCliente.TabIndex = 3;
+            this.cmbCliente.TabIndex = 1;
             // 
             // label9
             // 
@@ -551,7 +551,7 @@
             this.txtDataVenda.Name = "txtDataVenda";
             this.txtDataVenda.ReadOnly = true;
             this.txtDataVenda.Size = new System.Drawing.Size(154, 26);
-            this.txtDataVenda.TabIndex = 1;
+            this.txtDataVenda.TabIndex = 0;
             this.txtDataVenda.ValidatingType = typeof(System.DateTime);
             // 
             // panel1
@@ -581,7 +581,7 @@
             this.btnEditar.Location = new System.Drawing.Point(226, 523);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(104, 27);
-            this.btnEditar.TabIndex = 77;
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;

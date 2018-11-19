@@ -191,7 +191,7 @@
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtObservacoes.Size = new System.Drawing.Size(758, 105);
-            this.txtObservacoes.TabIndex = 16;
+            this.txtObservacoes.TabIndex = 2;
             // 
             // btnCancelar
             // 
@@ -199,7 +199,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(671, 473);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -211,7 +211,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(567, 473);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 20;
+            this.btnExcluir.TabIndex = 6;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             this.btnEditar.Location = new System.Drawing.Point(221, 473);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 19;
+            this.btnEditar.TabIndex = 5;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -236,7 +236,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(117, 473);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 18;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             this.btnNovo.Location = new System.Drawing.Point(11, 473);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 17;
+            this.btnNovo.TabIndex = 3;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -281,7 +281,7 @@
             this.groupBox3.Location = new System.Drawing.Point(3, 211);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(772, 126);
-            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Endereço";
             // 
@@ -306,7 +306,7 @@
             this.cmbCidade.MaxLength = 120;
             this.cmbCidade.Name = "cmbCidade";
             this.cmbCidade.Size = new System.Drawing.Size(211, 26);
-            this.cmbCidade.TabIndex = 15;
+            this.cmbCidade.TabIndex = 6;
             // 
             // label35
             // 
@@ -361,7 +361,7 @@
             this.cmbUf.MaxLength = 2;
             this.cmbUf.Name = "cmbUf";
             this.cmbUf.Size = new System.Drawing.Size(54, 26);
-            this.cmbUf.TabIndex = 14;
+            this.cmbUf.TabIndex = 5;
             this.cmbUf.SelectedIndexChanged += new System.EventHandler(this.cmbUf_SelectedIndexChanged);
             // 
             // lblUf
@@ -393,7 +393,7 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.PromptChar = ' ';
             this.txtCep.Size = new System.Drawing.Size(97, 26);
-            this.txtCep.TabIndex = 13;
+            this.txtCep.TabIndex = 4;
             // 
             // txtBairro
             // 
@@ -403,7 +403,7 @@
             this.txtBairro.MaxLength = 30;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(192, 26);
-            this.txtBairro.TabIndex = 12;
+            this.txtBairro.TabIndex = 3;
             // 
             // lblBairro
             // 
@@ -423,7 +423,7 @@
             this.txtComplemento.MaxLength = 30;
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(176, 26);
-            this.txtComplemento.TabIndex = 11;
+            this.txtComplemento.TabIndex = 2;
             // 
             // label23
             // 
@@ -465,7 +465,7 @@
             this.txtNumero.MaxLength = 8;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(108, 26);
-            this.txtNumero.TabIndex = 10;
+            this.txtNumero.TabIndex = 1;
             this.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblNumero
@@ -486,7 +486,7 @@
             this.txtLogradouro.MaxLength = 70;
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(641, 26);
-            this.txtLogradouro.TabIndex = 9;
+            this.txtLogradouro.TabIndex = 0;
             // 
             // lblLogradouro
             // 

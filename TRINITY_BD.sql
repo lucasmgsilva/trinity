@@ -845,28 +845,41 @@ AS
 BEGIN
 	INSERT INTO ITEMVENDIDO (idVenda, idProduto, qtdVendida, valorVenda)
 	VALUES (@IdVenda, @IdProduto, @QtdVendida, @ValorVenda)
+
+	UPDATE PRODUTO set qtdDisponivel = qtdDisponivel - @QtdVendida WHERE idProduto = @IdProduto
 END
 GO
 
 CREATE PROCEDURE SP_ALTERA_ITEMVENDIDO (@IdVenda INT, @IdProduto INT, @QtdVendida FLOAT, @ValorVenda MONEY)
 AS
 BEGIN
+	DECLARE @AntigaQtdVendida FLOAT = (SELECT qtdVendida FROM ITEMVENDIDO WHERE idVenda = @IdVenda AND idProduto = @IdProduto)
+	DECLARE @QtdAlterada FLOAT = @AntigaQtdVendida - @QtdVendida
+
 	UPDATE
 		ITEMVENDIDO
 	SET 
 		qtdVendida = @QtdVendida, valorVenda = @ValorVenda
 	WHERE
 		idVenda = @IdVenda AND idProduto = @IdProduto
+
+	IF @QtdAlterada <= 0
+		UPDATE PRODUTO SET qtdDisponivel = qtdDisponivel + @QtdAlterada WHERE idProduto = @IdProduto
+	ELSE UPDATE PRODUTO SET qtdDisponivel = qtdDisponivel - @QtdAlterada WHERE idProduto = @IdProduto
 END
 GO
 
 CREATE PROCEDURE SP_DELETA_ITEMVENDIDO (@IdVenda INT, @IdProduto INT)
 AS
 BEGIN
+	DECLARE @Qtd FLOAT = (SELECT qtdVendida FROM ITEMVENDIDO WHERE idVenda = @IdVenda AND idProduto = @IdProduto)
+	
 	DELETE FROM 
 		ITEMVENDIDO
 	WHERE
 		idVenda = @IdVenda AND idProduto = @IdProduto
+
+	UPDATE PRODUTO SET qtdDisponivel = qtdDisponivel + @Qtd WHERE idProduto = @IdProduto
 END
 GO
 

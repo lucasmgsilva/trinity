@@ -75,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(195)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(144, 9);
+            this.label1.Location = new System.Drawing.Point(308, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 23);
             this.label1.TabIndex = 0;
@@ -123,7 +123,7 @@
             this.groupBox1.Location = new System.Drawing.Point(2, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(782, 398);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Cargo";
             // 
@@ -140,7 +140,7 @@
             this.panel2.Location = new System.Drawing.Point(11, 111);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(765, 121);
-            this.panel2.TabIndex = 24;
+            this.panel2.TabIndex = 1;
             // 
             // chkUsuarios
             // 
@@ -231,7 +231,7 @@
             this.dgvCargos.ReadOnly = true;
             this.dgvCargos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCargos.Size = new System.Drawing.Size(765, 154);
-            this.dgvCargos.TabIndex = 18;
+            this.dgvCargos.TabIndex = 2;
             this.dgvCargos.SelectionChanged += new System.EventHandler(this.dgvcargos_SelectionChanged);
             // 
             // idCargo
@@ -268,7 +268,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(678, 457);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 29);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -292,7 +292,7 @@
             this.btnEditar.Location = new System.Drawing.Point(215, 457);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 4;
+            this.btnEditar.TabIndex = 2;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -304,7 +304,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(111, 457);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(98, 29);
-            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -316,7 +316,7 @@
             this.btnNovo.Location = new System.Drawing.Point(5, 457);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 1;
+            this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;

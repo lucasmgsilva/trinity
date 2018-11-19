@@ -76,7 +76,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(718, 38);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(148, 29);
-            this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.txtPalavraChave.Location = new System.Drawing.Point(10, 41);
             this.txtPalavraChave.Name = "txtPalavraChave";
             this.txtPalavraChave.Size = new System.Drawing.Size(702, 26);
-            this.txtPalavraChave.TabIndex = 1;
+            this.txtPalavraChave.TabIndex = 0;
             this.txtPalavraChave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPalavraChave_KeyPress);
             // 
             // panel1
