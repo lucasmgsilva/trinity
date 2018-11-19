@@ -734,14 +734,28 @@ CREATE PROCEDURE SP_DELETA_VENDA (@idVenda INT)
 AS
 BEGIN TRAN
 BEGIN
+	DECLARE @IdProduto INT, @QtdVendida FLOAT
+	DECLARE curs cursor for (SELECT idProduto, qtdVendida FROM ITEMVENDIDO WHERE idVenda = @idVenda)
+		OPEN curs
+		FETCH NEXT FROM curs INTO @IdProduto, @QtdVendida
+		WHILE @@FETCH_STATUS = 0
+			BEGIN
+				UPDATE PRODUTO SET qtdDisponivel += @QtdVendida WHERE idProduto = @IdProduto
+				FETCH NEXT FROM curs INTO @IdProduto, @QtdVendida
+			END
+		CLOSE curs
+		DEALLOCATE curs
+
+	IF @@ERROR != 0
+	ROLLBACK TRAN
+
 	DELETE FROM
 		ITEMVENDIDO
 	WHERE
 		idVenda = @idVenda
 	IF @@ERROR != 0
 		ROLLBACK TRAN
-	ELSE
-		BEGIN
+
 			DELETE FROM
 				VENDA
 			WHERE
@@ -750,7 +764,6 @@ BEGIN
 			IF @@ERROR != 0
 				ROLLBACK TRAN
 			ELSE COMMIT TRAN
-		END
 END
 GO
 
