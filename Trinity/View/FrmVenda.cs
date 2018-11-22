@@ -544,5 +544,23 @@ namespace Trinity.View
         {
             CalculaTotalEQtd();
         }
+
+        private void dgvItemVendido_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            try
+            {
+                foreach(DataGridViewRow row in dgvItemVendido.Rows)
+                {
+                    ItemVendido item = row.DataBoundItem as ItemVendido;
+                    Produto produto = new ProdutoDAO().Pesquisar(item.IdProduto);
+                    if(produto != null)
+                        row.Cells["descricao"].Value = produto.Descricao;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -8,6 +8,13 @@ namespace Trinity.Model.Bean
 {
     public class Produto
     {
+
+        public Produto()
+        {
+            UnidadeMedida = new UnidadeMedida();
+            Grupo = new Grupo();
+            Marca = new Marca();
+        }
         public int IdProduto { get; set; }
         public string Descricao { get; set; }
         public UnidadeMedida UnidadeMedida { get; set; }

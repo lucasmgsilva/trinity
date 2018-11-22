@@ -46,11 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblItemVendido = new System.Windows.Forms.Label();
             this.dgvItemVendido = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdVendida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrecoTotal = new System.Windows.Forms.NumericUpDown();
             this.txtPrecoVenda = new System.Windows.Forms.NumericUpDown();
             this.txtQuantidade = new System.Windows.Forms.NumericUpDown();
@@ -78,6 +73,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.epVendas = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtdVendida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemVendido)).BeginInit();
@@ -240,63 +240,8 @@
             this.dgvItemVendido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItemVendido.Size = new System.Drawing.Size(849, 194);
             this.dgvItemVendido.TabIndex = 7;
-            this.dgvItemVendido.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
+            this.dgvItemVendido.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvItemVendido_DataBindingComplete);
             this.dgvItemVendido.SelectionChanged += new System.EventHandler(this.dgvItemVendido_SelectionChanged);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "IdProduto";
-            dataGridViewCellStyle2.Format = "00000";
-            dataGridViewCellStyle2.NullValue = "565655";
-            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Id.FillWeight = 304.5685F;
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // descricao
-            // 
-            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descricao.DataPropertyName = "Produto.Descricao";
-            this.descricao.FillWeight = 121.8274F;
-            this.descricao.HeaderText = "DESCRIÇÃO";
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
-            // 
-            // qtdVendida
-            // 
-            this.qtdVendida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.qtdVendida.DataPropertyName = "qtdVendida";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.qtdVendida.DefaultCellStyle = dataGridViewCellStyle3;
-            this.qtdVendida.FillWeight = 38.17258F;
-            this.qtdVendida.HeaderText = "QTD.";
-            this.qtdVendida.Name = "qtdVendida";
-            this.qtdVendida.ReadOnly = true;
-            // 
-            // valorVenda
-            // 
-            this.valorVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valorVenda.DataPropertyName = "valorVenda";
-            dataGridViewCellStyle4.Format = "C2";
-            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle4;
-            this.valorVenda.FillWeight = 38.17258F;
-            this.valorVenda.HeaderText = "VALOR";
-            this.valorVenda.Name = "valorVenda";
-            this.valorVenda.ReadOnly = true;
-            // 
-            // valorTotal
-            // 
-            this.valorTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valorTotal.DataPropertyName = "valorTotal";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle5;
-            this.valorTotal.FillWeight = 38.17258F;
-            this.valorTotal.HeaderText = "TOTAL";
-            this.valorTotal.Name = "valorTotal";
-            this.valorTotal.ReadOnly = true;
             // 
             // txtPrecoTotal
             // 
@@ -591,6 +536,61 @@
             // 
             this.epVendas.ContainerControl = this;
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "IdProduto";
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = "565655";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.FillWeight = 304.5685F;
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descricao.DataPropertyName = "descricao";
+            this.descricao.FillWeight = 121.8274F;
+            this.descricao.HeaderText = "DESCRIÇÃO";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            // 
+            // qtdVendida
+            // 
+            this.qtdVendida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.qtdVendida.DataPropertyName = "qtdVendida";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.qtdVendida.DefaultCellStyle = dataGridViewCellStyle3;
+            this.qtdVendida.FillWeight = 38.17258F;
+            this.qtdVendida.HeaderText = "QTD.";
+            this.qtdVendida.Name = "qtdVendida";
+            this.qtdVendida.ReadOnly = true;
+            // 
+            // valorVenda
+            // 
+            this.valorVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valorVenda.DataPropertyName = "valorVenda";
+            dataGridViewCellStyle4.Format = "C2";
+            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle4;
+            this.valorVenda.FillWeight = 38.17258F;
+            this.valorVenda.HeaderText = "VALOR";
+            this.valorVenda.Name = "valorVenda";
+            this.valorVenda.ReadOnly = true;
+            // 
+            // valorTotal
+            // 
+            this.valorTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valorTotal.DataPropertyName = "valorTotal";
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle5;
+            this.valorTotal.FillWeight = 38.17258F;
+            this.valorTotal.HeaderText = "TOTAL";
+            this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
+            // 
             // FrmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,16 +661,16 @@
         private System.Windows.Forms.NumericUpDown txtPrecoVenda;
         private System.Windows.Forms.DataGridView dgvItemVendido;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtdVendida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorTotal;
         private System.Windows.Forms.ErrorProvider epVendas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblItemVendido;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.NumericUpDown txtDesconto;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtdVendida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorTotal;
     }
 }

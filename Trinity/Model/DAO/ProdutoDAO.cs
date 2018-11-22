@@ -82,6 +82,82 @@ namespace Trinity.Model.DAO
             }
         }
 
+        public Produto Pesquisar(int id = 0)
+        {
+            Produto produto = null;
+
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                this.connection.Open();
+
+                sb.Append("SELECT * FROM PRODUTO ");
+                if (id > 0)
+                    sb.Append("WHERE idProduto = " + id);
+
+                using (SqlCommand cmd = new SqlCommand(sb.ToString(), this.connection))
+                {
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        produto = new Produto();
+
+                        if (dr["idProduto"] != DBNull.Value)
+                            produto.IdProduto = Convert.ToInt32(dr["idProduto"]);
+
+                        if (dr["descricao"] != DBNull.Value)
+                            produto.Descricao = dr["descricao"].ToString();
+
+                        if (dr["idUnidadeMedida"] != DBNull.Value)
+                            produto.UnidadeMedida.IdUnidadeMedida = Convert.ToInt32(dr["idUnidadeMedida"]);
+
+                        if (dr["idGrupo"] != DBNull.Value)
+                            produto.Grupo.IdGrupo = Convert.ToInt32(dr["idGrupo"]);
+                        
+                        if(dr["qtdMinima"] != DBNull.Value)
+                            produto.QtdMinima = Convert.ToInt32(dr["qtdMinima"]);
+
+                        if (dr["qtdDisponivel"] != DBNull.Value)
+                            produto.QtdDisponivel = Convert.ToInt32(dr["qtdDisponivel"]);
+
+                        if (dr["valorCompra"] != DBNull.Value)
+                            produto.ValorCompra = Convert.ToDouble(dr["valorCompra"]);
+
+                        if (dr["valorVenda"] != DBNull.Value)
+                            produto.ValorVenda = Convert.ToDouble(dr["valorVenda"]);
+
+                        if (dr["idMarca"] != DBNull.Value)
+                            produto.Marca.IdMarca = Convert.ToInt32(dr["idMarca"]);
+
+                        if (dr["codigoFabricante"] != DBNull.Value)
+                            produto.CodigoFabricante = dr["codigoFabricante"].ToString();
+
+                        if (dr["observacoes"] != DBNull.Value)
+                            produto.Observacoes = dr["observacoes"].ToString();
+
+                        if (dr["dataCadastro"] != DBNull.Value)
+                            produto.DataCadastro = Convert.ToDateTime(dr["dataCadastro"]);
+
+                    }
+                }
+
+            }
+            catch(SqlException sqlEx)
+            {
+                MessageBox.Show("Erro no banco de dados: " + sqlEx.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro inesperado: " + ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
+            return produto;
+        }
+
         public List<Produto> GetListaProdutos()
         {
             string query = "SELECT * FROM VW_SELECIONA_PRODUTO";
