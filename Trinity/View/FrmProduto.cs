@@ -111,7 +111,7 @@ namespace Trinity
                 this.produtoCarregado.Marca = (Marca)cmbMarca.SelectedItem;
                 this.produtoCarregado.Grupo = (Grupo)cmbGrupo.SelectedItem;
                 this.produtoCarregado.CodigoFabricante = txtCodigoFabricante.Text.Trim();
-                this.produtoCarregado.QtdDisponivel = float.Parse(txtQtdDisponivel.Text.Trim());
+                this.produtoCarregado.QtdDisponivel = Convert.ToDouble(txtQtdDisponivel.Text.Trim());
                 this.produtoCarregado.ValorCompra = Convert.ToDouble(txtValorCompra.Text.Trim());
                 this.produtoCarregado.ValorVenda = Convert.ToDouble(txtValorVenda.Text.Trim());
                 this.produtoCarregado.Observacoes = txtObservacoes.Text.Trim();
@@ -391,6 +391,8 @@ namespace Trinity
         {
             if (txtValorCompra.Text.Equals(string.Empty))
                 ZeraValores(ref txtValorCompra);
+            else
+                CalcularValores();
         }
 
         private void txtValorVenda_Leave(object sender, EventArgs e)

@@ -186,8 +186,8 @@ namespace Trinity.Model.DAO
 
                     produto.Grupo = grupo;
 
-                    produto.QtdMinima = Convert.ToInt32(dtr["qtdMinima"].ToString());
-                    produto.QtdDisponivel = Convert.ToInt32(dtr["qtdDisponivel"].ToString());
+                    produto.QtdMinima = Convert.ToDouble(dtr["qtdMinima"]);
+                    produto.QtdDisponivel = Convert.ToDouble(dtr["qtdDisponivel"]);
                     produto.ValorCompra = Convert.ToDouble(dtr["valorCompra"].ToString());
                     produto.ValorVenda = Convert.ToDouble(dtr["valorVenda"].ToString());
 

@@ -31,12 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenda));
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -228,14 +225,6 @@
             this.dgvItemVendido.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
             this.dgvItemVendido.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItemVendido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvItemVendido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItemVendido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -243,26 +232,10 @@
             this.qtdVendida,
             this.valorVenda,
             this.valorTotal});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItemVendido.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvItemVendido.Location = new System.Drawing.Point(11, 134);
             this.dgvItemVendido.MultiSelect = false;
             this.dgvItemVendido.Name = "dgvItemVendido";
             this.dgvItemVendido.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItemVendido.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvItemVendido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItemVendido.Size = new System.Drawing.Size(849, 194);
             this.dgvItemVendido.TabIndex = 7;
@@ -272,9 +245,9 @@
             // Id
             // 
             this.Id.DataPropertyName = "IdProduto";
-            dataGridViewCellStyle3.Format = "00000";
-            dataGridViewCellStyle3.NullValue = "565655";
-            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Format = "00000";
+            dataGridViewCellStyle2.NullValue = "565655";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
             this.Id.FillWeight = 304.5685F;
             this.Id.HeaderText = "ID";
             this.Id.Name = "Id";
@@ -293,9 +266,9 @@
             // 
             this.qtdVendida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.qtdVendida.DataPropertyName = "qtdVendida";
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.qtdVendida.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.qtdVendida.DefaultCellStyle = dataGridViewCellStyle3;
             this.qtdVendida.FillWeight = 38.17258F;
             this.qtdVendida.HeaderText = "QTD.";
             this.qtdVendida.Name = "qtdVendida";
@@ -305,8 +278,8 @@
             // 
             this.valorVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.valorVenda.DataPropertyName = "valorVenda";
-            dataGridViewCellStyle5.Format = "C2";
-            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Format = "C2";
+            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle4;
             this.valorVenda.FillWeight = 38.17258F;
             this.valorVenda.HeaderText = "VALOR";
             this.valorVenda.Name = "valorVenda";
@@ -316,9 +289,9 @@
             // 
             this.valorTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.valorTotal.DataPropertyName = "valorTotal";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle5;
             this.valorTotal.FillWeight = 38.17258F;
             this.valorTotal.HeaderText = "TOTAL";
             this.valorTotal.Name = "valorTotal";
@@ -568,6 +541,7 @@
             // txtDataVenda
             // 
             this.txtDataVenda.Enabled = false;
+            this.txtDataVenda.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDataVenda.Location = new System.Drawing.Point(11, 47);
             this.txtDataVenda.Mask = "00/00/0000 90:00";
             this.txtDataVenda.Name = "txtDataVenda";

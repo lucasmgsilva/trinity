@@ -19,8 +19,8 @@ namespace Trinity.Model.Bean
         public string Descricao { get; set; }
         public UnidadeMedida UnidadeMedida { get; set; }
         public Grupo Grupo { get; set; }
-        public float QtdMinima { get; set; }
-        public float QtdDisponivel { get; set; }
+        public double QtdMinima { get; set; }
+        public double QtdDisponivel { get; set; }
         public double ValorCompra { get; set; }
         public double ValorVenda { get; set; }
         public Marca Marca { get; set; }
