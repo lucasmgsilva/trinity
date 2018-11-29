@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trinity.Model.Bean;
 using Trinity.Model.DAO;
@@ -62,7 +57,6 @@ namespace Trinity.View
                 listaClientesPreparados.Add(clientePreparado);
             }
             dgvClientes.DataSource = new BindingList<ClientePF_PJ>(listaClientesPreparados);
-           
         }
 
         public void CarregaListaClientesChave() { 

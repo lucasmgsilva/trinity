@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultaProduto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -139,7 +140,7 @@
             this.groupBox2.Location = new System.Drawing.Point(6, 134);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(872, 386);
-            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de Produtos";
             // 
@@ -192,8 +193,8 @@
             // 
             this.idUnidadeMedida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idUnidadeMedida.DataPropertyName = "UnidadeMedida";
-            this.idUnidadeMedida.FillWeight = 59.08629F;
-            this.idUnidadeMedida.HeaderText = "Unidade";
+            this.idUnidadeMedida.FillWeight = 13F;
+            this.idUnidadeMedida.HeaderText = "UN";
             this.idUnidadeMedida.Name = "idUnidadeMedida";
             this.idUnidadeMedida.ReadOnly = true;
             // 
@@ -201,7 +202,10 @@
             // 
             this.qtdDisponivel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.qtdDisponivel.DataPropertyName = "QtdDisponivel";
-            this.qtdDisponivel.FillWeight = 59.08629F;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.qtdDisponivel.DefaultCellStyle = dataGridViewCellStyle3;
+            this.qtdDisponivel.FillWeight = 23F;
             this.qtdDisponivel.HeaderText = "Qtd.";
             this.qtdDisponivel.Name = "qtdDisponivel";
             this.qtdDisponivel.ReadOnly = true;
@@ -210,10 +214,10 @@
             // 
             this.valorVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.valorVenda.DataPropertyName = "ValorVenda";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valorVenda.FillWeight = 59.08629F;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle4;
+            this.valorVenda.FillWeight = 30F;
             this.valorVenda.HeaderText = "Valor Venda";
             this.valorVenda.Name = "valorVenda";
             this.valorVenda.ReadOnly = true;
@@ -222,7 +226,7 @@
             // 
             this.idMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idMarca.DataPropertyName = "Marca";
-            this.idMarca.FillWeight = 59.08629F;
+            this.idMarca.FillWeight = 30F;
             this.idMarca.HeaderText = "Marca";
             this.idMarca.Name = "idMarca";
             this.idMarca.ReadOnly = true;
@@ -233,7 +237,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(777, 526);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(98, 29);
-            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -245,7 +249,7 @@
             this.btnEditar.Location = new System.Drawing.Point(113, 526);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 29);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -257,7 +261,7 @@
             this.btnNovo.Location = new System.Drawing.Point(9, 526);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(98, 29);
-            this.btnNovo.TabIndex = 1;
+            this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;

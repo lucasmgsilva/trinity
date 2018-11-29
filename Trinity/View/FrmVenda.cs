@@ -45,7 +45,7 @@ namespace Trinity.View
             dgvItemVendido.AutoGenerateColumns = false;
             dgvItemVendido.DataSource = new BindingList<ItemVendido>(this.listaItemVendido);
             CalculaTotalEQtd();
-            ExibeListas();
+            //ExibeListas();
         }
 
         public void DefineListaItemVendido()
@@ -228,7 +228,7 @@ namespace Trinity.View
             Produto produtoSelecionado = (Produto) cmbProduto.SelectedItem;
             if(produtoSelecionado != null)
             {
-                txtQuantidade.Value = 0;
+                txtQuantidade.Value = 1;
                 txtPrecoVenda.Value = decimal.Parse(produtoSelecionado.ValorVenda.ToString());
             }
                 
@@ -297,10 +297,17 @@ namespace Trinity.View
                         itemVendidoExistente.QtdVendida += itemVendido.QtdVendida;
                         itemVendidoExistente.ValorVenda = itemVendido.ValorVenda;
                         itemVendidoExistente.ValorTotal = itemVendidoExistente.QtdVendida * itemVendido.ValorVenda;
-                        ItemVendido iv = this.listaItemVendidoAlterado.Find(i => i.IdProduto == itemVendidoExistente.IdProduto);
-                        if (iv != null)
-                            iv = itemVendidoExistente;
-                        else listaItemVendidoAlterado.Add(itemVendidoExistente);
+                        ItemVendido ivNovo = listaItemVendidoNovo.Find(i => i.IdProduto == itemVendidoExistente.IdProduto);
+
+                        if (ivNovo != null)
+                            ivNovo = itemVendidoExistente;
+                        else
+                        {
+                            ItemVendido iv = this.listaItemVendidoAlterado.Find(i => i.IdProduto == itemVendidoExistente.IdProduto);
+                            if (iv != null)
+                                iv = itemVendidoExistente;
+                            else listaItemVendidoAlterado.Add(itemVendidoExistente);
+                        }
                         //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
                     }
 
@@ -375,11 +382,23 @@ namespace Trinity.View
                     {
                         if(item.Produto.IdProduto == idProduto)
                         {
+                            ItemVendido iv;
                             if (this.editando)
                             {
-                                this.listaItemVendidoDeletado.Add(item);
+                                iv = listaItemVendido.Find(i => i.IdProduto == item.IdProduto);
+                                if (iv != null)
+                                    this.listaItemVendidoDeletado.Add(item);
+
                                 //MessageBox.Show("Adicionado na ListaItemVendidoDeletado");
                             }
+                            iv = listaItemVendidoNovo.Find(i => i.IdProduto == item.IdProduto);
+                            listaItemVendidoNovo.Remove(iv);
+                            if (iv != null)
+                                listaItemVendidoDeletado.Remove(item);
+                                
+                            iv = listaItemVendidoAlterado.Find(i => i.IdProduto == item.IdProduto);
+                            listaItemVendidoAlterado.Remove(iv);
+
                             this.listaItemVendido.Remove(item);
                             break;
                         }

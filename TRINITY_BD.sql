@@ -258,7 +258,7 @@ GO
 
 INSERT INTO 
 	EMPRESA (logradouro, numero, bairro, idCidade, cep, razaoSocial, cnpj, dataAbertura)
-VALUES ('LOGRADOURO DA EMPRESA', 'S/N', 'BAIRRO DA EMPRESA', '4789', '14955-000', 'SISTEMAS MATRIX - ME', '99.999.999/0001-99', '02/11/2018')
+VALUES ('AVENIDA SANTOS DUMONT', '929', 'SÍTIO PAECARA', '4789', '14955-000', 'SISTEMAS MATRIX - ME', '26.898.147/0001-34', '02/11/2018')
 GO
 
 SET IDENTITY_INSERT CIDADE OFF
@@ -334,9 +334,9 @@ VALUES
 GO
 
 INSERT INTO
-	CLIENTEPF (nome, sexo, cpf, dataNascimento, idCliente)
+	CLIENTEPF (apelido, nome, sexo, cpf, dataNascimento, idCliente)
 VALUES
-	('OTÁVIO PEDRO HENRIQUE MATHEUS VIANA', 'M', '429.861.998-28', '21/08/1996', 2)
+	('TAVINHO', 'OTÁVIO PEDRO HENRIQUE MATHEUS VIANA', 'M', '429.861.998-28', '21/08/1996', 2)
 GO
 
 INSERT INTO 
@@ -346,9 +346,9 @@ VALUES
 GO
 
 INSERT INTO
-	CLIENTEPJ (razaoSocial, cnpj, dataAbertura, idCliente)
+	CLIENTEPJ (nomeFantasia, razaoSocial, cnpj, dataAbertura, idCliente)
 VALUES
-	('BRENO E JENNIFER ASSESSORIA JURÍDICA LTDA', '55.722.743/0001-67', '21/03/2013', 3)
+	('BJ ASSESSORIA JURÍDICA', 'BRENO E JENNIFER ASSESSORIA JURÍDICA LTDA', '55.722.743/0001-67', '21/03/2013', 3)
 GO
 
 INSERT INTO 
@@ -876,9 +876,9 @@ BEGIN
 	WHERE
 		idVenda = @IdVenda AND idProduto = @IdProduto
 
-	IF @QtdAlterada <= 0
+	IF @QtdAlterada >= 0
 		UPDATE PRODUTO SET qtdDisponivel = qtdDisponivel + @QtdAlterada WHERE idProduto = @IdProduto
-	ELSE UPDATE PRODUTO SET qtdDisponivel = qtdDisponivel - @QtdAlterada WHERE idProduto = @IdProduto
+	ELSE UPDATE PRODUTO SET qtdDisponivel = qtdDisponivel - (@QtdAlterada*(-1)) WHERE idProduto = @IdProduto
 END
 GO
 
