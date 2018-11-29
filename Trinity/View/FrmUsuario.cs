@@ -266,7 +266,6 @@ namespace Trinity.View
 
         private bool ValidaSenha()
         {
-            bool validado;
             if (txtSenha.Text == String.Empty || txtConfirmacaoSenha.Text == String.Empty || txtSenha.Text.Length != txtConfirmacaoSenha.Text.Length || !txtSenha.Text.Equals(txtConfirmacaoSenha.Text))
                 return false;
             return true;

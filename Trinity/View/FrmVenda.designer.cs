@@ -31,9 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenda));
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -46,6 +48,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblItemVendido = new System.Windows.Forms.Label();
             this.dgvItemVendido = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtdVendida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrecoTotal = new System.Windows.Forms.NumericUpDown();
             this.txtPrecoVenda = new System.Windows.Forms.NumericUpDown();
             this.txtQuantidade = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +60,6 @@
             this.lblitensVenda = new System.Windows.Forms.Label();
             this.lblPrecoTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnLimparSeleção = new System.Windows.Forms.Button();
             this.btnRemoverProduto = new System.Windows.Forms.Button();
             this.btnAdicionarProduto = new System.Windows.Forms.Button();
             this.cmbProduto = new System.Windows.Forms.ComboBox();
@@ -73,11 +79,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.epVendas = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdVendida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemVendido)).BeginInit();
@@ -148,7 +149,6 @@
             this.groupBox2.Controls.Add(this.lblitensVenda);
             this.groupBox2.Controls.Add(this.lblPrecoTotal);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.btnLimparSeleção);
             this.groupBox2.Controls.Add(this.btnRemoverProduto);
             this.groupBox2.Controls.Add(this.btnAdicionarProduto);
             this.groupBox2.Controls.Add(this.cmbProduto);
@@ -156,7 +156,7 @@
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 12F);
+            this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 149);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(866, 368);
@@ -167,6 +167,7 @@
             // txtDesconto
             // 
             this.txtDesconto.DecimalPlaces = 2;
+            this.txtDesconto.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDesconto.Location = new System.Drawing.Point(716, 329);
             this.txtDesconto.Maximum = new decimal(new int[] {
             999999,
@@ -226,6 +227,14 @@
             this.dgvItemVendido.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
             this.dgvItemVendido.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItemVendido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvItemVendido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItemVendido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -233,6 +242,14 @@
             this.qtdVendida,
             this.valorVenda,
             this.valorTotal});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItemVendido.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvItemVendido.Location = new System.Drawing.Point(11, 134);
             this.dgvItemVendido.MultiSelect = false;
             this.dgvItemVendido.Name = "dgvItemVendido";
@@ -243,9 +260,65 @@
             this.dgvItemVendido.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvItemVendido_DataBindingComplete);
             this.dgvItemVendido.SelectionChanged += new System.EventHandler(this.dgvItemVendido_SelectionChanged);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "IdProduto";
+            dataGridViewCellStyle3.Format = "00000";
+            dataGridViewCellStyle3.NullValue = "565655";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Id.FillWeight = 304.5685F;
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descricao.DataPropertyName = "descricao";
+            this.descricao.FillWeight = 121.8274F;
+            this.descricao.HeaderText = "DESCRIÇÃO";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            // 
+            // qtdVendida
+            // 
+            this.qtdVendida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.qtdVendida.DataPropertyName = "qtdVendida";
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.qtdVendida.DefaultCellStyle = dataGridViewCellStyle4;
+            this.qtdVendida.FillWeight = 38.17258F;
+            this.qtdVendida.HeaderText = "QTD.";
+            this.qtdVendida.Name = "qtdVendida";
+            this.qtdVendida.ReadOnly = true;
+            // 
+            // valorVenda
+            // 
+            this.valorVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valorVenda.DataPropertyName = "valorVenda";
+            dataGridViewCellStyle5.Format = "C2";
+            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle5;
+            this.valorVenda.FillWeight = 38.17258F;
+            this.valorVenda.HeaderText = "VALOR";
+            this.valorVenda.Name = "valorVenda";
+            this.valorVenda.ReadOnly = true;
+            // 
+            // valorTotal
+            // 
+            this.valorTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valorTotal.DataPropertyName = "valorTotal";
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            this.valorTotal.FillWeight = 38.17258F;
+            this.valorTotal.HeaderText = "TOTAL";
+            this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
+            // 
             // txtPrecoTotal
             // 
             this.txtPrecoTotal.DecimalPlaces = 2;
+            this.txtPrecoTotal.Font = new System.Drawing.Font("Arial", 12F);
             this.txtPrecoTotal.Location = new System.Drawing.Point(690, 42);
             this.txtPrecoTotal.Maximum = new decimal(new int[] {
             999999,
@@ -260,6 +333,7 @@
             // txtPrecoVenda
             // 
             this.txtPrecoVenda.DecimalPlaces = 2;
+            this.txtPrecoVenda.Font = new System.Drawing.Font("Arial", 12F);
             this.txtPrecoVenda.Location = new System.Drawing.Point(540, 42);
             this.txtPrecoVenda.Maximum = new decimal(new int[] {
             999999,
@@ -274,6 +348,7 @@
             // txtQuantidade
             // 
             this.txtQuantidade.DecimalPlaces = 2;
+            this.txtQuantidade.Font = new System.Drawing.Font("Arial", 12F);
             this.txtQuantidade.Location = new System.Drawing.Point(441, 42);
             this.txtQuantidade.Maximum = new decimal(new int[] {
             999999,
@@ -326,19 +401,9 @@
             this.label5.TabIndex = 69;
             this.label5.Text = "PREÇO TOTAL:";
             // 
-            // btnLimparSeleção
-            // 
-            this.btnLimparSeleção.Location = new System.Drawing.Point(349, 76);
-            this.btnLimparSeleção.Name = "btnLimparSeleção";
-            this.btnLimparSeleção.Size = new System.Drawing.Size(163, 27);
-            this.btnLimparSeleção.TabIndex = 6;
-            this.btnLimparSeleção.Text = "Limpar Seleção";
-            this.btnLimparSeleção.UseVisualStyleBackColor = true;
-            this.btnLimparSeleção.Visible = false;
-            this.btnLimparSeleção.Click += new System.EventHandler(this.btnLimparSeleção_Click);
-            // 
             // btnRemoverProduto
             // 
+            this.btnRemoverProduto.Font = new System.Drawing.Font("Arial", 12F);
             this.btnRemoverProduto.Location = new System.Drawing.Point(180, 76);
             this.btnRemoverProduto.Name = "btnRemoverProduto";
             this.btnRemoverProduto.Size = new System.Drawing.Size(163, 27);
@@ -349,6 +414,7 @@
             // 
             // btnAdicionarProduto
             // 
+            this.btnAdicionarProduto.Font = new System.Drawing.Font("Arial", 12F);
             this.btnAdicionarProduto.Location = new System.Drawing.Point(11, 76);
             this.btnAdicionarProduto.Name = "btnAdicionarProduto";
             this.btnAdicionarProduto.Size = new System.Drawing.Size(163, 27);
@@ -361,6 +427,7 @@
             // 
             this.cmbProduto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbProduto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbProduto.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbProduto.FormattingEnabled = true;
             this.cmbProduto.Location = new System.Drawing.Point(11, 42);
             this.cmbProduto.Name = "cmbProduto";
@@ -371,40 +438,40 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Arial", 12F);
             this.label17.Location = new System.Drawing.Point(437, 23);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 19);
+            this.label17.Size = new System.Drawing.Size(50, 18);
             this.label17.TabIndex = 63;
             this.label17.Text = "Qtde.:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Arial", 12F);
             this.label13.Location = new System.Drawing.Point(536, 23);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(135, 19);
+            this.label13.Size = new System.Drawing.Size(125, 18);
             this.label13.TabIndex = 60;
             this.label13.Text = "Preço de Venda:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Arial", 12F);
             this.label16.Location = new System.Drawing.Point(686, 23);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 19);
+            this.label16.Size = new System.Drawing.Size(90, 18);
             this.label16.TabIndex = 49;
             this.label16.Text = "Preço Total:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Arial", 12F);
             this.label10.Location = new System.Drawing.Point(7, 23);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 19);
+            this.label10.Size = new System.Drawing.Size(67, 18);
             this.label10.TabIndex = 49;
             this.label10.Text = "Produto:";
             // 
@@ -417,7 +484,7 @@
             this.groupBox1.Controls.Add(this.lblCliente);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtDataVenda);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(6, 60);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(866, 88);
@@ -440,6 +507,7 @@
             // 
             this.cmbCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCliente.Font = new System.Drawing.Font("Arial", 12F);
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(171, 47);
             this.cmbCliente.Name = "cmbCliente";
@@ -471,20 +539,20 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Font = new System.Drawing.Font("Arial", 12F);
             this.lblCliente.Location = new System.Drawing.Point(167, 28);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(68, 19);
+            this.lblCliente.Size = new System.Drawing.Size(61, 18);
             this.lblCliente.TabIndex = 36;
             this.lblCliente.Text = "Cliente:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 12F);
             this.label4.Location = new System.Drawing.Point(7, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 19);
+            this.label4.Size = new System.Drawing.Size(117, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Data de Venda:";
             // 
@@ -536,61 +604,6 @@
             // 
             this.epVendas.ContainerControl = this;
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "IdProduto";
-            dataGridViewCellStyle2.Format = "00000";
-            dataGridViewCellStyle2.NullValue = "565655";
-            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Id.FillWeight = 304.5685F;
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // descricao
-            // 
-            this.descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descricao.DataPropertyName = "descricao";
-            this.descricao.FillWeight = 121.8274F;
-            this.descricao.HeaderText = "DESCRIÇÃO";
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
-            // 
-            // qtdVendida
-            // 
-            this.qtdVendida.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.qtdVendida.DataPropertyName = "qtdVendida";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.qtdVendida.DefaultCellStyle = dataGridViewCellStyle3;
-            this.qtdVendida.FillWeight = 38.17258F;
-            this.qtdVendida.HeaderText = "QTD.";
-            this.qtdVendida.Name = "qtdVendida";
-            this.qtdVendida.ReadOnly = true;
-            // 
-            // valorVenda
-            // 
-            this.valorVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valorVenda.DataPropertyName = "valorVenda";
-            dataGridViewCellStyle4.Format = "C2";
-            this.valorVenda.DefaultCellStyle = dataGridViewCellStyle4;
-            this.valorVenda.FillWeight = 38.17258F;
-            this.valorVenda.HeaderText = "VALOR";
-            this.valorVenda.Name = "valorVenda";
-            this.valorVenda.ReadOnly = true;
-            // 
-            // valorTotal
-            // 
-            this.valorTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valorTotal.DataPropertyName = "valorTotal";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.valorTotal.DefaultCellStyle = dataGridViewCellStyle5;
-            this.valorTotal.FillWeight = 38.17258F;
-            this.valorTotal.HeaderText = "TOTAL";
-            this.valorTotal.Name = "valorTotal";
-            this.valorTotal.ReadOnly = true;
-            // 
             // FrmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,7 +650,6 @@
         private System.Windows.Forms.Label lblitensVenda;
         private System.Windows.Forms.Label lblPrecoTotal;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnLimparSeleção;
         private System.Windows.Forms.Button btnRemoverProduto;
         private System.Windows.Forms.Button btnAdicionarProduto;
         private System.Windows.Forms.ComboBox cmbProduto;

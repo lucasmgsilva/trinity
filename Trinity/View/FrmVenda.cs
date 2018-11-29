@@ -45,6 +45,7 @@ namespace Trinity.View
             dgvItemVendido.AutoGenerateColumns = false;
             dgvItemVendido.DataSource = new BindingList<ItemVendido>(this.listaItemVendido);
             CalculaTotalEQtd();
+            ExibeListas();
         }
 
         public void DefineListaItemVendido()
@@ -296,7 +297,10 @@ namespace Trinity.View
                         itemVendidoExistente.QtdVendida += itemVendido.QtdVendida;
                         itemVendidoExistente.ValorVenda = itemVendido.ValorVenda;
                         itemVendidoExistente.ValorTotal = itemVendidoExistente.QtdVendida * itemVendido.ValorVenda;
-                        listaItemVendidoAlterado.Add(itemVendidoExistente);
+                        ItemVendido iv = this.listaItemVendidoAlterado.Find(i => i.IdProduto == itemVendidoExistente.IdProduto);
+                        if (iv != null)
+                            iv = itemVendidoExistente;
+                        else listaItemVendidoAlterado.Add(itemVendidoExistente);
                         //MessageBox.Show("Adicionado na ListaItemVendidoAlterado");
                     }
 
@@ -317,7 +321,7 @@ namespace Trinity.View
                     CarregaListaItemVendido();
                 } else MessageBox.Show("Não foi possível realizar a operação.\nA QUANTIDADE deve ser maior que 0 (zero)!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            else MessageBox.Show("Não foi possível realizar a operação.\nNão há nenhum PRODUTO selecionado!", "Fracasso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private string BindProperty(object property, string propertyName)
@@ -429,7 +433,6 @@ namespace Trinity.View
 
             btnAdicionarProduto.Enabled = false;
             btnRemoverProduto.Enabled = false;
-            btnLimparSeleção.Enabled = false;
         }
 
         private void DesabilitaBotoes()
@@ -442,7 +445,6 @@ namespace Trinity.View
 
             btnAdicionarProduto.Enabled = !false;
             btnRemoverProduto.Enabled = !false;
-            btnLimparSeleção.Enabled = !false;
         }
 
         public void SelecionaCliente()
